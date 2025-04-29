@@ -1,4 +1,4 @@
-ame: Integração continua de Java com Maven
+name: Integração continua de Java com Maven
 
 on:
   push:
