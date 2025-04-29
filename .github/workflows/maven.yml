@@ -15,10 +15,10 @@ jobs:
     steps:
       - name: Realiza o checkout do repositório
         uses: actions/checkout@v3
-      - name: Configura o JDK 18
+      - name: Configura o JDK 17
         uses: actions/setup-java@v3
         with:
-          java-version: '18'
+          java-version: '17'
           distribution: 'temurin'
           cache: maven
       - name: Compila o projeto com Maven
@@ -51,10 +51,10 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: Configura o JDK 18
+      - name: Configura o JDK 17
         uses: actions/setup-java@v3
         with:
-          java-version: '18'
+          java-version: '17'
           distribution: 'temurin'
           cache: maven
       - name: Testa o projeto com Maven
@@ -69,10 +69,10 @@ jobs:
     steps:
       - name: Realiza o checkout do repositório
         uses: actions/checkout@v3
-      - name: Configura o JDK 18
+      - name: Configura o JDK 17
         uses: actions/setup-java@v3
         with:
-          java-version: '18'
+          java-version: '17'
           distribution: 'temurin'
           cache: maven
       - name: Empacota o projeto com Maven
