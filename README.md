@@ -8,6 +8,7 @@ Trabalho A3 da matéria de gestão e qualidade de software do curso de Ciência 
 # Tecnologias utilizadas:
 <img width="45" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-plain.svg" /> O projeto utiliza Java. 
 
+![NetBeans](https://img.shields.io/badge/IDE-NetBeans-blue?logo=apache-netbeans)
 O projeto foi desenvolivido no NetBeans 25.
 
 <img width="45" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/maven/maven-original.svg" /> Utiliza o Apache Maven para a automação de compilação.
