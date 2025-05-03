@@ -6,7 +6,7 @@
 Trabalho A3 da matéria de gestão e qualidade de software do curso de Ciência da Computação da faculdade Unisul.
 
 # Tecnologias utilizadas:
-O projeto utiliza Java.
+<img width="45" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-plain.svg" /> O projeto utiliza Java. 
 
 O projeto foi desenvolivido no NetBeans 25.
 
