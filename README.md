@@ -12,6 +12,6 @@ O projeto foi desenvolivido no NetBeans 25.
 
 <img width="45" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/maven/maven-original.svg" /> Utiliza o Apache Maven para a automação de compilação.
 
-Utiliza JUnit para testar o código.
+<img width="45" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/junit/junit-original-wordmark.svg" /> Utiliza JUnit para testar o código.
 
 Utiliza JaCoCo para verificar se todo o codigo está sendo testado.
