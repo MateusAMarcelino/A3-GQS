@@ -13,17 +13,9 @@ public class Utilitario {
         Connection connection = null;  //instância da conexão
         try {
             // Carregamento do JDBC Driver
-            String driver = "com.mysql.cj.jdbc.Driver";
-            Class.forName(driver);
-
-            // Configurar a conexão
-            String server = "localhost"; //caminho do MySQL
-            String database = "db_a3";
-            String url = "jdbc:mysql://" + server + ":3306/" + database + "?serverTimezone=UTC";
-            String user = "root";
-            String password = "root";
-
-            connection = DriverManager.getConnection(url, user, password);
+            String url = "jdbc:sqlite:db_a3.db";
+         
+            connection = DriverManager.getConnection(url);
             // Testando..
             if (connection != null) {
                 System.out.println("Status: Conectado!");
@@ -32,12 +24,12 @@ public class Utilitario {
             }
             return connection;
 
-        } catch (ClassNotFoundException e) {  //Driver não encontrado
-            System.out.println("O driver nao foi encontrado. " + e.getMessage());
-            return null;
-        } catch (SQLException e) {
+               } catch (SQLException e) {
             System.out.println("Nao foi possivel conectar...");
             return null;
         }
     }
 }
+
+    
+
