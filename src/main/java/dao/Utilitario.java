@@ -14,6 +14,7 @@ public class Utilitario {
         try {
             // Carregamento do JDBC Driver
             String url = "jdbc:sqlite:db_a3.db";
+            String Amigos = "CREATE TABLE tb_amigos (\n" +"IdAmigo INTEGER NOT NULL,\n" +"NomeAmigo VARCHAR(100) NULL,\n" +"TelefoneAmigo INTEGER NULL,\n" +"EmailAmigo VARCHAR(100),\n" +"PRIMARY KEY(IdAmigo)\n" +");";
          
             connection = DriverManager.getConnection(url);
             // Testando..
