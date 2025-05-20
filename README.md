@@ -8,6 +8,7 @@ Trabalho A3 da matéria de gestão e qualidade de software do curso de Ciência 
 # Alunos Participantes
 
 Mateus Aloisio Marcelino / 1072515910
+Pedro Henrique Perez Kruk / 10724112624
 
 # Tecnologias utilizadas:
 <img width="45" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-plain.svg" /> O projeto utiliza Java. 
