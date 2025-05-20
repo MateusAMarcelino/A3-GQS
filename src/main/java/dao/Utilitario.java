@@ -3,38 +3,56 @@ package dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
+import java.sql.Statement;
 
 public class Utilitario {
-    
-    //conexão com o banco de dados 
+
     public Connection getConexao() {
-        
-        Connection connection = null;  //instância da conexão
-        
+        Connection connection = null;
         try {
-            // Carregamento do JDBC Driver
-            String url = "jdbc:sqlite:db_a3.db";          
-           
+            String url = "jdbc:sqlite:db_a3.db";
             connection = DriverManager.getConnection(url);
-            // Testando..
+
             if (connection != null) {
                 System.out.println("Status: Conectado!");
+
+                Statement stmt = connection.createStatement();
+
+                // Cria as tabelas, caso não existam.
+                String Amigos = "CREATE TABLE IF NOT EXISTS tb_amigos ("
+                        + "IdAmigo INTEGER NOT NULL PRIMARY KEY,"
+                        + "NomeAmigo VARCHAR(100),"
+                        + "TelefoneAmigo INTEGER,"
+                        + "EmailAmigo VARCHAR(100)"
+                        + ");";
+
+                String Ferramentas = "CREATE TABLE IF NOT EXISTS tb_ferramentas ("
+                        + "IdFerramentas INTEGER NOT NULL PRIMARY KEY,"
+                        + "NomeFerramentas VARCHAR(100),"
+                        + "MarcaFerramentas VARCHAR(100),"
+                        + "CustoFerramentas DOUBLE"
+                        + ");";
+
+                String Emprestimos = "CREATE TABLE IF NOT EXISTS tb_emprestimos ("
+                        + "IdEmprestimo INTEGER NOT NULL PRIMARY KEY,"
+                        + "IdAmigo INTEGER,"
+                        + "IdFerramentas INTEGER,"
+                        + "DataEmprestimo DATE,"
+                        + "DataDevolucao DATE"
+                        + ");";
+
+                // Executando os comandos
+                stmt.execute(Amigos);
+                stmt.execute(Ferramentas);
+                stmt.execute(Emprestimos);
             } else {
                 System.out.println("Status: NÃO CONECTADO!");
             }
-            return connection;
 
-               } catch (SQLException e) {
-            System.out.println("Nao foi possivel conectar...");
+            return connection;
+        } catch (SQLException e) {
+            System.out.println("Erro ao conectar ou criar tabelas: " + e.getMessage());
             return null;
         }
     }
-    
-    public void criartabela() {
-      String CriarTabelaAmigos = "CREATE TABLE tb_amigos (\n" +"IdAmigo INTEGER NOT NULL,\n" +"NomeAmigo VARCHAR(100) NULL,\n" +"TelefoneAmigo INTEGER NULL,\n" +"EmailAmigo VARCHAR(100),\n" +"PRIMARY KEY(IdAmigo)\n" +");"; 
-    }  
 }
-
-    
-
