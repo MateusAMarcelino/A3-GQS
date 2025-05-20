@@ -11,6 +11,10 @@ Mateus Aloisio Marcelino / 1072515910
 
 Pedro Henrique Perez Kruk / 10724112624
 
+Guilherme Mitsuo Honda / 1072416697
+
+Lorenzo Eid Colaferro / 1072419633
+
 # Tecnologias utilizadas:
 <img width="45" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-plain.svg" /> O projeto utiliza Java. 
 
