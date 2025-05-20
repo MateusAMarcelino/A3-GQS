@@ -14,11 +14,7 @@ public class Utilitario {
         
         try {
             // Carregamento do JDBC Driver
-            String url = "jdbc:sqlite:db_a3.db";
-            String Amigos = "CREATE TABLE tb_amigos (\n" +"IdAmigo INTEGER NOT NULL,\n" +"NomeAmigo VARCHAR(100) NULL,\n" +"TelefoneAmigo INTEGER NULL,\n" +"EmailAmigo VARCHAR(100),\n" +"PRIMARY KEY(IdAmigo)\n" +");";
-            String Ferramentas = "CREATE TABLE tb_amigos (\n" +"IdFerramentas INTEGER NOT NULL,\n" +"NomeFerramentas VARCHAR(100) NULL,\n" +"MarcaFerramentas VARCHAR(100),\n" +"CustoFerramentas DOUBLE,\n" +"PRIMARY KEY(IdFerramentas)\n" +");";
-            String Emprestimos = "CREATE TABLE tb_emprestimos (\n" +"IdEmprestimo INTEGER NOT NULL,\n" +"IdAmigo INTEGER NULL,\n" +"IdFerramentas INTEGER NULL ,\n" +"DataEmprestimo DATE NULL,\n" +"DataDevolucao DATE NULL,\n"  +"PRIMARY KEY(IdEmprestimo)\n" +");";
-            
+            String url = "jdbc:sqlite:db_a3.db";          
            
             connection = DriverManager.getConnection(url);
             // Testando..
@@ -34,6 +30,10 @@ public class Utilitario {
             return null;
         }
     }
+    
+    public void criartabela() {
+      String CriarTabelaAmigos = "CREATE TABLE tb_amigos (\n" +"IdAmigo INTEGER NOT NULL,\n" +"NomeAmigo VARCHAR(100) NULL,\n" +"TelefoneAmigo INTEGER NULL,\n" +"EmailAmigo VARCHAR(100),\n" +"PRIMARY KEY(IdAmigo)\n" +");"; 
+    }  
 }
 
     
