@@ -11,6 +11,7 @@ public class Utilitario {
     public Connection getConexao() {
         
         Connection connection = null;  //instância da conexão
+        
         try {
             // Carregamento do JDBC Driver
             String url = "jdbc:sqlite:db_a3.db";
