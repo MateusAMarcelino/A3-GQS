@@ -46,6 +46,10 @@ public class Amigo {
         this.EmailAmigo = EmailAmigo;
         this.dao = new AmigoDAO();
     }
+    
+    public Amigo(AmigoDAO dao) {
+        this.dao = dao;
+    }
 
 /**
 * Obtém o NomeAmigo do amigo.
