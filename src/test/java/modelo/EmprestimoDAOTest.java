@@ -34,5 +34,10 @@ class EmprestimoDAOTest {
         assertFalse(lista.isEmpty(), "A lista de empréstimos está vazia.");
     }
 
-    
+    @Test
+    void testRecuperaEmprestimoDB() {
+        Emprestimo emp = dao.RecuperaEmprestimoDB(idTeste);
+        assertEquals(idTeste, emp.getIdEmprestimo(), "ID do empréstimo incorreto.");
+    }
+
 }
