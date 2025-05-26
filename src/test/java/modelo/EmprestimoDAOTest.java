@@ -28,11 +28,16 @@ class EmprestimoDAOTest {
     }
 
     @Test
-    void testGetListaEmprestimo() {
-        ArrayList<Emprestimo> lista = dao.getListaEmprestimo();
-        assertNotNull(lista, "A lista de empréstimos está nula.");
-        assertFalse(lista.isEmpty(), "A lista de empréstimos está vazia.");
-    }
+void testGetListaEmprestimo() {
+    int novoId = dao.maiorIDEmprestimo() + 1;
+    Emprestimo emp = new Emprestimo(novoId, 1, 1, "2025-05-25", "2025-06-01");
+    dao.insertEmprestimoBD(emp); // <-- insere um empréstimo
+
+    ArrayList<Emprestimo> lista = dao.getListaEmprestimo();
+    assertNotNull(lista, "A lista de empréstimos está nula.");
+    assertFalse(lista.isEmpty(), "A lista de empréstimos está vazia.");
+}
+
 
     @Test
     void testRecuperaEmprestimoDB() {
