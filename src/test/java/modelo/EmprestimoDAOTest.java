@@ -35,7 +35,7 @@ void testGetListaEmprestimo() {
 
     ArrayList<Emprestimo> lista = dao.getListaEmprestimo();
     assertNotNull(lista, "A lista de empréstimos está nula.");
-    assertFalse(lista.isEmpty(), "A lista de empréstimos está vazia.");
+    assertFalse(lista.isEmpty(), "A lista de empréstimos está vazia .");
 }
 
 
