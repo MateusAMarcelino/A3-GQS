@@ -22,6 +22,9 @@ public class TestAmigo {
     @Test
     public void testIdAmigoInt(){
         instancia.setIdAmigo(1);
+        instancia.setNomeAmigo("");
+        instancia.setTelefoneAmigo("");
+        instancia.setEmailAmigo("");
         assertTrue((instancia.getIdAmigo() == 1) && "".equals(instancia.getNomeAmigo()) && "".equals(instancia.getTelefoneAmigo()) && "".equals(instancia.getEmailAmigo()));
     }
 }
