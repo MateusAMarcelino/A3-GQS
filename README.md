@@ -7,7 +7,7 @@ Trabalho A3 da matéria de gestão e qualidade de software do curso de Ciência 
 
 # Alunos Participantes
 
-Mateus Aloisio Marcelino / 1072515910
+Mateus Aloisio Marcelino / 1072515910 
 
 Pedro Henrique Perez Kruk / 10724112624
 
