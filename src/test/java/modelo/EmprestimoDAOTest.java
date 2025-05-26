@@ -40,4 +40,11 @@ class EmprestimoDAOTest {
         assertEquals(idTeste, emp.getIdEmprestimo(), "ID do empréstimo incorreto.");
     }
 
+    @Test
+    void testUpdateEmprestimoBD() {
+        Emprestimo emp = dao.RecuperaEmprestimoDB(idTeste);
+        emp.setDataDev("2025-06-05"); // Atualiza a data de devolução
+        boolean result = dao.updateEmprestimoBD(emp);
+        assertTrue(result, "Falha ao atualizar empréstimo.");
+    }
 }
