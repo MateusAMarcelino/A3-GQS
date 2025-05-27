@@ -12,12 +12,21 @@ class EmprestimoDAOTest {
 
     private static EmprestimoDAO dao;
     private static int idTeste;
-
+ 
+    /**
+     * Este método é executado uma única vez antes de todos os testes.
+     * Ele instancia o objeto DAO que será utilizado nos testes.
+     */
     @BeforeAll
     static void setup() {
         dao = new EmprestimoDAO();
     }
 
+    /**
+     * Testa a inserção de um novo empréstimo no banco de dados.
+     * Verifica se a operação retorna `true`, indicando sucesso.
+     * Também armazena o ID do empréstimo inserido para ser usado nos testes seguintes.
+     */
     @Test
     void testInsertEmprestimoBD() {
         int novoId = dao.maiorIDEmprestimo() + 1;
@@ -27,6 +36,11 @@ class EmprestimoDAOTest {
         idTeste = novoId;
     }
 
+     /**
+     * Testa a recuperação da lista de empréstimos.
+     * Primeiro insere um empréstimo para garantir que a lista não estará vazia.
+     * Em seguida, verifica se a lista retornada não é nula nem vazia.
+     */
     @Test
 void testGetListaEmprestimo() {
     int novoId = dao.maiorIDEmprestimo() + 1;
@@ -38,6 +52,10 @@ void testGetListaEmprestimo() {
     assertFalse(lista.isEmpty(), "A lista de empréstimos está vazia .");
 }
 
+/**
+     * Testa a recuperação de um empréstimo específico a partir de seu ID.
+     * Verifica se o objeto retornado possui o mesmo ID utilizado na inserção.
+     */
 
     @Test
     void testRecuperaEmprestimoDB() {
@@ -45,6 +63,10 @@ void testGetListaEmprestimo() {
         assertEquals(idTeste, emp.getIdEmprestimo(), "ID do empréstimo incorreto.");
     }
 
+    /**
+     * Testa a atualização de um empréstimo já existente.
+     * Altera a data de devolução e verifica se a atualização retorna `true`.
+     */
     @Test
     void testUpdateEmprestimoBD() {
         Emprestimo emp = dao.RecuperaEmprestimoDB(idTeste);
