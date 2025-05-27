@@ -10,7 +10,7 @@ import modelo.Amigo;
 public class AmigoDAO {
     
     /*
-    Inicia o Utilitario,para poder fazer a conecxão com o DB.
+    Inicia o Utilitario,realizando a conecxão com o DB.
     */
 
     private Utilitario ut = new Utilitario();
@@ -27,7 +27,7 @@ public class AmigoDAO {
      */
      public ArrayList<Amigo> getListaAmigo() {
 
-        ListaAmigo.clear(); // Limpa nosso ArrayList
+        ListaAmigo.clear(); // Limpa nosso ArrayList.
                  
        
         try {
@@ -57,7 +57,7 @@ public class AmigoDAO {
     }
 
    /**
-    * Procura o maior ID entre os amigos, buscando por todos os amigos no banco de dados.
+    * Procura o maior ID entre os amigos, buscando entre todos os amigos no banco de dados.
     * @return O maior ID encontrado.
     */
     public int maiorIDAmigo() {
@@ -76,8 +76,8 @@ public class AmigoDAO {
     
     /**
      * Insere as informações como um amigo no banco de dados.
-     * @param objeto é o objeto de amigos, que carrega as informações, como id,nome, etc..
-     * @return True, caso seja possivel inserir o amigo, ou retorna um erro caso não seja possivel.
+     * @param objeto é o objeto de amigos, que carrega as informações, como id, nome, etc..
+     * @return True, caso seja possivel inserir o amigo, retornando um erro caso não seja possivel.
      */
     public boolean insertAmigoBD(Amigo objeto) {
         String sql = "INSERT INTO tb_amigos(IdAmigo,NomeAmigo,TelefoneAmigo,EmailAmigo) VALUES(?,?,?,?)";
@@ -102,7 +102,7 @@ public class AmigoDAO {
     /**
      * Deleta um amigo do banco de dados.
      * @param IdAmgio é o id do amigo que será deletado.
-     * @return True, caso seja possivel deletar, ou retorna um erro caso não seja possivel.
+     * @return True, caso seja possivel deletar, retornando um erro caso não seja possivel.
      */
     public boolean deleteAmigoBD(int IdAmigo) {
         try {
@@ -118,8 +118,8 @@ public class AmigoDAO {
     
     /*
     Recupera um amigo do nosso DB, procurando ele pelo Id.
-    @param id é o id do amigo a ser  recuperado
-    @return retorna o amigo recuperado com base no Id.
+    @param id é o id do amigo a ser  recuperado.
+    @return o amigo recuperado com base no Id.
     */
     
     public Amigo RecuperaAmigoDB(int id) {
@@ -141,9 +141,9 @@ public class AmigoDAO {
     
     
     /**
-     * Atualiza as informações de um amigo, já existente no banco de dados.
+     * Atualiza as informações de um amigo já existente no banco de dados.
      * @param objeto é o objeto do amigo, o qual será atualizado.
-     * @return True, caso seja possivel atualizar, ou retorna um erro caso não seja possivel.
+     * @return True, caso seja possivel atualizar, retornando um erro caso não seja possivel.
      */
     public boolean updateAmigoBD(Amigo objeto) {
 
