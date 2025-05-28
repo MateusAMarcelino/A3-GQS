@@ -21,4 +21,16 @@ public class TestFerramenta {
     public void setUp() {
         ferramenta = new Ferramenta(1, "Martelo", "Tramontina", 45.90);
     }
+    
+    /**
+     * Testa o construtor da classe Ferramenta.
+     */
+    @Test
+    public void testConstrutor() {
+        assertEquals(1, ferramenta.getIdFerramentas());
+        assertEquals("Martelo", ferramenta.getNomeFerramentas());
+        assertEquals("Tramontina", ferramenta.getMarcaFerramentas());
+        assertEquals(45.90, ferramenta.getCustoFerramentas(), 0.01);
+    }
+
 }
