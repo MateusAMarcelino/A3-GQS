@@ -49,4 +49,14 @@ public class TestFerramenta {
         assertEquals(25.50, ferramenta.getCustoFerramentas(), 0.01);
     }
 
+    /**
+     * Testa se a ferramenta é marcada como disponível quando não está em empréstimo.
+     * Este teste assume que não há empréstimos ativos no momento.
+     */
+    @Test
+    public void testDisponibilidadeFerramentaSemEmprestimo() {
+        // O método depende de um EmprestimoDAO ou lista simulada
+        assertTrue(ferramenta.getDisponibilidadeFerramenta(1));
+    }
+
 }
