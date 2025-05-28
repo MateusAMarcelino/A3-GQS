@@ -192,7 +192,7 @@ public class Amigo {
 * @param IdAmigo ; O ID do amigo.
 * @return O objeto Amigo com os dados carregados, ou nada se não encontrado.
 */
-    private int procuraIndice(int id) {
+    public int procuraIndice(int id) {
         int indice = -1;
         for (int i = 0; i < AmigoDAO.ListaAmigo.size(); i++) {
             if (AmigoDAO.ListaAmigo.get(i).getIdAmigo() == id) {
