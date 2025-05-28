@@ -59,4 +59,13 @@ public class TestFerramenta {
         assertTrue(ferramenta.getDisponibilidadeFerramenta(1));
     }
 
+    /**
+     * Testa se a ferramenta é coolocada corretamente no banco de dados.
+     * Este teste depende de uma implementação do DAO (depois olhar o DAO).
+     */
+    @Test
+    public void testColocaFerramentaDB() {
+        boolean colocado = ferramenta.InsertFerramentaDB("Alicate", "Bosch", 29.99);
+        assertTrue(colocado);
+    }
 }
