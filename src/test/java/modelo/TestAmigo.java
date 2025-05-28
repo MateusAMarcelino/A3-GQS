@@ -110,21 +110,20 @@ public class TestAmigo {
     }
     
     /**
-     * Testa o método procuraIndice do Amigo utilizando do método updateAmigoBD
+     * Testa o método procuraIndice do Amigo
      */
     @Test
-    void testProcuraIndice() {
-    
+    void testProcuraIndice_Encontrado() {
         Amigo amigo = new Amigo(1, "Osmar", "123456", "Osmar@gmail.com");
-        AmigoDAO.ListaAmigo.clear();
-        AmigoDAO.ListaAmigo.add(amigo);
+        ArrayList<Amigo> lista = new ArrayList<>();
+        lista.add(amigo);
+        AmigoDAO.ListaAmigo = lista;
 
-    
-       Amigo migo = new Amigo(); 
+        Amigo migo = new Amigo();
+        int indiceEncontrado = migo.procuraIndice(1);
+        int indiceNaoEncontrado = migo.procuraIndice(99);
 
-    
-       boolean resultado = migo.updateAmigoBD(1, "Osmarzinho", "7890", "Osmarzinho@gmail.com");
-
-       assertTrue(resultado);
+        assertEquals(0, indiceEncontrado);
+        assertEquals(-1, indiceNaoEncontrado);
     }
 }
