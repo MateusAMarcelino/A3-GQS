@@ -55,7 +55,7 @@ public class TestFerramenta {
      */
     @Test
     public void testDisponibilidadeFerramentaSemEmprestimo() {
-        // O método depende de um EmprestimoDAO ou lista simulada
+        // O método depende do EmpréstimoDAO
         assertTrue(ferramenta.getDisponibilidadeFerramenta(1));
     }
 
