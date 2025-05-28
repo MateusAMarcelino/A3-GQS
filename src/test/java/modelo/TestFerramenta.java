@@ -32,5 +32,21 @@ public class TestFerramenta {
         assertEquals("Tramontina", ferramenta.getMarcaFerramentas());
         assertEquals(45.90, ferramenta.getCustoFerramentas(), 0.01);
     }
+    
+ /**
+     * Testa os getters e setters da ferramenta.
+     */
+    @Test
+    public void testSettersAndGetters() {
+        ferramenta.setIdFerramentas(2);
+        ferramenta.setNomeFerramentas("Chave de Fenda");
+        ferramenta.setMarcaFerramentas("Vonder");
+        ferramenta.setCustoFerramenta(25.50);
+
+        assertEquals(2, ferramenta.getIdFerramentas());
+        assertEquals("Chave de Fenda", ferramenta.getNomeFerramentas());
+        assertEquals("Vonder", ferramenta.getMarcaFerramentas());
+        assertEquals(25.50, ferramenta.getCustoFerramentas(), 0.01);
+    }
 
 }
