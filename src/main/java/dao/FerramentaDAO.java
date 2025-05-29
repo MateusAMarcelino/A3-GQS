@@ -29,18 +29,18 @@ public class FerramentaDAO {
     public ArrayList<Ferramenta> getListaFerramentas() {
         ListaFerramentas.clear();
         try {
-            Statement smt = ut.getConexao().createStatement();
-            ResultSet res = smt.executeQuery("select * from tb_ferramentas");
-            while (res.next()) {
-                int IdFerramentas = res.getInt("IdFerramentas");
-                String NomeFerramentas = res.getString("NomeFerramentas");
-                String MarcaFerramentas = res.getString("MarcaFerramentas");
-                double CustoFerramentas = res.getDouble("CustoFerramentas");
-                Ferramenta objeto = new Ferramenta(IdFerramentas, NomeFerramentas, MarcaFerramentas, CustoFerramentas);
-
-                ListaFerramentas.add(objeto);
+            try (Statement smt = ut.getConexao().createStatement()) {
+                ResultSet res = smt.executeQuery("select * from tb_ferramentas");
+                while (res.next()) {
+                    int IdFerramentas = res.getInt("IdFerramentas");
+                    String NomeFerramentas = res.getString("NomeFerramentas");
+                    String MarcaFerramentas = res.getString("MarcaFerramentas");
+                    double CustoFerramentas = res.getDouble("CustoFerramentas");
+                    Ferramenta objeto = new Ferramenta(IdFerramentas, NomeFerramentas, MarcaFerramentas, CustoFerramentas);
+                    
+                    ListaFerramentas.add(objeto);
+                }
             }
-            smt.close();
         } catch (SQLException erro) {
             System.out.println("Erro : " + erro);
         }
@@ -60,11 +60,11 @@ public class FerramentaDAO {
     public int MaiorIdFerramentas() {
         int MaiorIdFerramentas = 0;
         try {
-            Statement smt = ut.getConexao().createStatement();
-            ResultSet res = smt.executeQuery("select MAX(IdFerramentas)IdFerramentas from tb_ferramentas");
-            res.next();
-            MaiorIdFerramentas = res.getInt("IdFerramentas");
-            smt.close();
+            try (Statement smt = ut.getConexao().createStatement()) {
+                ResultSet res = smt.executeQuery("select MAX(IdFerramentas)IdFerramentas from tb_ferramentas");
+                res.next();
+                MaiorIdFerramentas = res.getInt("IdFerramentas");
+            }
         } catch (SQLException erro) {
             System.out.println("Erro : " + erro);
         }
@@ -82,13 +82,13 @@ public class FerramentaDAO {
     public boolean InsertFerramentaDB(Ferramenta ferramenta) {
         String res = "INSERT INTO tb_ferramentas (IdFerramentas, NomeFerramentas, MarcaFerramentas, CustoFerramentas) VALUES (?, ?, ?, ?)";
         try {
-            PreparedStatement smt = ut.getConexao().prepareStatement(res);
-            smt.setInt(1, ferramenta.getIdFerramentas());
-            smt.setString(2, ferramenta.getNomeFerramentas());
-            smt.setString(3, ferramenta.getMarcaFerramentas());
-            smt.setDouble(4, ferramenta.getCustoFerramentas());
-            smt.execute();
-            smt.close();
+            try (PreparedStatement smt = ut.getConexao().prepareStatement(res)) {
+                smt.setInt(1, ferramenta.getIdFerramentas());
+                smt.setString(2, ferramenta.getNomeFerramentas());
+                smt.setString(3, ferramenta.getMarcaFerramentas());
+                smt.setDouble(4, ferramenta.getCustoFerramentas());
+                smt.execute();
+            }
             return true;
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro.getMessage());
@@ -105,14 +105,14 @@ public class FerramentaDAO {
         Ferramenta ferramenta = new Ferramenta();
         ferramenta.setIdFerramentas(IdFerramentas);
         try {
-            Statement smt = ut.getConexao().createStatement();
-            ResultSet res = smt.executeQuery("Select * from tb_ferramentas where IdFerramentas = " + IdFerramentas);
-            while (res.next()) {
-                String NomeFerramentas = res.getString("NomeFerramentas");
-                String MarcaFerramentas = res.getString("MarcaFerramentas");
-                double CustoFerramentas = res.getDouble("CustoFerramentas");
+            try (Statement smt = ut.getConexao().createStatement()) {
+                ResultSet res = smt.executeQuery("Select * from tb_ferramentas where IdFerramentas = " + IdFerramentas);
+                while (res.next()) {
+                    String NomeFerramentas = res.getString("NomeFerramentas");
+                    String MarcaFerramentas = res.getString("MarcaFerramentas");
+                    double CustoFerramentas = res.getDouble("CustoFerramentas");
+                }
             }
-            smt.close();
         } catch (SQLException erro) {
             System.out.println("Erro : " + erro);
         }
@@ -129,13 +129,13 @@ public class FerramentaDAO {
     public boolean UpdateFerramentaDB(Ferramenta ferramenta) {
         String res = "UPDATE tb_ferramentas SET NomeFerramentas=?, MarcaFerramentas=?, CustoFerramentas=? WHERE IdFerramentas=?";
         try {
-            PreparedStatement smt = ut.getConexao().prepareStatement(res);
-            smt.setString(1, ferramenta.getNomeFerramentas());
-            smt.setString(2, ferramenta.getMarcaFerramentas());
-            smt.setDouble(3, ferramenta.getCustoFerramentas());
-            smt.setInt(4, ferramenta.getIdFerramentas());
-            smt.executeUpdate();
-            smt.close();
+            try (PreparedStatement smt = ut.getConexao().prepareStatement(res)) {
+                smt.setString(1, ferramenta.getNomeFerramentas());
+                smt.setString(2, ferramenta.getMarcaFerramentas());
+                smt.setDouble(3, ferramenta.getCustoFerramentas());
+                smt.setInt(4, ferramenta.getIdFerramentas());
+                smt.executeUpdate();
+            }
             return true;
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro);
@@ -152,9 +152,9 @@ public class FerramentaDAO {
      */
     public boolean DeleteFerramentaDB(int IdFerramentas) {
         try {
-            Statement smt = ut.getConexao().createStatement();
-            int res = smt.executeUpdate(("delete from tb_ferramentas where IdFerramentas=" + IdFerramentas));
-            smt.close();
+            try (Statement smt = ut.getConexao().createStatement()) {
+                int res = smt.executeUpdate(("delete from tb_ferramentas where IdFerramentas=" + IdFerramentas));
+            }
         } catch (SQLException erro) {
             System.out.println("Erro : " + erro);
             throw new RuntimeException(erro);
