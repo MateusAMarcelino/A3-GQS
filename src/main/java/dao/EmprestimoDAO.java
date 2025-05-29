@@ -52,7 +52,7 @@ public class EmprestimoDAO {
     /*
     Define a lista de emprestimo.
     */
-    public void setListaEmprestimo(ArrayList<Emprestimo> ListaEmprestimo) {
+    public static void setListaEmprestimo(ArrayList<Emprestimo> ListaEmprestimo) {
         EmprestimoDAO.ListaEmprestimo = ListaEmprestimo;
         
     }

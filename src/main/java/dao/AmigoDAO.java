@@ -53,7 +53,7 @@ public class AmigoDAO {
         return ListaAmigo;
     }
 
-    public void setListaAmigo(ArrayList<Amigo> ListaAmigo) {
+    public static void setListaAmigo(ArrayList<Amigo> ListaAmigo) {
         AmigoDAO.ListaAmigo = ListaAmigo;
     }
 
