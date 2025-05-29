@@ -55,8 +55,8 @@ public class FrmRelatorioEmprestimo extends javax.swing.JFrame {
         JLDataInicial = new javax.swing.JLabel();
         JLDataDevolução = new javax.swing.JLabel();
         JBApagar = new javax.swing.JButton();
-        JLnomeamigo = new javax.swing.JLabel();
-        JLnomeferramenta = new javax.swing.JLabel();
+        JLnomeamigoativo = new javax.swing.JLabel();
+        JLnomeferramentaativo = new javax.swing.JLabel();
         JLdataEmp = new javax.swing.JLabel();
         JldataDev = new javax.swing.JLabel();
 
@@ -130,9 +130,9 @@ public class FrmRelatorioEmprestimo extends javax.swing.JFrame {
             }
         });
 
-        JLnomeamigo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        JLnomeamigoativo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        JLnomeferramenta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        JLnomeferramentaativo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         JLdataEmp.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
@@ -154,7 +154,7 @@ public class FrmRelatorioEmprestimo extends javax.swing.JFrame {
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(JLNomeAmigo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(JLnomeamigo)
+                                    .addComponent(JLnomeamigoativo)
                                     .addGap(527, 527, 527))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(JLDataDevolução)
@@ -173,7 +173,7 @@ public class FrmRelatorioEmprestimo extends javax.swing.JFrame {
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(JLNomeFerramenta)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(JLnomeferramenta))
+                                            .addComponent(JLnomeferramentaativo))
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(JLIDEmprestimo)
                                             .addGap(6, 6, 6)
@@ -201,11 +201,11 @@ public class FrmRelatorioEmprestimo extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JLNomeAmigo)
-                    .addComponent(JLnomeamigo))
+                    .addComponent(JLnomeamigoativo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JLNomeFerramenta)
-                    .addComponent(JLnomeferramenta))
+                    .addComponent(JLnomeferramentaativo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JLDataInicial)
@@ -247,8 +247,8 @@ public class FrmRelatorioEmprestimo extends javax.swing.JFrame {
 
                 JLId.setText(idObj != null ? idObj.toString() : "");
                 JLId.setVisible(true);
-                JLnomeamigo.setText(nomeAmigoObj != null ? nomeAmigoObj.toString() : "");
-                JLnomeferramenta.setText(nomeFerramentaObj != null ? nomeFerramentaObj.toString() : "");
+                JLnomeamigoativo.setText(nomeAmigoObj != null ? nomeAmigoObj.toString() : "");
+                JLnomeferramentaativo.setText(nomeFerramentaObj != null ? nomeFerramentaObj.toString() : "");
                 JLdataEmp.setText(dataEmpObj != null ? dataEmpObj.toString() : "");
                 JldataDev.setText(dataDevObj != null ? dataDevObj.toString() : "FERRAMENTA NUNCA DEVOLVIDA");
             }
@@ -264,8 +264,8 @@ public class FrmRelatorioEmprestimo extends javax.swing.JFrame {
 
         emprestimo.deleteEmprestimoBD(Integer.parseInt(JLId.getText()));
         JLId.setVisible(false);
-        JLnomeamigo.setText("");
-        JLnomeferramenta.setText("");
+        JLnomeamigoativo.setText("");
+        JLnomeferramentaativo.setText("");
         JLdataEmp.setText("");
         JldataDev.setText("");
         this.CarregaListaEmprestimo();
@@ -403,8 +403,8 @@ Metodo que coloca o metodo acima em um label.
     private javax.swing.JLabel JLNomeAmigo;
     private javax.swing.JLabel JLNomeFerramenta;
     private javax.swing.JLabel JLdataEmp;
-    private javax.swing.JLabel JLnomeamigo;
-    private javax.swing.JLabel JLnomeferramenta;
+    private javax.swing.JLabel JLnomeamigoativo;
+    private javax.swing.JLabel JLnomeferramentaativo;
     private javax.swing.JTable JTEmprestimosAtivos;
     private javax.swing.JTable JTEmprestimosRealizados;
     private javax.swing.JLabel JldataDev;

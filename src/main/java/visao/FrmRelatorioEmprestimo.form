@@ -62,7 +62,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="JLNomeAmigo" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="JLnomeamigo" min="-2" max="-2" attributes="0"/>
+                                  <Component id="JLnomeamigoativo" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="527" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
@@ -84,7 +84,7 @@
                                       <Group type="102" attributes="0">
                                           <Component id="JLNomeFerramenta" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="JLnomeferramenta" min="-2" max="-2" attributes="0"/>
+                                          <Component id="JLnomeferramentaativo" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="JLIDEmprestimo" min="-2" max="-2" attributes="0"/>
@@ -124,12 +124,12 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="JLNomeAmigo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JLnomeamigo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JLnomeamigoativo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="JLNomeFerramenta" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JLnomeferramenta" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JLnomeferramentaativo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -298,14 +298,14 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBApagarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="JLnomeamigo">
+    <Component class="javax.swing.JLabel" name="JLnomeamigoativo">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="JLnomeferramenta">
+    <Component class="javax.swing.JLabel" name="JLnomeferramentaativo">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
