@@ -39,7 +39,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="JLID" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="JLId" min="-2" max="-2" attributes="0"/>
+                              <Component id="JLIDATIVO" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
@@ -76,7 +76,7 @@
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="JLID" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="JLId" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JLIDATIVO" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
@@ -241,7 +241,7 @@
         <Property name="text" type="java.lang.String" value="ID :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="JLId">
+    <Component class="javax.swing.JLabel" name="JLIDATIVO">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>

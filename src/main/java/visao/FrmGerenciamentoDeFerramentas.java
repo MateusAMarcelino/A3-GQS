@@ -41,7 +41,7 @@ public class FrmGerenciamentoDeFerramentas extends javax.swing.JFrame {
         JBAlterar = new javax.swing.JButton();
         JBApagar = new javax.swing.JButton();
         JLID = new javax.swing.JLabel();
-        JLId = new javax.swing.JLabel();
+        JLIDATIVO = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         JLSoma = new javax.swing.JLabel();
 
@@ -113,8 +113,8 @@ public class FrmGerenciamentoDeFerramentas extends javax.swing.JFrame {
         JLID.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         JLID.setText("ID :");
 
-        JLId.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        JLId.setText("0");
+        JLIDATIVO.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        JLIDATIVO.setText("0");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel6.setText("Custo de Aquisição :");
@@ -142,7 +142,7 @@ public class FrmGerenciamentoDeFerramentas extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(JLID)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JLId))
+                                .addComponent(JLIDATIVO))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -170,7 +170,7 @@ public class FrmGerenciamentoDeFerramentas extends javax.swing.JFrame {
                         .addGap(39, 39, 39)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(JLID)
-                            .addComponent(JLId))
+                            .addComponent(JLIDATIVO))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -221,8 +221,8 @@ public class FrmGerenciamentoDeFerramentas extends javax.swing.JFrame {
     private void JTableFerramentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableFerramentasMouseClicked
         // TODO add your handling code here:
         if (this.JTableFerramentas.getSelectedRow() != -1) {
-            JLId.setText(JTableFerramentas.getValueAt(this.JTableFerramentas.getSelectedRow(),0).toString());
-            JLId.setVisible(true);
+            JLIDATIVO.setText(JTableFerramentas.getValueAt(this.JTableFerramentas.getSelectedRow(),0).toString());
+            JLIDATIVO.setVisible(true);
             JTFNomeAlterar.setText(JTableFerramentas.getValueAt(this.JTableFerramentas.getSelectedRow(),1).toString());
             JTFMarcaAlterar.setText(JTableFerramentas.getValueAt(this.JTableFerramentas.getSelectedRow(),2).toString());
             JTFCustoAlterar.setText(JTableFerramentas.getValueAt(this.JTableFerramentas.getSelectedRow(),3).toString());
@@ -262,7 +262,7 @@ public class FrmGerenciamentoDeFerramentas extends javax.swing.JFrame {
             }
 
             if (this.ferramenta.updateFerramentaDB(IdFerramentas, NomeFerramentas, MarcaFerramentas,CustoFerramentas)){
-                JLId.setVisible(false);
+                JLIDATIVO.setVisible(false);
                 JTFNomeAlterar.setText("");
                 JTFMarcaAlterar.setText("");
                 JTFCustoAlterar.setText("");
@@ -290,7 +290,7 @@ public class FrmGerenciamentoDeFerramentas extends javax.swing.JFrame {
             int respostaUsuario = JOptionPane.showConfirmDialog(null,"Tem certeza que deseja apagar essa ferramenta?");
             if(respostaUsuario == 0) {
                 if(this.ferramenta.DeleteFerramentaDB(IdFerramentas)){
-                    this.JLId.setText("0");
+                    this.JLIDATIVO.setText("0");
                     this.JTFNomeAlterar.setText("");
                     this.JTFMarcaAlterar.setText("");
                     this.JTFCustoAlterar.setText("");
@@ -341,7 +341,7 @@ public class FrmGerenciamentoDeFerramentas extends javax.swing.JFrame {
    
 public void CarregaListaFerramenta(){
     DefaultTableModel modelo = (DefaultTableModel) this.JTableFerramentas.getModel();
-    JLId.setVisible(false); /* Deixa o label que informa o Id vazio até que alguma ferramenta seja clicada */
+    JLIDATIVO.setVisible(false); /* Deixa o label que informa o Id vazio até que alguma ferramenta seja clicada */
     modelo.setNumRows(0);
     ArrayList<Ferramenta> ListaFerramenta = ferramenta.ListaFerramenta();
     for (Ferramenta a : ListaFerramenta){
@@ -364,7 +364,7 @@ public void CarregaListaFerramenta(){
     private javax.swing.JButton JBApagar;
     private javax.swing.JButton JBCancelar;
     private javax.swing.JLabel JLID;
-    private javax.swing.JLabel JLId;
+    private javax.swing.JLabel JLIDATIVO;
     private javax.swing.JLabel JLSoma;
     private javax.swing.JTextField JTFCustoAlterar;
     private javax.swing.JTextField JTFMarcaAlterar;
