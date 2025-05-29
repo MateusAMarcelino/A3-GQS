@@ -1,6 +1,7 @@
 package modelo;
 
 import dao.AmigoDAO;
+import modelo.Emprestimo;
 import java.util.ArrayList;
 
 /**
@@ -67,7 +68,7 @@ public class AmigoFake extends AmigoDAO {
     }
     
     /**
-     * Sobrescreve o método recuperaAmigoDB
+     * Inicializa um Amigo para o teste do método recuperaAmigoDB
      */
     public int idRecebido;
     
