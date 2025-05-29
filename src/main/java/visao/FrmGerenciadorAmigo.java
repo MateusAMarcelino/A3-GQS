@@ -63,7 +63,7 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         JTFEmail = new javax.swing.JTextField();
         JLID = new javax.swing.JLabel();
-        JLId = new javax.swing.JLabel();
+        JLIDATIVO = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -133,8 +133,8 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
         JLID.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         JLID.setText("ID :");
 
-        JLId.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        JLId.setText("0");
+        JLIDATIVO.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        JLIDATIVO.setText("0");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -150,26 +150,25 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(JLID)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JLId)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(JTFEmail)
                             .addComponent(JTFTelefone, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(JTFNome, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(JBEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(JBApagar, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                                .addComponent(JBCancelar)))))
+                                .addComponent(JBCancelar))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(JLID)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(JLIDATIVO))
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(19, 19, 19))
         );
         layout.setVerticalGroup(
@@ -182,7 +181,7 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
                         .addGap(63, 63, 63)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(JLID)
-                            .addComponent(JLId))
+                            .addComponent(JLIDATIVO))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -227,8 +226,8 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
     private void jTableAmigosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAmigosMouseClicked
         // TODO add your handling code here:
         if (this.jTableAmigos.getSelectedRow() != -1) {
-            JLId.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(),0).toString());
-            JLId.setVisible(true);
+            JLIDATIVO.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(),0).toString());
+            JLIDATIVO.setVisible(true);
             JTFNome.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 1).toString());
             JTFTelefone.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 2).toString());
             JTFEmail.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 3).toString());
@@ -268,7 +267,7 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
             }
             
             if (this.objetoamigo.updateAmigoBD(id, nome, telefone, email)) {
-                JLId.setVisible(false);
+                JLIDATIVO.setVisible(false);
                 JTFNome.setText("");
                 JTFTelefone.setText("");
                 JTFEmail.setText("");
@@ -351,7 +350,7 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
     private javax.swing.JButton JBCancelar;
     private javax.swing.JButton JBEditar;
     private javax.swing.JLabel JLID;
-    private javax.swing.JLabel JLId;
+    private javax.swing.JLabel JLIDATIVO;
     private javax.swing.JTextField JTFEmail;
     private javax.swing.JTextField JTFNome;
     private javax.swing.JTextField JTFTelefone;
