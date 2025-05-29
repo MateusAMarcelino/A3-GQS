@@ -63,11 +63,11 @@ public class AmigoDAO {
     public int maiorIDAmigo() {
         int maiorID = 0;
         try {
-            Statement stmt = ut.getConexao().createStatement();
-            ResultSet res = stmt.executeQuery("SELECT MAX(IdAmigo) IdAmigo FROM tb_amigos");
-            res.next();
-            maiorID = res.getInt("IdAmigo");
-            stmt.close();
+            try (Statement stmt = ut.getConexao().createStatement()) {
+                ResultSet res = stmt.executeQuery("SELECT MAX(IdAmigo) IdAmigo FROM tb_amigos");
+                res.next();
+                maiorID = res.getInt("IdAmigo");
+            }
         } catch (SQLException ex) {
             System.out.println("Erro:" + ex);
         }
@@ -82,15 +82,14 @@ public class AmigoDAO {
     public boolean insertAmigoBD(Amigo objeto) {
         String sql = "INSERT INTO tb_amigos(IdAmigo,NomeAmigo,TelefoneAmigo,EmailAmigo) VALUES(?,?,?,?)";
         try {
-            PreparedStatement stmt = ut.getConexao().prepareStatement(sql);
-
-            stmt.setInt(1, objeto.getIdAmigo());
-            stmt.setString(2, objeto.getNomeAmigo());
-            stmt.setString(3, objeto.getTelefoneAmigo());
-            stmt.setString(4, objeto.getEmailAmigo());
-
-            stmt.execute();
-            stmt.close();
+            try (PreparedStatement stmt = ut.getConexao().prepareStatement(sql)) {
+                stmt.setInt(1, objeto.getIdAmigo());
+                stmt.setString(2, objeto.getNomeAmigo());
+                stmt.setString(3, objeto.getTelefoneAmigo());
+                stmt.setString(4, objeto.getEmailAmigo());
+                
+                stmt.execute();
+            }
 
             return true;
         } catch (SQLException erro) {
@@ -106,9 +105,9 @@ public class AmigoDAO {
      */
     public boolean deleteAmigoBD(int IdAmigo) {
         try {
-            Statement stmt = ut.getConexao().createStatement();
-            stmt.executeUpdate("DELETE FROM tb_amigos WHERE IdAmigo = " + IdAmigo);
-            stmt.close();
+            try (Statement stmt = ut.getConexao().createStatement()) {
+                stmt.executeUpdate("DELETE FROM tb_amigos WHERE IdAmigo = " + IdAmigo);
+            }
 
         } catch (SQLException erro) {
             System.out.println("Erro:" + erro);
@@ -126,12 +125,12 @@ public class AmigoDAO {
         Amigo amigo = new Amigo();
         amigo.setIdAmigo(id);
         try {
-            Statement smt = ut.getConexao().createStatement();
-            ResultSet res = smt.executeQuery("select * from tb_amigo where IdAmigo = " + id);
-            res.next();
-            amigo.setNomeAmigo(res.getString("NomeAmigo"));
-            amigo.setTelefoneAmigo(res.getString("TelefoneAmigo"));
-            smt.close();
+            try (Statement smt = ut.getConexao().createStatement()) {
+                ResultSet res = smt.executeQuery("select * from tb_amigo where IdAmigo = " + id);
+                res.next();
+                amigo.setNomeAmigo(res.getString("NomeAmigo"));
+                amigo.setTelefoneAmigo(res.getString("TelefoneAmigo"));
+            }
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro);
         }
@@ -150,15 +149,14 @@ public class AmigoDAO {
         String sql = "UPDATE tb_amigos set NomeAmigo = ? ,TelefoneAmigo = ? ,EmailAmigo = ?  WHERE IdAmigo = ?";
 
         try {
-            PreparedStatement stmt = ut.getConexao().prepareStatement(sql);
-
-            stmt.setString(1, objeto.getNomeAmigo());
-            stmt.setString(2, objeto.getTelefoneAmigo());
-            stmt.setString(3, objeto.getEmailAmigo());
-            stmt.setInt(4, objeto.getIdAmigo());
-
-            stmt.execute();
-            stmt.close();
+            try (PreparedStatement stmt = ut.getConexao().prepareStatement(sql)) {
+                stmt.setString(1, objeto.getNomeAmigo());
+                stmt.setString(2, objeto.getTelefoneAmigo());
+                stmt.setString(3, objeto.getEmailAmigo());
+                stmt.setInt(4, objeto.getIdAmigo());
+                
+                stmt.execute();
+            }
 
             return true;
 
