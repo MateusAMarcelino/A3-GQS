@@ -14,6 +14,7 @@ public class AmigoDAO {
     */
 
     private Utilitario ut = new Utilitario();
+    private String Erro = "Erro:";
     
     /**
      * Cria a ArrayList para os amigos.
@@ -47,7 +48,7 @@ public class AmigoDAO {
             }
 
         } catch (SQLException ex) {
-            System.out.println("Erro:" + ex);
+            System.out.println(Erro + ex);
         }
         return ListaAmigo;
     }
@@ -69,7 +70,7 @@ public class AmigoDAO {
                 maiorID = res.getInt("IdAmigo");
             }
         } catch (SQLException ex) {
-            System.out.println("Erro:" + ex);
+            System.out.println(Erro + ex);
         }
         return maiorID;
     }
@@ -93,7 +94,7 @@ public class AmigoDAO {
 
             return true;
         } catch (SQLException erro) {
-            System.out.println("Erro:" + erro);
+            System.out.println(Erro + erro);
             throw new RuntimeException(erro);
         }
     }
@@ -110,7 +111,7 @@ public class AmigoDAO {
             }
 
         } catch (SQLException erro) {
-            System.out.println("Erro:" + erro);
+            System.out.println(Erro + erro);
         }
         return true;
     }
@@ -132,7 +133,7 @@ public class AmigoDAO {
                 amigo.setTelefoneAmigo(res.getString("TelefoneAmigo"));
             }
         } catch (SQLException erro) {
-            System.out.println("Erro: " + erro);
+            System.out.println(Erro + erro);
         }
         return amigo;
         
@@ -161,7 +162,7 @@ public class AmigoDAO {
             return true;
 
         } catch (SQLException erro) {
-            System.out.println("Erro:" + erro);
+            System.out.println(Erro + erro);
             throw new RuntimeException(erro);
         }
     }
