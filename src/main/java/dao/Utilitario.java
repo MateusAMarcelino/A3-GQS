@@ -7,10 +7,10 @@ import java.sql.Statement;
 
 public class Utilitario {
 
-    public Connection getConexao() {
+public Connection getConexao() {
         Connection connection = null;
         Statement stmt = null;
-
+        
         try {
             // 1. Estabelece conexão
             String url = "jdbc:sqlite:db_a3.db";
@@ -19,37 +19,35 @@ public class Utilitario {
 
             // 2. Cria tabelas (usando try-with-resources para Statement)
             stmt = connection.createStatement();
-
+            
             String sqlAmigos = "CREATE TABLE IF NOT EXISTS tb_amigos ("
-                    + "IdAmigo INTEGER PRIMARY KEY AUTOINCREMENT,"
-                    + "NomeAmigo TEXT NOT NULL,"
-                    + "TelefoneAmigo TEXT,"
-                    + "EmailAmigo TEXT"
-                    + ");";
+                        + "IdAmigo INTEGER NOT NULL PRIMARY KEY,"
+                        + "NomeAmigo VARCHAR(100),"
+                        + "TelefoneAmigo INTEGER,"
+                        + "EmailAmigo VARCHAR(100)"
+                        + ");";
 
             String sqlFerramentas = "CREATE TABLE IF NOT EXISTS tb_ferramentas ("
-                    + "IdFerramentas INTEGER PRIMARY KEY AUTOINCREMENT,"
-                    + "NomeFerramentas TEXT NOT NULL,"
-                    + "MarcaFerramentas TEXT,"
-                    + "CustoFerramentas REAL"
-                    + ");";
+                        + "IdFerramentas INTEGER NOT NULL PRIMARY KEY,"
+                        + "NomeFerramentas VARCHAR(100),"
+                        + "MarcaFerramentas VARCHAR(100),"
+                        + "CustoFerramentas DOUBLE"
+                        + ");";
 
             String sqlEmprestimos = "CREATE TABLE IF NOT EXISTS tb_emprestimos ("
-                    + "IdEmprestimo INTEGER PRIMARY KEY AUTOINCREMENT,"
-                    + "IdAmigo INTEGER NOT NULL,"
-                    + "IdFerramentas INTEGER NOT NULL,"
-                    + "DataEmprestimo TEXT,"
-                    + "DataDevolucao TEXT,"
-                    + "FOREIGN KEY (IdAmigo) REFERENCES tb_amigos(IdAmigo),"
-                    + "FOREIGN KEY (IdFerramentas) REFERENCES tb_ferramentas(IdFerramentas)"
-                    + ");";
+                        + "IdEmprestimo INTEGER NOT NULL PRIMARY KEY,"
+                        + "IdAmigo INTEGER,"
+                        + "IdFerramentas INTEGER,"
+                        + "DataEmprestimo DATE,"
+                        + "DataDevolucao DATE"
+                        + ");";
+
 
             stmt.execute(sqlAmigos);
             stmt.execute(sqlFerramentas);
             stmt.execute(sqlEmprestimos);
 
-            // 3. Ativa chaves estrangeiras (SQLite requer isso explicitamente)
-            stmt.execute("PRAGMA foreign_keys = ON;");
+           
 
             return connection;
 
@@ -76,3 +74,4 @@ public class Utilitario {
         }
     }
 }
+    
