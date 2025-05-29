@@ -2,6 +2,9 @@ package modelo;
 
 
 import dao.AmigoDAO;
+import dao.EmprestimoDAO;
+import dao.Utilitario;
+import java.sql.*;
 import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -126,4 +129,43 @@ public class TestAmigo {
         assertEquals(0, indiceEncontrado);
         assertEquals(-1, indiceNaoEncontrado);
     }
+    
+    /**
+     * Testa o método maiorId
+     */
+    @Test
+    void testMaiorID() {
+        int maiorId = instancia.MaiorID();
+        
+        assertTrue(maiorId >= 0);
+    }
+    
+    /**
+     * Testa o método possuiEmprestimoAtivo inserindo um empréstimo ao banco de dados e o deletando no final
+     */
+    @Test
+    void testPossuiEmprestimoAtivo() {
+        Amigo amigo = new Amigo(2, "Osmar", "123456", "Osmar@gmail.com");
+        Emprestimo emp = new Emprestimo(1000, 2, 1, "21-01-2025", null);
+        EmprestimoDAO dao = new EmprestimoDAO();
+        
+        //Insere o empréstimo criado ao banco de dados
+        dao.insertEmprestimoBD(emp);
+        
+        boolean resultado = amigo.possuiEmprestimoAtivo(2);
+        
+        assertTrue(resultado);
+        
+        //Deleta o empréstimo criado pelo teste do banco de dados
+        try {
+            Connection conexao = new Utilitario().getConexao();
+            Statement stmt = conexao.createStatement();
+            stmt.executeUpdate("DELETE FROM tb_emprestimo WHERE IdEmprestimo = 1000");
+            stmt.close();
+        }   catch (SQLException e) {
+                e.printStackTrace();
+            }
+    }
+    
+    
 }
