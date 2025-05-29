@@ -31,20 +31,20 @@ public class AmigoDAO {
                  
        
         try {
-            Statement stmt = ut.getConexao().createStatement();
-            ResultSet res = stmt.executeQuery("SELECT * FROM tb_amigos");
-            while (res.next()) {
-
-                int IdAmigo = res.getInt("IdAmigo");
-                String NomeAmigo = res.getString("NomeAmigo");
-                String TelefoneAmigo = res.getString("TelefoneAmigo");
-                String EmailAmigo = res.getString("EmailAmigo");
-
-                Amigo objeto = new Amigo(IdAmigo, NomeAmigo, TelefoneAmigo, EmailAmigo);
-
-                ListaAmigo.add(objeto);
+            try (Statement stmt = ut.getConexao().createStatement()) {
+                ResultSet res = stmt.executeQuery("SELECT * FROM tb_amigos");
+                while (res.next()) {
+                    
+                    int IdAmigo = res.getInt("IdAmigo");
+                    String NomeAmigo = res.getString("NomeAmigo");
+                    String TelefoneAmigo = res.getString("TelefoneAmigo");
+                    String EmailAmigo = res.getString("EmailAmigo");
+                    
+                    Amigo objeto = new Amigo(IdAmigo, NomeAmigo, TelefoneAmigo, EmailAmigo);
+                    
+                    ListaAmigo.add(objeto);
+                }
             }
-            stmt.close();
 
         } catch (SQLException ex) {
             System.out.println("Erro:" + ex);
