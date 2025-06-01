@@ -11,10 +11,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Classe de testes unitários para os métodos da classe FerramentaDAO.
- * Utiliza JUnit 5 para testar as funcionalidades do DAO responsável pelas ferramentas.
- * 
- * Autor: guiho
+ * Classe de testes para os métodos da classe FerramentaDAO.
+ * Usa JUnit 5.
  */
 public class FerramentaDAOTest {
 
@@ -23,22 +21,22 @@ public class FerramentaDAOTest {
 
     @BeforeAll
     public static void setUpClass() {
-        // Executado antes de todos os testes da classe
+        // Executado uma vez antes de todos os testes
     }
 
     @AfterAll
     public static void tearDownClass() {
-        // Executado após todos os testes da classe
+        // Executado uma vez depois de todos os testes
     }
 
     @BeforeEach
     public void setUp() {
-        // Executado antes de cada método de teste
+        // Executado antes de cada teste
     }
 
     @AfterEach
     public void tearDown() {
-        // Executado após cada método de teste
+        // Executado depois de cada teste
     }
 
     /**
@@ -47,9 +45,9 @@ public class FerramentaDAOTest {
     @Test
     public void testGetListaFerramentas() {
         System.out.println("Testando getListaFerramentas");
-        FerramentaDAO instance = new FerramentaDAO();
-        ArrayList<Ferramenta> result = instance.getListaFerramentas();
-        assertNotNull(result); // Verifica se a lista não é nula
+        FerramentaDAO dao = new FerramentaDAO();
+        ArrayList<Ferramenta> result = dao.getListaFerramentas();
+        assertNotNull(result); // Verifica se a lista foi retornada
     }
 
     /**
@@ -62,7 +60,8 @@ public class FerramentaDAOTest {
         lista.add(new Ferramenta(1, "Martelo", "Tramontina", 25.0));
 
         FerramentaDAO.setListaFerramentas(lista);
-        assertEquals(lista, FerramentaDAO.getListaFerramentas());
+        FerramentaDAO dao = new FerramentaDAO();
+        assertEquals(lista, dao.getListaFerramentas());
     }
 
     /**
@@ -71,9 +70,9 @@ public class FerramentaDAOTest {
     @Test
     public void testMaiorIdFerramentas() {
         System.out.println("Testando MaiorIdFerramentas");
-        FerramentaDAO instance = new FerramentaDAO();
-        int result = instance.MaiorIdFerramentas();
-        assertTrue(result >= 0); // O ID deve ser maior ou igual a zero
+        FerramentaDAO dao = new FerramentaDAO();
+        int result = dao.MaiorIdFerramentas();
+        assertTrue(result >= 0);
     }
 
     /**
@@ -83,9 +82,9 @@ public class FerramentaDAOTest {
     public void testInsertFerramentaDB() {
         System.out.println("Testando InsertFerramentaDB");
         Ferramenta ferramenta = new Ferramenta(9999, "Chave de Fenda", "Gedore", 15.0);
-        FerramentaDAO instance = new FerramentaDAO();
-        boolean result = instance.InsertFerramentaDB(ferramenta);
-        assertTrue(result); // Espera-se que a inserção seja bem-sucedida
+        FerramentaDAO dao = new FerramentaDAO();
+        boolean result = dao.InsertFerramentaDB(ferramenta);
+        assertTrue(result);
     }
 
     /**
@@ -94,11 +93,11 @@ public class FerramentaDAOTest {
     @Test
     public void testRecuperaFerramentaDB() {
         System.out.println("Testando RecuperaFerramentaDB");
-        int id = 9999; // Certifique-se de que esse ID existe no banco
-        FerramentaDAO instance = new FerramentaDAO();
-        Ferramenta result = instance.RecuperaFerramentaDB(id);
-        assertNotNull(result); // Verifica se a ferramenta foi encontrada
-        assertEquals(id, result.getId()); // Verifica se o ID confere
+        int id = 9999;
+        FerramentaDAO dao = new FerramentaDAO();
+        Ferramenta result = dao.RecuperaFerramentaDB(id);
+        assertNotNull(result);
+        assertEquals(id, result.getId());
     }
 
     /**
@@ -108,9 +107,9 @@ public class FerramentaDAOTest {
     public void testUpdateFerramentaDB() {
         System.out.println("Testando UpdateFerramentaDB");
         Ferramenta ferramenta = new Ferramenta(9999, "Chave de Fenda", "Stanley", 18.0);
-        FerramentaDAO instance = new FerramentaDAO();
-        boolean result = instance.UpdateFerramentaDB(ferramenta);
-        assertTrue(result); // Espera-se que a atualização seja bem-sucedida
+        FerramentaDAO dao = new FerramentaDAO();
+        boolean result = dao.UpdateFerramentaDB(ferramenta);
+        assertTrue(result);
     }
 
     /**
@@ -119,10 +118,10 @@ public class FerramentaDAOTest {
     @Test
     public void testDeleteFerramentaDB() {
         System.out.println("Testando DeleteFerramentaDB");
-        int id = 9999; // Certifique-se que esse ID existe para deletar
-        FerramentaDAO instance = new FerramentaDAO();
-        boolean result = instance.DeleteFerramentaDB(id);
-        assertTrue(result); // Espera-se que a exclusão ocorra
+        int id = 9999;
+        FerramentaDAO dao = new FerramentaDAO();
+        boolean result = dao.DeleteFerramentaDB(id);
+        assertTrue(result);
     }
 
     /**
@@ -134,8 +133,8 @@ public class FerramentaDAOTest {
         ArrayList<Ferramenta> lista = new ArrayList<>();
         lista.add(new Ferramenta(1, "Martelo", "Tramontina", 25.0));
         lista.add(new Ferramenta(2, "Alicate", "Vonder", 30.0));
-        double expected = 55.0;
-        double result = FerramentaDAO.CalcularSoma(lista);
-        assertEquals(expected, result, 0.01); // Margem de erro de 0.01
+        double esperado = 55.0;
+        double resultado = FerramentaDAO.CalcularSoma(lista);
+        assertEquals(esperado, resultado, 0.01);
     }
 }
