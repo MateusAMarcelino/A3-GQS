@@ -139,6 +139,7 @@ public class AmigoDAO {
                 res.next();
                 amigo.setNomeAmigo(res.getString("NomeAmigo"));
                 amigo.setTelefoneAmigo(res.getString("TelefoneAmigo"));
+                amigo.setEmailAmigo(res.getString("EmailAmigo"));
             }
         } catch (SQLException ex) {
             LOGGER.log(Level.SEVERE, "Erro ao achar amigo na Tabela", ex);
