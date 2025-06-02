@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
-public class TestAmigo {
+class TestAmigo {
     
 	Amigo instancia = new Amigo();
         AmigoFake fake = new AmigoFake();
@@ -22,7 +22,7 @@ public class TestAmigo {
      * Testa o construtor sem argumentos do Amigo.
      */
     @Test
-    public void testAmigo(){
+     void testAmigo(){
         assertTrue((instancia.getIdAmigo() == 0) && "".equals(instancia.getNomeAmigo()) && "".equals(instancia.getTelefoneAmigo()) && "".equals(instancia.getEmailAmigo()));
     }
     
@@ -30,7 +30,7 @@ public class TestAmigo {
      * Testa os getters e setters do Amigo.
      */
     @Test
-    public void testIdAmigoInt(){
+     void testIdAmigoInt(){
         instancia.setIdAmigo(1);
         instancia.setNomeAmigo("");
         instancia.setTelefoneAmigo("");
@@ -42,7 +42,7 @@ public class TestAmigo {
      * Testa a ArrayList do Amigo utilizando a classe do AmigoFake
      */
     @Test
-    public void testListaAmigo(){
+     void testListaAmigo(){
         Amigo amigo = new Amigo(new AmigoFake());
         ArrayList<Amigo> lista = amigo.ListaAmigo();
 

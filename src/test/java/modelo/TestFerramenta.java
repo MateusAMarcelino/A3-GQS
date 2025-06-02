@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * Classe de teste para a classe Ferramenta.
  * Verifica se os métodos da classe Ferramenta estão funcionando corretamente.
  */
-public class TestFerramenta {
+class TestFerramenta {
 
     private Ferramenta ferramenta;
 
@@ -18,7 +18,7 @@ public class TestFerramenta {
      * Inicializa uma ferramenta antes de cada teste.
      */
     @BeforeEach
-    public void setUp() {
+     void setUp() {
         ferramenta = new Ferramenta(1, "Martelo", "Tramontina", 45.90);
     }
     
@@ -26,7 +26,7 @@ public class TestFerramenta {
      * Testa o construtor da classe Ferramenta.
      */
     @Test
-    public void testConstrutor() {
+     void testConstrutor() {
         assertEquals(1, ferramenta.getIdFerramentas());
         assertEquals("Martelo", ferramenta.getNomeFerramentas());
         assertEquals("Tramontina", ferramenta.getMarcaFerramentas());
@@ -37,7 +37,7 @@ public class TestFerramenta {
      * Testa os getters e setters da ferramenta.
      */
     @Test
-    public void testSettersAndGetters() {
+     void testSettersAndGetters() {
         ferramenta.setIdFerramentas(2);
         ferramenta.setNomeFerramentas("Chave de Fenda");
         ferramenta.setMarcaFerramentas("Vonder");
