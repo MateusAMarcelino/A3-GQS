@@ -130,12 +130,12 @@ public class AmigoDAO {
     @param id é o id do amigo a ser  recuperado.
     @return o amigo recuperado com base no Id.
      */
-    public Amigo RecuperaAmigoDB(int id) {
+    public Amigo RecuperaAmigoBD(int id) {
         Amigo amigo = new Amigo();
         amigo.setIdAmigo(id);
         try {
             try (Statement smt = ut.getConexao().createStatement()) {
-                ResultSet res = smt.executeQuery("select * from tb_amigo where IdAmigo = " + id);
+                ResultSet res = smt.executeQuery("select * from tb_amigos where IdAmigo = " + id);
                 res.next();
                 amigo.setNomeAmigo(res.getString("NomeAmigo"));
                 amigo.setTelefoneAmigo(res.getString("TelefoneAmigo"));
