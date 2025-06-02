@@ -73,7 +73,7 @@ public class AmigoFake extends AmigoDAO {
     public int idRecebido;
     
     @Override
-    public Amigo RecuperaAmigoDB(int id) {
+    public Amigo RecuperaAmigoBD(int id) {
         this.idRecebido = id;
         return new Amigo(id, "Osmar", "123456", "Osmar@gmail.com");
     }
