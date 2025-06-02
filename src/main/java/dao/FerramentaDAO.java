@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import modelo.Ferramenta;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class FerramentaDAO {
 
@@ -14,6 +16,7 @@ public class FerramentaDAO {
      * dados.
      */
     private Utilitario ut = new Utilitario();
+    private static final Logger LOGGER = Logger.getLogger(AmigoDAO.class.getName());
 
     /**
      * Cria um ArrayList para as ferramentas.
@@ -41,8 +44,8 @@ public class FerramentaDAO {
                     ListaFerramentas.add(objeto);
                 }
             }
-        } catch (SQLException erro) {
-            System.out.println("Erro : " + erro);
+        } catch (SQLException ex) {
+            LOGGER.log(Level.SEVERE, "Erro ao acessar a Ferramenta", ex);
         }
         return ListaFerramentas;
     }
@@ -65,8 +68,8 @@ public class FerramentaDAO {
                 res.next();
                 MaiorIdFerramentas = res.getInt("IdFerramentas");
             }
-        } catch (SQLException erro) {
-            System.out.println("Erro : " + erro);
+       } catch (SQLException ex) {
+            LOGGER.log(Level.SEVERE, "Erro ao localizar o Maior ID", ex);
         }
         return MaiorIdFerramentas;
     }
@@ -90,10 +93,10 @@ public class FerramentaDAO {
                 smt.execute();
             }
             return true;
-        } catch (SQLException erro) {
-            System.out.println("Erro: " + erro.getMessage());
-            throw new RuntimeException(erro);
+        } catch (SQLException ex) {
+            LOGGER.log(Level.SEVERE, "Erro ao inserir a Ferramenta", ex);
         }
+        return false;
     }
 
     /*
@@ -113,8 +116,8 @@ public class FerramentaDAO {
                     double CustoFerramentas = res.getDouble("CustoFerramentas");
                 }
             }
-        } catch (SQLException erro) {
-            System.out.println("Erro : " + erro);
+        } catch (SQLException ex) {
+            LOGGER.log(Level.SEVERE, "Erro ao achar ferramenta na tabela", ex);
         }
         return ferramenta;
     }
@@ -137,10 +140,10 @@ public class FerramentaDAO {
                 smt.executeUpdate();
             }
             return true;
-        } catch (SQLException erro) {
-            System.out.println("Erro: " + erro);
-            throw new RuntimeException(erro);
+        } catch (SQLException ex) {
+            LOGGER.log(Level.SEVERE, "Erro ao atualizar a ferramenta", ex);
         }
+        return false;
     }
 
     /**
@@ -155,9 +158,8 @@ public class FerramentaDAO {
             try (Statement smt = ut.getConexao().createStatement()) {
                 int res = smt.executeUpdate(("delete from tb_ferramentas where IdFerramentas=" + IdFerramentas));
             }
-        } catch (SQLException erro) {
-            System.out.println("Erro : " + erro);
-            throw new RuntimeException(erro);
+        } catch (SQLException ex) {
+            LOGGER.log(Level.SEVERE, "Erro ao deletar a ferramenta", ex);
         }
         return true;
     }
