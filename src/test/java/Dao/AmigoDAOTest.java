@@ -91,7 +91,7 @@ public class AmigoDAOTest {
         Amigo amigo = new Amigo(idTeste, "Teste", "123456", "teste@gmail.com");
         dao.insertAmigoBD(amigo);
     
-        Amigo amigoRecuperado = dao.RecuperaAmigoDB(idTeste);
+        Amigo amigoRecuperado = dao.RecuperaAmigoBD(idTeste);
         
         assertEquals(idTeste, amigoRecuperado.getIdAmigo());
         assertEquals("Teste", amigoRecuperado.getNomeAmigo());
