@@ -93,6 +93,7 @@ public class AmigoDAOTest {
         assertEquals(idTeste, amigoRecuperado.getIdAmigo());
         assertEquals("Teste", amigoRecuperado.getNomeAmigo());
         assertEquals("123456", amigoRecuperado.getTelefoneAmigo());
+        assertEquals("teste@gmail.com", amigoRecuperado.getEmailAmigo());
         
         dao.deleteAmigoBD(idTeste);
     }
