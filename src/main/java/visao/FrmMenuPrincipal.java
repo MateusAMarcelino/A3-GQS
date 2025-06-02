@@ -183,7 +183,10 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         FrmDevolverFerramentas objeto = new FrmDevolverFerramentas();
         objeto.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-
+    
+     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        new NewJDialog(null,true).show();
+    }                                          
     /**
      * @param args the command line arguments
      */
