@@ -41,7 +41,7 @@ void setUp() {
         dao.InsertFerramentaDB(ferramenta);
 
         ferramenta.setNomeFerramentas("Chave Phillips");
-        ferramenta.setCustoFerramentas(12.50);
+        ferramenta.setCustoFerramenta(12.50);
         assertTrue(dao.UpdateFerramentaDB(ferramenta), "Falha ao atualizar ferramenta");
 
         Ferramenta atualizada = dao.RecuperaFerramentaDB(novoId);
