@@ -100,7 +100,7 @@ class TestAmigo {
      * Testa o método recuperaAmigoDB do Amigo utilizando a classe do AmigoFake
      */
     @Test
-    void testRecuperaAmigoDB() {
+    void testRecuperaAmigoBD() {
 
         Amigo resultado = amigo.RecuperaAmigoDB(1);
 
