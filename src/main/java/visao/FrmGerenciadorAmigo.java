@@ -221,7 +221,6 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
     Faz com que seja possivel selecioanr um amigo na tabela, clicando nela.
     */
     private void jTableAmigosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAmigosMouseClicked
-        // TODO add your handling code here:
         if (this.jTableAmigos.getSelectedRow() != -1) {
             JLIDATIVO.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(),0).toString());
             JLIDATIVO.setVisible(true);
@@ -238,7 +237,6 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
     Após editar limpa todos os TextFields
     */
     private void JBEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBEditarActionPerformed
-        // TODO add your handling code here:
         try {
             int id = Integer.parseInt(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 0).toString());
             String nome = "";

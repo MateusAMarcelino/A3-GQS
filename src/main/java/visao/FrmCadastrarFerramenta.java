@@ -126,7 +126,6 @@ public class FrmCadastrarFerramenta extends javax.swing.JFrame {
      * @param evt, que seria clicar o botão, ativa o codigo fehcando a janela
      */
     private void JBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelarActionPerformed
-        // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_JBCancelarActionPerformed
     

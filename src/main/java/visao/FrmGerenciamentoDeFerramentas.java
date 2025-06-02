@@ -213,7 +213,6 @@ public class FrmGerenciamentoDeFerramentas extends javax.swing.JFrame {
      * @param evt ao clicar com o mouse.
      */
     private void JTableFerramentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableFerramentasMouseClicked
-        // TODO add your handling code here:
         if (this.JTableFerramentas.getSelectedRow() != -1) {
             JLIDATIVO.setText(JTableFerramentas.getValueAt(this.JTableFerramentas.getSelectedRow(),0).toString());
             JLIDATIVO.setVisible(true);

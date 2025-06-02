@@ -181,7 +181,6 @@ public class FrmEmprestimoDeFerramentas extends javax.swing.JFrame {
     Caso a ferramenta já esteja emprestada não será possivel emprestar.
     */
     private void JBConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBConfirmarActionPerformed
-        // TODO add your handling code here:
      try {
     int conf = 0;
 
@@ -215,11 +214,9 @@ public class FrmEmprestimoDeFerramentas extends javax.swing.JFrame {
     }//GEN-LAST:event_JBConfirmarActionPerformed
 
     private void jCBNomeAmigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBNomeAmigoActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_jCBNomeAmigoActionPerformed
 
     private void jCBNomeFerramentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBNomeFerramentaActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_jCBNomeFerramentaActionPerformed
     /*
     Carrega a tabela de emprestimos, por isso puxa uma tabela de amigos e uma de ferramentas.
