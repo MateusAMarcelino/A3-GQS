@@ -15,7 +15,6 @@ public class AmigoDAO {
     Inicia o Utilitario,realizando a conecxão com o DB.
      */
     private Utilitario ut = new Utilitario();
-    private String Erro = "Erro:";
     private static final Logger LOGGER = Logger.getLogger(AmigoDAO.class.getName());
 
     /**

@@ -4,8 +4,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Utilitario {
+    
+private static final Logger LOGGER = Logger.getLogger(Utilitario.class.getName());
 
 public Connection getConexao() {
         Connection connection = null;
@@ -52,13 +56,13 @@ public Connection getConexao() {
             return connection;
 
         } catch (SQLException e) {
-            System.err.println("Erro ao conectar ou criar tabelas: " + e.getMessage());
+            LOGGER.log(Level.SEVERE, "Erro ao se conectar ou ao criar as tabelas", e);
             // Fecha a conexão se aberta (evita vazamento)
             if (connection != null) {
                 try {
                     connection.close();
                 } catch (SQLException ex) {
-                    System.err.println("Erro ao fechar conexão: " + ex.getMessage());
+                    LOGGER.log(Level.SEVERE, "Erro ao fechar a conexão com a tabela", ex);
                 }
             }
             return null;
@@ -68,10 +72,11 @@ public Connection getConexao() {
                 try {
                     stmt.close();
                 } catch (SQLException e) {
-                    System.err.println("Erro ao fechar Statement: " + e.getMessage());
+                     LOGGER.log(Level.SEVERE, "Erro ao fechar o statement");
+                }
                 }
             }
         }
     }
-}
+
     

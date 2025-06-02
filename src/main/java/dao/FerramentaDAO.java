@@ -16,7 +16,7 @@ public class FerramentaDAO {
      * dados.
      */
     private Utilitario ut = new Utilitario();
-    private static final Logger LOGGER = Logger.getLogger(AmigoDAO.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(FerramentaDAO.class.getName());
 
     /**
      * Cria um ArrayList para as ferramentas.
