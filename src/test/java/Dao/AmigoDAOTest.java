@@ -19,6 +19,8 @@ import java.util.logging.Logger;
 public class AmigoDAOTest {
     private Connection conexao;
     AmigoDAO dao = new AmigoDAO();
+    int idTeste = 999;
+    Amigo amigo = new Amigo(idTeste, "Teste", "123456", "teste@gmail.com");
     private static final Logger LOGGER = Logger.getLogger(AmigoDAO.class.getName());
 
     @BeforeEach
@@ -69,9 +71,6 @@ public class AmigoDAOTest {
     
     @Test
     void testInsertAmigoBD() {
-        int idTeste = 999;
-        Amigo amigo = new Amigo(idTeste, "Teste", "123456", "teste@gmail.com");
-
         boolean resultado = dao.insertAmigoBD(amigo);
 
         assertTrue(resultado);
@@ -87,8 +86,6 @@ public class AmigoDAOTest {
     
     @Test
     void testRecuperaAmigoDB() {
-        int idTeste = 999;
-        Amigo amigo = new Amigo(idTeste, "Teste", "123456", "teste@gmail.com");
         dao.insertAmigoBD(amigo);
     
         Amigo amigoRecuperado = dao.RecuperaAmigoBD(idTeste);
@@ -96,6 +93,22 @@ public class AmigoDAOTest {
         assertEquals(idTeste, amigoRecuperado.getIdAmigo());
         assertEquals("Teste", amigoRecuperado.getNomeAmigo());
         assertEquals("123456", amigoRecuperado.getTelefoneAmigo());
+        
+        dao.deleteAmigoBD(idTeste);
+    }
+    
+    @Test
+    void testUpdateAmigoBD() {
+        dao.insertAmigoBD(amigo);
+        
+        Amigo amigoAtualizado = new Amigo(idTeste, "Teste Atualizado", "999999", "testeatualizado@gmail.com");
+        boolean resultadoUpdate = dao.updateAmigoBD(amigoAtualizado);
+        assertTrue(resultadoUpdate, "A atualização falhou");
+        
+        Amigo amigoDoBanco = dao.RecuperaAmigoBD(idTeste);
+        assertEquals("Teste Atualizado", amigoDoBanco.getNomeAmigo());
+        assertEquals("999999", amigoDoBanco.getTelefoneAmigo());
+        assertEquals("testeatualizado@gmail.com", amigoDoBanco.getEmailAmigo());
         
         dao.deleteAmigoBD(idTeste);
     }
