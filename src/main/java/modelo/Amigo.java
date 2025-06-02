@@ -183,7 +183,7 @@ public class Amigo {
 
     
     public Amigo RecuperaAmigoDB(int IdAmigo) {
-        return dao.RecuperaAmigoDB(IdAmigo);
+        return dao.RecuperaAmigoBD(IdAmigo);
     }
  
 /**
