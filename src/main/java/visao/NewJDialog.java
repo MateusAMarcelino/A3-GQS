@@ -1,3 +1,5 @@
+package visao;
+
 /**
  * Classe que representa uma janela de diálogo do tipo modal, 
  * usada para exibir informações sobre o sistema.
