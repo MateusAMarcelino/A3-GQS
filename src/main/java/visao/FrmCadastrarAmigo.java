@@ -136,21 +136,16 @@ public class FrmCadastrarAmigo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelarActionPerformed
-        // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_JBCancelarActionPerformed
 
     private void JTFNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFNomeActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_JTFNomeActionPerformed
 
     private void JTFTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFTelefoneActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_JTFTelefoneActionPerformed
 
     private void JBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCadastrarActionPerformed
-        // TODO add your handling code here:
-        
         /*
         Cadastra um amigo no banco de dados, usando o metodo de InsertDB da classe AmigoDAO.
         
@@ -198,7 +193,6 @@ public class FrmCadastrarAmigo extends javax.swing.JFrame {
     }//GEN-LAST:event_JBCadastrarActionPerformed
 
     private void JTFEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFEmailActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_JTFEmailActionPerformed
 
     /**
