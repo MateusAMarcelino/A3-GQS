@@ -183,10 +183,17 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         FrmDevolverFerramentas objeto = new FrmDevolverFerramentas();
         objeto.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-    
-     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        new NewJDialog(null,true).show();
-    }                                          
+   /**
+ * Manipulador de evento para o item de menu "jMenuItem2".
+ * 
+ * Quando este item de menu é acionado (clicado), uma nova instância
+ * da caixa de diálogo {@code NewJDialog} é criada e exibida de forma modal.
+ * 
+ * @param evt O evento de ação que disparou este método.
+ */
+   private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    new NewJDialog(null, true).show();  // Exibe um JDialog modal
+   }                                        
     /**
      * @param args the command line arguments
      */
