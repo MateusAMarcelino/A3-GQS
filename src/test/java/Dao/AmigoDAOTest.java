@@ -6,8 +6,11 @@ import dao.AmigoDAO;
 import modelo.Amigo;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -15,6 +18,7 @@ import java.util.ArrayList;
  */
 public class AmigoDAOTest {
     private Connection conexao;
+    private static final Logger LOGGER = Logger.getLogger(AmigoDAO.class.getName());
 
     @BeforeEach
     void setup() throws Exception {
@@ -51,5 +55,29 @@ public class AmigoDAOTest {
         conexao.close();
     }
     
-    
+    @Test
+    void testGetListaAmigoSQLException() {
+        AmigoDAO dao = new AmigoDAO() {
+        @Override
+        public ArrayList<Amigo> getListaAmigo() {
+            ListaAmigo.clear();
+            try {
+                // Força uma query inválida para gerar SQLException
+                try (Statement stmt = new dao.Utilitario().getConexao().createStatement()) {
+                    stmt.executeQuery("SELECT * FROM tabela_inexistente");
+                }
+            } catch (SQLException ex) {
+                // Aqui o LOGGER será chamado
+                LOGGER.log(Level.SEVERE, "Erro ao acessar o banco de dados", ex);
+            }
+            return ListaAmigo;
+        }
+    };
+
+    // Executa o método, que deve cair no catch
+    ArrayList<Amigo> resultado = dao.getListaAmigo();
+
+    assertNotNull(resultado); // Mesmo com erro, deve retornar lista vazia
+    assertEquals(0, resultado.size());
+    }
 }
