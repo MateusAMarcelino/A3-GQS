@@ -14,6 +14,7 @@ public class EmprestimoDAO {
      * Inicializa o Utilitario para podermos realizar a conecxão com o banco de dados.
      */
     private Utilitario ut = new Utilitario();
+    private String Erro = "Erro:";
     
     /**
      * Cria um ArrayList para os emprestimos.
@@ -44,7 +45,7 @@ public class EmprestimoDAO {
                    ListaEmprestimo.add(objeto);
                }   }
     } catch (SQLException ex){
-        System.out.println("Erro: " + ex);
+        System.out.println(Erro + ex);
     }
        return ListaEmprestimo;
     }
@@ -70,7 +71,7 @@ public class EmprestimoDAO {
                 maiorIdEmprestimo = res.getInt("IdEmprestimo");
             }
         } catch (SQLException ex) {
-            System.out.println("Erro:" + ex);
+            System.out.println(Erro + ex);
         }
         return maiorIdEmprestimo;
     }
@@ -96,7 +97,7 @@ public class EmprestimoDAO {
 
             return true;
         } catch (SQLException erro) {
-            System.out.println("Erro:" + erro);
+            System.out.println(Erro + erro);
             throw new RuntimeException(erro);
         }
     }
@@ -113,7 +114,7 @@ public class EmprestimoDAO {
             }
 
         } catch (SQLException erro) {
-            System.out.println("Erro:" + erro);
+            System.out.println(Erro + erro);
         }
         return true;
     }
@@ -138,7 +139,7 @@ public class EmprestimoDAO {
                  emprestimo.setIdFerramentas(res.getInt("IdFerramentas"));
              }
         } catch (SQLException erro) {
-            System.out.println("Erro: " + erro);
+            System.out.println(Erro + erro);
         }
         return emprestimo;
      }
@@ -171,7 +172,7 @@ public class EmprestimoDAO {
 
         return true;
     } catch (SQLException erro) {
-        System.out.println("Erro:" + erro);
+        System.out.println(Erro + erro);
         throw new RuntimeException(erro);
     }
 }
