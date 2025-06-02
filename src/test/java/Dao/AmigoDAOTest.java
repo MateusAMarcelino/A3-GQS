@@ -68,9 +68,9 @@ public class AmigoDAOTest {
     }
     
     @Test
-        void testInsertAmigoBD() {
+    void testInsertAmigoBD() {
         int idTeste = 999;
-        Amigo amigo = new Amigo(idTeste, "Teste", "000000", "teste@gmail.com");
+        Amigo amigo = new Amigo(idTeste, "Teste", "123456", "teste@gmail.com");
 
         boolean resultado = dao.insertAmigoBD(amigo);
 
@@ -83,5 +83,20 @@ public class AmigoDAOTest {
 
         assertTrue(resultado);
         amigo.deleteAmigoBD(idTeste);
+    }
+    
+    @Test
+    void testRecuperaAmigoDB() {
+        int idTeste = 999;
+        Amigo amigo = new Amigo(idTeste, "Teste", "123456", "teste@gmail.com");
+        dao.insertAmigoBD(amigo);
+    
+        Amigo amigoRecuperado = dao.RecuperaAmigoDB(idTeste);
+        
+        assertEquals(idTeste, amigoRecuperado.getIdAmigo());
+        assertEquals("Teste", amigoRecuperado.getNomeAmigo());
+        assertEquals("123456", amigoRecuperado.getTelefoneAmigo());
+        
+        dao.deleteAmigoBD(idTeste);
     }
 }
