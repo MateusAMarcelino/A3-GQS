@@ -18,6 +18,7 @@ import java.util.logging.Logger;
  */
 public class AmigoDAOTest {
     private Connection conexao;
+    AmigoDAO dao = new AmigoDAO();
     private static final Logger LOGGER = Logger.getLogger(AmigoDAO.class.getName());
 
     @BeforeEach
@@ -36,7 +37,6 @@ public class AmigoDAOTest {
     
     @Test
     void testGetListaAmigo() {
-        AmigoDAO dao = new AmigoDAO();
         ArrayList<Amigo> lista = dao.getListaAmigo();
 
         assertNotNull(lista);
@@ -54,30 +54,34 @@ public class AmigoDAOTest {
         stmt.close();
         conexao.close();
     }
+       
+    @Test
+    void testSetListaAmigo() {
+        Amigo amigo = new Amigo(1, "Osmar", "123456", "Osmar@gmail.com");
+        ArrayList<Amigo> novaLista = new ArrayList<>();
+        novaLista.add(amigo);
+
+        AmigoDAO.setListaAmigo(novaLista);
+
+        assertEquals(1, AmigoDAO.ListaAmigo.size());
+        assertEquals("Osmar", AmigoDAO.ListaAmigo.get(0).getNomeAmigo());
+    }
     
     @Test
-    void testGetListaAmigoSQLException() {
-        AmigoDAO dao = new AmigoDAO() {
-        @Override
-        public ArrayList<Amigo> getListaAmigo() {
-            ListaAmigo.clear();
-            try {
-                // Força uma query inválida para gerar SQLException
-                try (Statement stmt = new dao.Utilitario().getConexao().createStatement()) {
-                    stmt.executeQuery("SELECT * FROM tabela_inexistente");
-                }
-            } catch (SQLException ex) {
-                // Aqui o LOGGER será chamado
-                LOGGER.log(Level.SEVERE, "Erro ao acessar o banco de dados", ex);
-            }
-            return ListaAmigo;
-        }
-    };
+        void testInsertAmigoBD() {
+        int idTeste = 999;
+        Amigo amigo = new Amigo(idTeste, "Teste", "000000", "teste@gmail.com");
 
-    // Executa o método, que deve cair no catch
-    ArrayList<Amigo> resultado = dao.getListaAmigo();
+        boolean resultado = dao.insertAmigoBD(amigo);
 
-    assertNotNull(resultado); // Mesmo com erro, deve retornar lista vazia
-    assertEquals(0, resultado.size());
+        assertTrue(resultado);
+
+        boolean encontrado = AmigoDAO.ListaAmigo.stream()
+            .anyMatch(a -> a.getIdAmigo() == idTeste);
+
+        dao.deleteAmigoBD(idTeste);
+
+        assertTrue(resultado);
+        amigo.deleteAmigoBD(idTeste);
     }
 }
