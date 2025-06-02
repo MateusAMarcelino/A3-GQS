@@ -136,6 +136,7 @@ public class FrmCadastrarAmigo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelarActionPerformed
+
         this.dispose();
     }//GEN-LAST:event_JBCancelarActionPerformed
 
