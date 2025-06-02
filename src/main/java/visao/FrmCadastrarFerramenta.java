@@ -136,7 +136,6 @@ public class FrmCadastrarFerramenta extends javax.swing.JFrame {
      * @param evt que seria clicar o botão, ativa o codigo cadastrando uma ferramenta.
      */
     private void JBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCadastrarActionPerformed
-        // TODO add your handling code here:
         try{
             
           Ferramenta ferramenta = new Ferramenta();  
@@ -177,11 +176,9 @@ public class FrmCadastrarFerramenta extends javax.swing.JFrame {
     }//GEN-LAST:event_JBCadastrarActionPerformed
 
     private void JTFMarcaFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFMarcaFActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_JTFMarcaFActionPerformed
 
     private void JTFNomeFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFNomeFActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_JTFNomeFActionPerformed
 
     /**

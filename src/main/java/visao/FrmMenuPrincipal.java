@@ -6,7 +6,7 @@ package visao;
 
 /**
  *
- * @author guiho
+ * @author 
  */
 public class FrmMenuPrincipal extends javax.swing.JFrame {
 
@@ -133,7 +133,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     Torna a janela de cadastrar amigo visivel.
     */
     private void jMenuItemCadastroDeAmigosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroDeAmigosActionPerformed
-        // TODO add your handling code here:
         FrmCadastrarAmigo tela = new FrmCadastrarAmigo();
 
         tela.setVisible(true);
@@ -143,7 +142,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     Torna a janela de cadastrar ferramentas visivel.
     */
     private void jMenuItemCadastroDeFerramentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroDeFerramentasActionPerformed
-        // TODO add your handling code here:
         FrmCadastrarFerramenta tela = new FrmCadastrarFerramenta();
 
         tela.setVisible(true);
@@ -152,7 +150,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     Torna a janela de gerenciamento de ferramentas visivel.
     */
     private void jMenuItemGerenciamentoDeFerramentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGerenciamentoDeFerramentasActionPerformed
-        // TODO add your handling code here:
          FrmGerenciamentoDeFerramentas objeto = new FrmGerenciamentoDeFerramentas();
          objeto.setVisible(true);
     }//GEN-LAST:event_jMenuItemGerenciamentoDeFerramentasActionPerformed
@@ -160,7 +157,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     Torna a janela de emprestimo de ferramentas visivel.
     */
     private void jMenuItemEmprestimoDeFerramentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEmprestimoDeFerramentasActionPerformed
-        // TODO add your handling code here:
         FrmEmprestimoDeFerramentas objeto = new FrmEmprestimoDeFerramentas();
         objeto.setVisible(true);
     }//GEN-LAST:event_jMenuItemEmprestimoDeFerramentasActionPerformed
@@ -168,7 +164,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     Torna a janela de gerenciar amigo visivel.
     */
     private void jMenuItemGerenciadorAmigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGerenciadorAmigoActionPerformed
-        // TODO add your handling code here:
         FrmGerenciadorAmigo amigo = new FrmGerenciadorAmigo();
 
         amigo.setVisible(true);
@@ -177,7 +172,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     Torna a janela do relatorio de emprestimos visivel.
     */
     private void jMenuItemRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRelatorioActionPerformed
-        // TODO add your handling code here:
         FrmRelatorioEmprestimo menu = new FrmRelatorioEmprestimo();
         menu.setVisible (true);
     }//GEN-LAST:event_jMenuItemRelatorioActionPerformed
@@ -186,7 +180,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     Torna a janela de devolver ferramentas visivel.
     */
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
         FrmDevolverFerramentas objeto = new FrmDevolverFerramentas();
         objeto.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed

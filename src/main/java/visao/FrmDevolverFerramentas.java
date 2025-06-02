@@ -182,7 +182,6 @@ public class FrmDevolverFerramentas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JTFDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFDataActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_JTFDataActionPerformed
 
     private void JTFDataKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTFDataKeyTyped
@@ -192,7 +191,6 @@ public class FrmDevolverFerramentas extends javax.swing.JFrame {
     }//GEN-LAST:event_JTFDataKeyTyped
 
     private void JTFMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFMesActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_JTFMesActionPerformed
 
     private void JTFMesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTFMesKeyTyped
@@ -202,7 +200,6 @@ public class FrmDevolverFerramentas extends javax.swing.JFrame {
     }//GEN-LAST:event_JTFMesKeyTyped
 
     private void JTFAnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFAnoActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_JTFAnoActionPerformed
 
     private void JBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelarActionPerformed

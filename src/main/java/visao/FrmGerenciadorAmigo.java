@@ -209,16 +209,13 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelarActionPerformed
-        // TODO add your handling code here:
          this.dispose();
     }//GEN-LAST:event_JBCancelarActionPerformed
 
     private void JTFNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFNomeActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_JTFNomeActionPerformed
 
     private void JTFTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFTelefoneActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_JTFTelefoneActionPerformed
 /*
     Faz com que seja possivel selecioanr um amigo na tabela, clicando nela.
@@ -282,7 +279,6 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
     Apaga um amigo, deletando o mesmo tambem do banco de dados.
     */
     private void JBApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBApagarActionPerformed
-        // TODO add your handling code here:
         try{
             int id = 0;
             if (this.jTableAmigos.getSelectedRow() == -1){

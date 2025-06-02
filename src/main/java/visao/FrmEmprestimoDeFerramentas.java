@@ -16,10 +16,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Amigo;
 
-/**
- *
- * @author guiho
- */
 public class FrmEmprestimoDeFerramentas extends javax.swing.JFrame {
 
     private Ferramenta ferramenta;
@@ -148,7 +144,6 @@ public class FrmEmprestimoDeFerramentas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelarActionPerformed
-        // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_JBCancelarActionPerformed
 

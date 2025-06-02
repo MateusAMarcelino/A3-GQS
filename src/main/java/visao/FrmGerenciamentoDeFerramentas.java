@@ -7,10 +7,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import static dao.FerramentaDAO.CalcularSoma;
-/**
- *
- * @author guiho
- */
+
 public class FrmGerenciamentoDeFerramentas extends javax.swing.JFrame {
 
     private Ferramenta ferramenta;
@@ -202,15 +199,12 @@ public class FrmGerenciamentoDeFerramentas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JTFNomeAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFNomeAlterarActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_JTFNomeAlterarActionPerformed
 
     private void JTFMarcaAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFMarcaAlterarActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_JTFMarcaAlterarActionPerformed
 
     private void JBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelarActionPerformed
-        // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_JBCancelarActionPerformed
 
@@ -235,7 +229,6 @@ public class FrmGerenciamentoDeFerramentas extends javax.swing.JFrame {
      * @param evt ao clicar no botão.
      */
     private void JBAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAlterarActionPerformed
-        // TODO add your handling code here:
         try {
             int IdFerramentas = Integer.parseInt(JTableFerramentas.getValueAt(this.JTableFerramentas.getSelectedRow(), 0).toString());
             String NomeFerramentas = "";
@@ -279,7 +272,6 @@ public class FrmGerenciamentoDeFerramentas extends javax.swing.JFrame {
      * @param evt 
      */
     private void JBApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBApagarActionPerformed
-        // TODO add your handling code here:
         try {
             int IdFerramentas = 0;
             if (this.JTableFerramentas.getSelectedRow() == -1){

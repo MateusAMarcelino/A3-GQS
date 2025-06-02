@@ -234,7 +234,6 @@ public class FrmRelatorioEmprestimo extends javax.swing.JFrame {
     Torna possivel exibir as informações de um emprestimo nos labels ao clicar neles.
     */
     private void JTEmprestimosAtivosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTEmprestimosAtivosMouseClicked
-        // TODO add your handling code here:
        try {
             if (this.JTEmprestimosAtivos.getSelectedRow() != -1) {
                 int selectedRow = this.JTEmprestimosAtivos.getSelectedRow();
