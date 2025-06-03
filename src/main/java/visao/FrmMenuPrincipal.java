@@ -1,20 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package visao;
 
-/**
- *
- * @author 
- */
 public class FrmMenuPrincipal extends javax.swing.JFrame {
 
-    /**
+   /**
      * Creates new form FrmMenuPrincipal
      */
     public FrmMenuPrincipal() {
         initComponents();
+    }
+    
+    protected void encerrarAplicacao() {
+        System.exit(0);
+    }
+    
+    boolean isEmTeste() {
+        return Boolean.getBoolean("modoTeste");
     }
 
     /**
