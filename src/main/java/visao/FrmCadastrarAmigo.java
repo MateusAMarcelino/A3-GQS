@@ -1,6 +1,9 @@
 package visao;
 
+import dao.FerramentaDAO;
 import java.awt.Font;
+import java.util.logging.Logger;
+import javax.swing.JButton;
 import modelo.Amigo;
 import javax.swing.JOptionPane;
 
@@ -8,22 +11,27 @@ public class FrmCadastrarAmigo extends javax.swing.JFrame {
 
     /*
     Cria o vinculo com a classe amigo.
-    */
+     */
     private Amigo objetoamigo;
     private String Fonte = "Segoe UI 14 Plain";
-    
+    private String mensagem;
+
     /*
     Cria e inicializa a tela de cadastar amigos.
-    */
+     */
     public FrmCadastrarAmigo() {
         initComponents();
         this.objetoamigo = new Amigo();
     }
 
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
+    }
+
     /**
-     * Este método é chamado de dentro do construtor para inicializar o formulário.
-     * AVISO: NÃO modifique este código. O conteúdo deste método é sempre
-     * regenerado pelo Editor de Formulários.
+     * Este método é chamado de dentro do construtor para inicializar o
+     * formulário. AVISO: NÃO modifique este código. O conteúdo deste método é
+     * sempre regenerado pelo Editor de Formulários.
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -153,33 +161,33 @@ public class FrmCadastrarAmigo extends javax.swing.JFrame {
         Cadastra um amigo no banco de dados, usando o metodo de InsertDB da classe AmigoDAO.
         
         Ele pega as informações dos JavaTextFields, tendo seus requisitos para ser validado.
-        */
-        try{
-            
+         */
+        try {
+
             Amigo amigo = new Amigo();
             String nome = "";
             String telefone = "";
             String email = "";
-            
-            if(this.JTFNome.getText().length()<2){
-                throw new Mensagem ("O nome deve possuir ao menos 2 caracteres"); // Aqui para o nome ser valdio, ele deve ter no minimo 2 caracteres
+
+            if (this.JTFNome.getText().length() < 2) {
+                throw new Mensagem("O nome deve possuir ao menos 2 caracteres"); // Aqui para o nome ser valdio, ele deve ter no minimo 2 caracteres
             } else {
                 nome = this.JTFNome.getText();
             }
-            
-            if(this.JTFTelefone.getText().length() == 9){
+
+            if (this.JTFTelefone.getText().length() == 9) {
                 telefone = (JTFTelefone.getText());
             } else {
-                throw new Mensagem ("O número de telefone deve possuir exatamente 9 digitos"); // Aqui para o telefone ser valido ele tem que ter 9 digitos.
+                throw new Mensagem("O número de telefone deve possuir exatamente 9 digitos"); // Aqui para o telefone ser valido ele tem que ter 9 digitos.
             }
-            
-            if(this.JTFEmail.getText().length()<11){
+
+            if (this.JTFEmail.getText().length() < 11) {
                 throw new Mensagem("O email deve conter no mínimo 11 dígitos, como: X@gmail.com"); // Aqui para o email ser valido ele tem que ter 11 digitos.
             } else {
                 email = this.JTFEmail.getText();
             }
-            
-            if (this.objetoamigo.insertAmigoBD(nome, telefone, email)){ // Aqui, após todos acima estrem de acordo com os requisitos insere o amigo no Banco de dados.
+
+            if (this.objetoamigo.insertAmigoBD(nome, telefone, email)) { // Aqui, após todos acima estrem de acordo com os requisitos insere o amigo no Banco de dados.
                 JOptionPane.showMessageDialog(null, "Amigo inserido com sucesso!");
                 //Limpa todos os campos da interface
                 this.JTFNome.setText("");
@@ -187,10 +195,10 @@ public class FrmCadastrarAmigo extends javax.swing.JFrame {
                 this.JTFEmail.setText("");
             }
             System.out.println(this.objetoamigo.ListaAmigo().toString());
-            
-        } catch (Mensagem erro){
+
+        } catch (Mensagem erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
-        } catch (NumberFormatException erro2){
+        } catch (NumberFormatException erro2) {
             JOptionPane.showMessageDialog(null, "Informe um número válido.");
         }
     }//GEN-LAST:event_JBCadastrarActionPerformed
@@ -231,6 +239,26 @@ public class FrmCadastrarAmigo extends javax.swing.JFrame {
                 new FrmCadastrarAmigo().setVisible(true);
             }
         });
+    }
+
+    protected javax.swing.JTextField getJTFNome() {
+        return this.JTFNome;  // acesso direto porque está dentro da classe
+    }
+
+    protected javax.swing.JTextField getJTFTelefone() {
+        return this.JTFTelefone;  // acesso direto porque está dentro da classe
+    }
+
+    protected javax.swing.JTextField getJTFEmail() {
+        return this.JTFEmail;  // acesso direto porque está dentro da classe
+    }
+
+    protected JButton getJBCadastrar() {
+        return this.JBCadastrar;  // acesso direto porque está dentro da classe
+    }
+
+    protected JButton getJBCancelar() {
+        return this.JBCancelar;  // acesso direto porque está dentro da classe
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
