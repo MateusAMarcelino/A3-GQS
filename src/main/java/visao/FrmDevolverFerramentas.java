@@ -222,6 +222,8 @@ public class FrmDevolverFerramentas extends javax.swing.JFrame {
                 break;
             case 1:
                 data = JTFAno.getText() + "-" + JTFMes.getText() + "-" + JTFData.getText();
+            default:
+                break;
         }
         if (emp.updateEmprestimoDB(listaEmprestimo.get(posicaoEmprestimo).getIdEmprestimo(), listaEmprestimo.get(posicaoEmprestimo).getIdAmigo(), listaEmprestimo.get(posicaoEmprestimo).getIdFerramentas(), listaEmprestimo.get(posicaoEmprestimo).getDataEmp(), data + "")) {
             JOptionPane.showMessageDialog(null, "Devolucao cadastrada com sucesso");
@@ -251,6 +253,8 @@ public class FrmDevolverFerramentas extends javax.swing.JFrame {
             JTFAno.setVisible(false);
             jLabel3.setVisible(false);
             jLabel4.setVisible(false);
+            default:
+                break;
         }
     }//GEN-LAST:event_JCBTipoRegistroActionPerformed
 
