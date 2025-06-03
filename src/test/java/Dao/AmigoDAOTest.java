@@ -113,4 +113,16 @@ import java.util.logging.Logger;
         
         dao.deleteAmigoBD(idTeste);
     }
+  
+        @Test
+         void TestdoErro() {
+        AmigoDAO dao = new AmigoDAO();
+        Amigo amigoRecebido = dao.RecuperaAmigoBD(4);
+        int idAmigoEsperado = 4;
+        String NomeEsperado = "";
+        String TelefoneEsperado = "";
+        assertEquals(idAmigoEsperado, amigoRecebido.getIdAmigo());
+        assertEquals(NomeEsperado, amigoRecebido.getNomeAmigo());
+        assertEquals(TelefoneEsperado, amigoRecebido.getTelefoneAmigo());
+    }
 }

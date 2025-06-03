@@ -43,7 +43,7 @@ class EmprestimoDAOTest {
      * Em seguida, verifica se a lista retornada não é nula nem vazia.
      */
     @Test
-void testGetListaEmprestimo() {
+    void testGetListaEmprestimo() {
     int novoId = dao.maiorIDEmprestimo() + 1;
     Emprestimo emp = new Emprestimo(novoId, 1, 1, "2025-05-25", "2025-06-01");
     dao.insertEmprestimoBD(emp); // <-- insere um empréstimo
@@ -74,5 +74,12 @@ void testGetListaEmprestimo() {
         emp.setDataDev("2025-06-05"); // Atualiza a data de devolução
         boolean result = dao.updateEmprestimoBD(emp);
         assertTrue(result, "Falha ao atualizar empréstimo.");
+    }
+    
+        @AfterEach
+    void limpar() {
+        EmprestimoDAO dao = new EmprestimoDAO();
+        dao.deleteEmprestimoBD(2);
+        dao.deleteEmprestimoBD(3);
     }
 }
