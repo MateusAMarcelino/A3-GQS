@@ -220,9 +220,8 @@ public class FrmDevolverFerramentas extends javax.swing.JFrame {
             case 0:
                 data = LocalDate.now() + "";
                 break;
-            case 1:
-                data = JTFAno.getText() + "-" + JTFMes.getText() + "-" + JTFData.getText();
             default:
+                data = JTFAno.getText() + "-" + JTFMes.getText() + "-" + JTFData.getText();
                 break;
         }
         if (emp.updateEmprestimoDB(listaEmprestimo.get(posicaoEmprestimo).getIdEmprestimo(), listaEmprestimo.get(posicaoEmprestimo).getIdAmigo(), listaEmprestimo.get(posicaoEmprestimo).getIdFerramentas(), listaEmprestimo.get(posicaoEmprestimo).getDataEmp(), data + "")) {
@@ -240,20 +239,19 @@ public class FrmDevolverFerramentas extends javax.swing.JFrame {
     private void JCBTipoRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBTipoRegistroActionPerformed
         int tipo = JCBTipoRegistro.getSelectedIndex();
         switch (tipo) {
-            case 1:
+            case 0:
             JTFData.setVisible(true);
             JTFMes.setVisible(true);
             JTFAno.setVisible(true);
             jLabel3.setVisible(true);
             jLabel4.setVisible(true);
             break;
-            case 0:
+            default:
             JTFData.setVisible(false);
             JTFMes.setVisible(false);
             JTFAno.setVisible(false);
             jLabel3.setVisible(false);
-            jLabel4.setVisible(false);
-            default:
+            jLabel4.setVisible(false);    
                 break;
         }
     }//GEN-LAST:event_JCBTipoRegistroActionPerformed
