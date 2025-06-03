@@ -73,9 +73,9 @@ public class NewJDialog extends javax.swing.JDialog {
 
         // Demais rótulos com informações
         jLabel2.setText("Versão 2.0");
-        jLabel3.setText("Sistema realizado para o trabalho da a3 da unisul.");
+        jLabel3.setText("Sistema realizado para a avaliação da A3 da Unisul.");
         jLabel4.setText("Alunos participantes: Mateus, Lorenzo, Guilherme e Pedro.");
-        jLabel5.setText("Refacção cobrindo os códigos do trabalho da UC de programação.");
+        jLabel5.setText("Refacção e cobertura dos códigos do trabalho da UC de programação.");
 
         // Layout principal da janela
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
