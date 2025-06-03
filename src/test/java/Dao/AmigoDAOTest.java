@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  *
  * @author lorenzoeid
  */
-public class AmigoDAOTest {
+   class AmigoDAOTest {
     private Connection conexao;
     AmigoDAO dao = new AmigoDAO();
     int idTeste = 999;
