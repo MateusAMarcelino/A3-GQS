@@ -1,5 +1,6 @@
 package visao;
 
+import java.awt.Font;
 import modelo.Amigo;
 import javax.swing.JOptionPane;
 
@@ -9,6 +10,7 @@ public class FrmCadastrarAmigo extends javax.swing.JFrame {
     Cria o vinculo com a classe amigo.
     */
     private Amigo objetoamigo;
+    private String Fonte = "Segoe UI 14 Plain";
     
     /*
     Cria e inicializa a tela de cadastar amigos.
