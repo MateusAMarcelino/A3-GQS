@@ -24,17 +24,9 @@ public class FrmCadastrarAmigo extends javax.swing.JFrame {
         this.objetoamigo = new Amigo();
     }
 
-    
-     public  String getMensagem() {
-        return mensagem; 
-    }
-    
-    
     public void setMensagem(String mensagem) {
         this.mensagem = mensagem;
     }
-    
-   
 
     /**
      * Este método é chamado de dentro do construtor para inicializar o
@@ -154,10 +146,7 @@ public class FrmCadastrarAmigo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelarActionPerformed
-        this.JTFNome.setText("");
-        this.JTFTelefone.setText("");
-        this.JTFEmail.setText("");
-        this.setMensagem(null); 
+
         this.dispose();
     }//GEN-LAST:event_JBCancelarActionPerformed
 
@@ -173,65 +162,45 @@ public class FrmCadastrarAmigo extends javax.swing.JFrame {
         
         Ele pega as informações dos JavaTextFields, tendo seus requisitos para ser validado.
          */
-         try {
+        try {
+
+            Amigo amigo = new Amigo();
             String nome = "";
             String telefone = "";
             String email = "";
 
             if (this.JTFNome.getText().length() < 2) {
-                // Define a mensagem na variável ANTES de lançar a exceção
-                setMensagem("O nome deve possuir ao menos 2 caracteres"); 
-                throw new Mensagem(getMensagem()); // Lança a exceção com a mensagem
+                throw new Mensagem("O nome deve possuir ao menos 2 caracteres"); // Aqui para o nome ser valdio, ele deve ter no minimo 2 caracteres
             } else {
                 nome = this.JTFNome.getText();
             }
 
-            if (this.JTFTelefone.getText().length() != 9) { // Note que era == 9 no seu código
-                // Define a mensagem na variável ANTES de lançar a exceção
-                setMensagem("O número de telefone deve possuir exatamente 9 digitos");
-                throw new Mensagem(getMensagem());
-            } else {
+            if (this.JTFTelefone.getText().length() == 9) {
                 telefone = (JTFTelefone.getText());
+            } else {
+                throw new Mensagem("O número de telefone deve possuir exatamente 9 digitos"); // Aqui para o telefone ser valido ele tem que ter 9 digitos.
             }
 
-            // Você não tem validação de "@" ou "." no seu FrmCadastrarAmigo, apenas comprimento.
-            // Para ser consistente com o teste, você pode adicionar.
             if (this.JTFEmail.getText().length() < 11) {
-                // Define a mensagem na variável ANTES de lançar a exceção
-                setMensagem("O email deve conter no mínimo 11 dígitos, como: X@gmail.com");
-                throw new Mensagem(getMensagem());
+                throw new Mensagem("O email deve conter no mínimo 11 dígitos, como: X@gmail.com"); // Aqui para o email ser valido ele tem que ter 11 digitos.
             } else {
                 email = this.JTFEmail.getText();
             }
 
-            // Supondo que objetoamigo.insertAmigoBD(nome, telefone, email) retorna true/false
-            if (this.objetoamigo.insertAmigoBD(nome, telefone, email)) {
-                // Define a mensagem de sucesso na variável
-                setMensagem("Amigo inserido com sucesso!");
-                JOptionPane.showMessageDialog(null, getMensagem()); // Agora o JOptionPane pega da variável
-                
-                // Limpa todos os campos da interface
+            if (this.objetoamigo.insertAmigoBD(nome, telefone, email)) { // Aqui, após todos acima estrem de acordo com os requisitos insere o amigo no Banco de dados.
+                JOptionPane.showMessageDialog(null, "Amigo inserido com sucesso!");
+                //Limpa todos os campos da interface
                 this.JTFNome.setText("");
                 this.JTFTelefone.setText("");
                 this.JTFEmail.setText("");
-            } else {
-                // Se a inserção falhar por algum motivo não coberto pelas validações acima
-                setMensagem("Falha ao inserir amigo no banco de dados.");
-                JOptionPane.showMessageDialog(null, getMensagem());
             }
-            
-            System.out.println(this.objetoamigo.ListaAmigo().toString()); // Boa para depuração
-            
+            System.out.println(this.objetoamigo.ListaAmigo().toString());
+
         } catch (Mensagem erro) {
-            // A mensagem já foi definida pelo 'setMensagem' antes do throw
-            // Apenas exiba-a ou faça outra ação de UI
             JOptionPane.showMessageDialog(null, erro.getMessage());
         } catch (NumberFormatException erro2) {
-            // Define a mensagem para o erro de formato de número
-            setMensagem("Informe um número válido.");
-            JOptionPane.showMessageDialog(null, getMensagem());
+            JOptionPane.showMessageDialog(null, "Informe um número válido.");
         }
-    
     }//GEN-LAST:event_JBCadastrarActionPerformed
 
     private void JTFEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFEmailActionPerformed
