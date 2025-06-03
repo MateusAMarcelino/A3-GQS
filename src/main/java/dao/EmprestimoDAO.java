@@ -7,6 +7,8 @@ import java.sql.Statement;
 import java.sql.Types;
 import java.util.ArrayList;
 import modelo.Emprestimo;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class EmprestimoDAO {
     
@@ -15,6 +17,7 @@ public class EmprestimoDAO {
      */
     private Utilitario ut = new Utilitario();
     private String Erro = "Erro:";
+    private static final Logger LOGGER = Logger.getLogger(Utilitario.class.getName());
     
     /**
      * Cria um ArrayList para os emprestimos.
@@ -45,7 +48,8 @@ public class EmprestimoDAO {
                    ListaEmprestimo.add(objeto);
                }   }
     } catch (SQLException ex){
-        System.out.println(Erro + ex);
+        LOGGER.log(Level.SEVERE, "Erro ao acessar os emprestimos", ex);
+
     }
        return ListaEmprestimo;
     }
@@ -71,7 +75,7 @@ public class EmprestimoDAO {
                 maiorIdEmprestimo = res.getInt("IdEmprestimo");
             }
         } catch (SQLException ex) {
-            System.out.println(Erro + ex);
+            LOGGER.log(Level.SEVERE, "Erro ao achar o maior ID", ex);
         }
         return maiorIdEmprestimo;
     }
@@ -97,9 +101,9 @@ public class EmprestimoDAO {
 
             return true;
         } catch (SQLException erro) {
-            System.out.println(Erro + erro);
-            throw new RuntimeException(erro);
+           LOGGER.log(Level.SEVERE, "Erro ao inserir o imprestimo");
         }
+        return false;
     }
     
      /**
@@ -114,7 +118,8 @@ public class EmprestimoDAO {
             }
 
         } catch (SQLException erro) {
-            System.out.println(Erro + erro);
+            LOGGER.log(Level.SEVERE, "Erro ao deletar o emprestimo");
+
         }
         return true;
     }
@@ -172,9 +177,9 @@ public class EmprestimoDAO {
 
         return true;
     } catch (SQLException erro) {
-        System.out.println(Erro + erro);
-        throw new RuntimeException(erro);
+        LOGGER.log(Level.SEVERE, "Erro ao atualizar o emprestimo");
     }
+        return false;
 }
      
 
