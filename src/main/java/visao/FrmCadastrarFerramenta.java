@@ -1,21 +1,29 @@
 package visao;
 
+import javax.swing.JButton;
 import modelo.Ferramenta;
 import javax.swing.JOptionPane;
 
-
-
 public class FrmCadastrarFerramenta extends javax.swing.JFrame {
 
-   
+    private String mensagem;
+
     /*
     Inicia os componentes, carregando a tela cadastrar ferramentas.
-    */
+     */
     public FrmCadastrarFerramenta() {
         initComponents();
         new Ferramenta();
     }
-    
+
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
+    }
+
+    public String getMensagem() {
+        return mensagem;
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -123,54 +131,72 @@ public class FrmCadastrarFerramenta extends javax.swing.JFrame {
 
     /**
      * Fecha a tela de cadastrar ferramenta.
+     *
      * @param evt, que seria clicar o botão, ativa o codigo fehcando a janela
      */
     private void JBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelarActionPerformed
+        JTFNomeF.setText("");
+        JTFCustoF.setText("");
+        JTFMarcaF.setText("");
+        
         this.dispose();
     }//GEN-LAST:event_JBCancelarActionPerformed
-    
-    
+
     /**
      * Cadastra uma ferramenta, pegando as informações dos javatextfield.
-     * @param evt que seria clicar o botão, ativa o codigo cadastrando uma ferramenta.
+     *
+     * @param evt que seria clicar o botão, ativa o codigo cadastrando uma
+     * ferramenta.
      */
     private void JBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCadastrarActionPerformed
-        try{
-            
-          Ferramenta ferramenta = new Ferramenta();  
-          String NomeFerramentas = "";
-          double CustoFerrametas = 0.0;
-          String MarcaFerramentas = "";
-          
-          if(this.JTFNomeF.getText().length() < 2){ /*Caso o texto no field tenha menos que 2 caracteres, manda um aviso dizendo que deve ter mais de 2 caracteres. */
-              throw new Mensagem("Nome deve conter ao menos dois caracteres.");
-          }else { /*Caso o texto no field seja maior de 2 caracteres, pega o texto e coloca na variavel NomeFerrramenta */
-            NomeFerramentas = this.JTFNomeF.getText();
-          }
-          
-          if(this.JTFCustoF.getText().length() <= 0){ /*Caso o texto inserido no textfield seja menor que 0, numericamente , manda um aviso dizendo que deve ser maior que 0. */
-              throw new Mensagem("Custo deve ser maior que zero.");
-          }else{ /*Caso o texto no field seja maior que 0, pega o texto covnerte para um valor tipo INT e coloca na variavel CustoFerramenta */
-           CustoFerrametas = Double.parseDouble(this.JTFCustoF.getText());
-          }
-          if(this.JTFMarcaF.getText().length() < 2){ /*Caso o texto no field tenha menos que 2 caracteres, manda um aviso dizendo que deve ter mais de 2 caracteres. */
-              throw new Mensagem("Marca deve conter dois caracteres.");
-          }else{ /*Caso o texto no field seja maior de 2 caracteres, pega o texto e coloca na variavel MarcaFerramenta */
-           MarcaFerramentas = this.JTFMarcaF.getText();
-          }
-          
-          if(ferramenta.InsertFerramentaDB(NomeFerramentas, MarcaFerramentas, CustoFerrametas)){ /*Se tudo estiver de acordo com os requisitos acima, manda uma mensagem avisando que a ferramenta foi cadastrada com sucesso
-              e apaga todos os text fields.*/
-              JOptionPane.showMessageDialog(null, "Ferramenta Cadastrado com Sucesso!");
-              this.JTFNomeF.setText("");
-              this.JTFCustoF.setText("");
-              this.JTFMarcaF.setText("");
+        try {
+
+            Ferramenta ferramenta = new Ferramenta();
+            String NomeFerramentas = "";
+            double CustoFerrametas = 0.0;
+            String MarcaFerramentas = "";
+
+            if (this.JTFNomeF.getText().length() < 2) {
+                /*Caso o texto no field tenha menos que 2 caracteres, manda um aviso dizendo que deve ter mais de 2 caracteres. */
+                throw new Mensagem("Nome deve conter ao menos dois caracteres.");
+            } else {
+                /*Caso o texto no field seja maior de 2 caracteres, pega o texto e coloca na variavel NomeFerrramenta */
+                NomeFerramentas = this.JTFNomeF.getText();
             }
-          
-        } catch (Mensagem erro){ /* Caso não esteja de acordo com os requisitos acimas, manda aviso falando que não foi possivel */
-            JOptionPane.showMessageDialog(null,erro.getMessage());
-        } catch (NumberFormatException erro2){
-            JOptionPane.showMessageDialog(null, "Informe um número valido.");
+
+            try {
+                CustoFerrametas = Double.parseDouble(this.JTFCustoF.getText());
+                if (CustoFerrametas <= 0) {
+                    throw new Mensagem("Custo deve ser maior que zero.");
+                }
+            } catch (NumberFormatException e) {
+                throw new Mensagem("Informe um número válido para o custo.");
+
+            }
+            if (this.JTFMarcaF.getText().length() < 2) {
+                /*Caso o texto no field tenha menos que 2 caracteres, manda um aviso dizendo que deve ter mais de 2 caracteres. */
+                throw new Mensagem("Marca deve conter dois caracteres.");
+            } else {
+                /*Caso o texto no field seja maior de 2 caracteres, pega o texto e coloca na variavel MarcaFerramenta */
+                MarcaFerramentas = this.JTFMarcaF.getText();
+            }
+
+            if (ferramenta.InsertFerramentaDB(NomeFerramentas, MarcaFerramentas, CustoFerrametas)) {
+                /*Se tudo estiver de acordo com os requisitos acima, manda uma mensagem avisando que a ferramenta foi cadastrada com sucesso
+              e apaga todos os text fields.*/
+                mensagem = "Ferramenta Cadastrado com Sucesso!";
+                JOptionPane.showMessageDialog(null, mensagem);
+                this.JTFNomeF.setText("");
+                this.JTFCustoF.setText("");
+                this.JTFMarcaF.setText("");
+            }
+
+        } catch (Mensagem erro) {
+            this.mensagem = erro.getMessage(); // Adiciona esta linha
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+        } catch (NumberFormatException erro2) {
+            this.mensagem = "Informe um número valido.";
+            JOptionPane.showMessageDialog(null, this.mensagem);
         }
     }//GEN-LAST:event_JBCadastrarActionPerformed
 
@@ -214,6 +240,27 @@ public class FrmCadastrarFerramenta extends javax.swing.JFrame {
             }
         });
     }
+
+    protected javax.swing.JTextField getJTFNomeF() {
+        return this.JTFNomeF;  // acesso direto porque está dentro da classe
+    }
+
+    protected javax.swing.JTextField getJTFMarcaF() {
+        return this.JTFMarcaF;  // acesso direto porque está dentro da classe
+    }
+
+    protected javax.swing.JTextField getJTFCustoF() {
+        return this.JTFCustoF;  // acesso direto porque está dentro da classe
+    }
+
+    protected JButton getJBCadastrar() {
+        return this.JBCadastrar;  // acesso direto porque está dentro da classe
+    }
+
+    protected JButton getJBCancelar() {
+        return this.JBCancelar;  // acesso direto porque está dentro da classe
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBCadastrar;
