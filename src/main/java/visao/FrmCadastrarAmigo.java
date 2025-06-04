@@ -2,6 +2,7 @@ package visao;
 
 import dao.FerramentaDAO;
 import java.awt.Font;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
 import modelo.Amigo;
@@ -26,6 +27,10 @@ public class FrmCadastrarAmigo extends javax.swing.JFrame {
 
     public void setMensagem(String mensagem) {
         this.mensagem = mensagem;
+    }
+
+    public String getMensagem() {
+        return mensagem;
     }
 
     /**
@@ -146,6 +151,9 @@ public class FrmCadastrarAmigo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelarActionPerformed
+        JTFNome.setText("");
+        JTFTelefone.setText("");
+        JTFEmail.setText("");
 
         this.dispose();
     }//GEN-LAST:event_JBCancelarActionPerformed
@@ -163,43 +171,45 @@ public class FrmCadastrarAmigo extends javax.swing.JFrame {
         Ele pega as informações dos JavaTextFields, tendo seus requisitos para ser validado.
          */
         try {
-
             Amigo amigo = new Amigo();
             String nome = "";
             String telefone = "";
             String email = "";
 
             if (this.JTFNome.getText().length() < 2) {
-                throw new Mensagem("O nome deve possuir ao menos 2 caracteres"); // Aqui para o nome ser valdio, ele deve ter no minimo 2 caracteres
+                throw new Mensagem("O nome deve possuir ao menos 2 caracteres");
             } else {
                 nome = this.JTFNome.getText();
             }
 
             if (this.JTFTelefone.getText().length() == 9) {
-                telefone = (JTFTelefone.getText());
+                telefone = JTFTelefone.getText();
             } else {
-                throw new Mensagem("O número de telefone deve possuir exatamente 9 digitos"); // Aqui para o telefone ser valido ele tem que ter 9 digitos.
+                throw new Mensagem("O número de telefone deve possuir exatamente 9 digitos");
             }
 
             if (this.JTFEmail.getText().length() < 11) {
-                throw new Mensagem("O email deve conter no mínimo 11 dígitos, como: X@gmail.com"); // Aqui para o email ser valido ele tem que ter 11 digitos.
+                throw new Mensagem("O email deve conter no mínimo 11 dígitos, como: X@gmail.com");
             } else {
                 email = this.JTFEmail.getText();
             }
 
-            if (this.objetoamigo.insertAmigoBD(nome, telefone, email)) { // Aqui, após todos acima estrem de acordo com os requisitos insere o amigo no Banco de dados.
-                JOptionPane.showMessageDialog(null, "Amigo inserido com sucesso!");
-                //Limpa todos os campos da interface
+            if (this.objetoamigo.insertAmigoBD(nome, telefone, email)) {
+                mensagem = "Amigo inserido com sucesso!";
+                JOptionPane.showMessageDialog(null, mensagem);
                 this.JTFNome.setText("");
                 this.JTFTelefone.setText("");
                 this.JTFEmail.setText("");
             }
-            System.out.println(this.objetoamigo.ListaAmigo().toString());
 
         } catch (Mensagem erro) {
+            this.setMensagem(erro.getMessage()); // <- ESSENCIAL para que o teste consiga validar
             JOptionPane.showMessageDialog(null, erro.getMessage());
-        } catch (NumberFormatException erro2) {
-            JOptionPane.showMessageDialog(null, "Informe um número válido.");
+            try {
+                throw erro;
+            } catch (Mensagem ex) {
+                Logger.getLogger(FrmCadastrarAmigo.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_JBCadastrarActionPerformed
 

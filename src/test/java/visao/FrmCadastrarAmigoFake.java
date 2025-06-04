@@ -37,7 +37,8 @@ public class FrmCadastrarAmigoFake extends FrmCadastrarAmigo {
         super.getJBCadastrar().doClick();
     }
      
-      public void clicarBotaoCacelar() {
+      public void clicarBotaoCancelar() {
         super.getJBCancelar().doClick();
     }
+
 }
