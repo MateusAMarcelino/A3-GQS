@@ -6,7 +6,7 @@ package visao;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import modelo.Amigo;
 import modelo.Emprestimo;
 import modelo.Ferramenta;
@@ -20,6 +20,15 @@ public class FrmDevolverFerramentas extends javax.swing.JFrame {
     private Emprestimo emprestimo;
     private Amigo amigo;
     private Ferramenta ferramenta;
+    private String mensagem;
+    
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
+    }
+
+    public String getMensagem() {
+        return mensagem;
+    }
 
     /**
      * Cria o FrmDevolverFerramentas, iniciando todos os seus componentes.
@@ -225,7 +234,8 @@ public class FrmDevolverFerramentas extends javax.swing.JFrame {
                 break;
         }
         if (emp.updateEmprestimoDB(listaEmprestimo.get(posicaoEmprestimo).getIdEmprestimo(), listaEmprestimo.get(posicaoEmprestimo).getIdAmigo(), listaEmprestimo.get(posicaoEmprestimo).getIdFerramentas(), listaEmprestimo.get(posicaoEmprestimo).getDataEmp(), data + "")) {
-            JOptionPane.showMessageDialog(null, "Devolucao cadastrada com sucesso");
+            mensagem = "Devolucao cadastrada com sucesso";
+            JOptionPane.showMessageDialog(null, mensagem);
             JCBEmprestimo.removeAllItems();
             this.carregaCBEmprestimo();
         } else {
@@ -300,8 +310,36 @@ public class FrmDevolverFerramentas extends javax.swing.JFrame {
         ArrayList<Ferramenta> listaFerramenta = ferramenta.ListaFerramenta();
 
         for (Emprestimo objeto : listaEmprestimo) {
-            JCBEmprestimo.addItem(objeto.getIdEmprestimo() + " - " + listaAmigo.get(objeto.getIdAmigo() - 1).getNomeAmigo() + " - " + listaFerramenta.get(objeto.getIdFerramentas() - 1).getNomeFerramentas());
+            Amigo amigoEncontrado = listaAmigo.stream()
+                .filter(a -> a.getIdAmigo() == objeto.getIdAmigo())
+                .findFirst()
+                .orElse(null);
+
+            Ferramenta ferramentaEncontrada = listaFerramenta.stream()
+                .filter(f -> f.getIdFerramentas() == objeto.getIdFerramentas())
+                .findFirst()
+                .orElse(null);
+
+            if (amigoEncontrado != null && ferramentaEncontrada != null) {
+                JCBEmprestimo.addItem(
+                    objeto.getIdEmprestimo() + " - " +
+                    amigoEncontrado.getNomeAmigo() + " - " +
+                    ferramentaEncontrada.getNomeFerramentas()
+                );
+            }
         }
+    }
+    
+    protected javax.swing.JButton getJBCadastrar() {
+        return this.JBCadastrar;
+    }
+
+    public JComboBox<String> getJCBEmprestimo() {
+        return JCBEmprestimo;
+    }
+
+    public JComboBox<String> getJCBTipoRegistro() {
+        return JCBTipoRegistro;
     }
     
     
