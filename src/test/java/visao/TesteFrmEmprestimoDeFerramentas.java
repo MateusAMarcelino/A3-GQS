@@ -1,5 +1,11 @@
 package visao;
 
+import modelo.Amigo;
+import dao.EmprestimoDAO;
+import java.awt.Window;
+import javax.swing.JDialog;
+import modelo.Emprestimo;
+import modelo.Ferramenta;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -7,25 +13,45 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TesteFrmEmprestimoDeFerramentas {
-    
-    public TesteFrmEmprestimoDeFerramentas() {
-    }
-    
-    @BeforeAll
-    public static void setUpClass() {
-    }
-    
-    @AfterAll
-    public static void tearDownClass() {
-    }
-    
+class TesteFrmEmprestimoDeFerramentas {
+
+    Amigo amigoteste;
+    Ferramenta ferramentateste;
+    Emprestimo emprestimoteste;
+
+    FrmEmprestimoDeFerramentasFake frmEmprestimoDeFerramentas;
+
     @BeforeEach
-    public void setUp() {
+    void iniciar() {
+
+        amigoteste = new Amigo(1, "Thiago", "123456789", "emailteste@gmail.com");
+        ferramentateste = new Ferramenta(1, "Machado", "Lumber", 20.5);
+        emprestimoteste = new Emprestimo();
+
+        frmEmprestimoDeFerramentas = new FrmEmprestimoDeFerramentasFake();
+
     }
-    
+
     @AfterEach
-    public void tearDown() {
+    void limpar() {
+        EmprestimoDAO emprestimodao = new EmprestimoDAO();
+        emprestimodao.deleteEmprestimoBD(1);
+    }
+
+    @Test
+    void CadastroValido() {
+
+        amigoteste.insertAmigoBD("Thiago", "123456789", "emailteste@gmail.com");
+        ferramentateste.InsertFerramentaDB("Machado", "Lumber", 20.5);
+
+        frmEmprestimoDeFerramentas.inicializarambos();
+
+        frmEmprestimoDeFerramentas.getjCBNomeAmigo().setSelectedIndex(0);
+        frmEmprestimoDeFerramentas.getjCBNomeFerramenta().setSelectedIndex(0);
+
+        frmEmprestimoDeFerramentas.clicarBotaoConfirmar();
+        
+        assertEquals("Empréstimo cadastrado com sucesso", frmEmprestimoDeFerramentas.getMensagem());
     }
     
 }

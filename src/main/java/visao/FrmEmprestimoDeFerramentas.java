@@ -18,14 +18,24 @@ import modelo.Amigo;
 
 public class FrmEmprestimoDeFerramentas extends javax.swing.JFrame {
 
+    private String mensagem;
     private Ferramenta ferramenta;
     private Amigo amigo;
+
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
+    }
+
+    public String getMensagem() {
+        return mensagem;
+    }
+
     /**
      * Creates new form FrmEmprestimoDeFerramentas
      */
     public FrmEmprestimoDeFerramentas() {
         initComponents();
-        
+
         this.amigo = new Amigo();
         this.ferramenta = new Ferramenta();
         inicializarJBCNomeAmigo();
@@ -150,67 +160,69 @@ public class FrmEmprestimoDeFerramentas extends javax.swing.JFrame {
     /**
      * Conecta com a coluna nome da tb_amigos do banco de dados.
      */
-    private void inicializarJBCNomeAmigo(){
-        
+    private void inicializarJBCNomeAmigo() {
+
         ArrayList<Amigo> listaAmigo = amigo.ListaAmigo();
         for (Amigo objeto : listaAmigo) {
             jCBNomeAmigo.addItem(objeto.getIdAmigo() + "- " + objeto.getNomeAmigo());
         }
 
     }
-    
+
     /**
-     * Conecta com a coluna IdFerramentas da tb_ferramentas e coleta o nome da ferramenta
-     * para usar no jComboBox.
+     * Conecta com a coluna IdFerramentas da tb_ferramentas e coleta o nome da
+     * ferramenta para usar no jComboBox.
      */
-    private void inicializarJBCNomeFerramenta(){
-        
-            ArrayList<Ferramenta> listaFerramenta = ferramenta.ListaFerramenta();
+    private void inicializarJBCNomeFerramenta() {
+
+        ArrayList<Ferramenta> listaFerramenta = ferramenta.ListaFerramenta();
         for (Ferramenta objeto : listaFerramenta) {
             jCBNomeFerramenta.addItem(objeto.getIdFerramentas() + "- " + objeto.getNomeFerramentas());
         }
 
     }
-    
-    
+
     /*
     Confirma a ação de emprestar, cadastrando a ferrementa e o amigo na lista de emprestimo.
     
     Caso o amigo já tenha um emprestimo aparecerá um aviso perguntando se realmente quer emprestar.
     
     Caso a ferramenta já esteja emprestada não será possivel emprestar.
-    */
+     */
     private void JBConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBConfirmarActionPerformed
-     try {
-    int conf = 0;
+         try {
+        int conf = 0;
 
-    int posicaoFerramenta = jCBNomeFerramenta.getSelectedIndex();
-    int posicaoAmigo = jCBNomeAmigo.getSelectedIndex();
-    ArrayList<Ferramenta> listaFerramenta = ferramenta.ListaFerramenta();
-    ArrayList<Amigo> listaAmigo = amigo.ListaAmigo();
-    Emprestimo emprestimo = new Emprestimo();
+        int posicaoFerramenta = jCBNomeFerramenta.getSelectedIndex();
+        int posicaoAmigo = jCBNomeAmigo.getSelectedIndex();
+        ArrayList<Ferramenta> listaFerramenta = ferramenta.ListaFerramenta();
+        ArrayList<Amigo> listaAmigo = amigo.ListaAmigo();
+        Emprestimo emprestimo = new Emprestimo();
 
-    if (!listaFerramenta.get(posicaoFerramenta).getDisponibilidadeFerramenta(listaFerramenta.get(posicaoFerramenta).getIdFerramentas())) {
-        throw new Mensagem("Ferramenta já emprestada");
-    }
-
-    int idAmigo = listaAmigo.get(posicaoAmigo).getIdAmigo();
-    if (amigo.possuiEmprestimoAtivo(idAmigo)) {
-        conf = JOptionPane.showConfirmDialog(null, "Este amigo já possui um empréstimo ativo, deseja continuar?");
-    }
-
-    int idFerramenta = listaFerramenta.get(posicaoFerramenta).getIdFerramentas();
-    String DataInicio = LocalDate.now().toString();
-    
-    if (conf == 0) {
-        if (emprestimo.insertEmprestimoBD(idAmigo, idFerramenta, DataInicio)) {
-            JOptionPane.showMessageDialog(null, "Empréstimo cadastrado com sucesso");
-            ferramenta.updateFerramentaDB(idFerramenta, listaFerramenta.get(posicaoFerramenta).getNomeFerramentas(), listaFerramenta.get(posicaoFerramenta).getMarcaFerramentas(), listaFerramenta.get(posicaoFerramenta).getCustoFerramentas());
+        if (!listaFerramenta.get(posicaoFerramenta).getDisponibilidadeFerramenta(listaFerramenta.get(posicaoFerramenta).getIdFerramentas())) {
+            throw new Mensagem("Ferramenta já emprestada");
         }
+
+        int idAmigo = listaAmigo.get(posicaoAmigo).getIdAmigo();
+        if (amigo.possuiEmprestimoAtivo(idAmigo)) {
+            conf = JOptionPane.showConfirmDialog(null, "Este amigo já possui um empréstimo ativo, deseja continuar?");
+        }
+
+        int idFerramenta = listaFerramenta.get(posicaoFerramenta).getIdFerramentas();
+        String DataInicio = LocalDate.now().toString();
+
+        if (conf == 0) {
+            if (emprestimo.insertEmprestimoBD(idAmigo, idFerramenta, DataInicio)) {
+                mensagem = "Empréstimo cadastrado com sucesso";
+                JOptionPane.showMessageDialog(null, mensagem);
+                ferramenta.updateFerramentaDB(idFerramenta,listaFerramenta.get(posicaoFerramenta).getNomeFerramentas(),
+                        listaFerramenta.get(posicaoFerramenta).getMarcaFerramentas(),
+                        listaFerramenta.get(posicaoFerramenta).getCustoFerramentas());
+            }
+        }
+    } catch (Mensagem erro) {
+        JOptionPane.showMessageDialog(null, erro.getMessage());
     }
-} catch (Mensagem erro) {
-    JOptionPane.showMessageDialog(null, erro.getMessage());
-}
     }//GEN-LAST:event_JBConfirmarActionPerformed
 
     private void jCBNomeAmigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBNomeAmigoActionPerformed
@@ -220,7 +232,7 @@ public class FrmEmprestimoDeFerramentas extends javax.swing.JFrame {
     }//GEN-LAST:event_jCBNomeFerramentaActionPerformed
     /*
     Carrega a tabela de emprestimos, por isso puxa uma tabela de amigos e uma de ferramentas.
-    */
+     */
     public void carregaCBFerramenta() {
         ArrayList<Ferramenta> listaFerramenta = ferramenta.ListaFerramenta();
         for (Ferramenta objeto : listaFerramenta) {
@@ -235,8 +247,8 @@ public class FrmEmprestimoDeFerramentas extends javax.swing.JFrame {
             jCBNomeAmigo.addItem(objeto.getIdAmigo() + "- " + objeto.getNomeAmigo());
         }
 
-    }       
-    
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -272,11 +284,19 @@ public class FrmEmprestimoDeFerramentas extends javax.swing.JFrame {
         });
     }
 
-    
-    
-    
-    
-    
+    protected javax.swing.JButton getJBConfirmar() {
+        return this.JBConfirmar;
+    }
+
+    public JComboBox<String> getjCBNomeAmigo() {
+        return jCBNomeAmigo;
+    }
+
+    public JComboBox<String> getjCBNomeFerramenta() {
+        return jCBNomeFerramenta;
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBCancelar;
     private javax.swing.JButton JBConfirmar;
