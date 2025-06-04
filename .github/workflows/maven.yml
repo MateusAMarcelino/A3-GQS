@@ -66,7 +66,7 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           DISPLAY: :1
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=GarraOne_EmprestimoFerramentaCI
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=MateusAMarcelino_A3-GQS
       - name: Desliga Xvfb
         run: killall Xvfb
   build-prd:
