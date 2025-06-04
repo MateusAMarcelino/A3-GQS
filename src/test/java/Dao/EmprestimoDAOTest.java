@@ -79,6 +79,7 @@ class EmprestimoDAOTest {
         @AfterEach
     void limpar() {
         EmprestimoDAO dao = new EmprestimoDAO();
+        dao.deleteEmprestimoBD(1);
         dao.deleteEmprestimoBD(2);
         dao.deleteEmprestimoBD(3);
     }
