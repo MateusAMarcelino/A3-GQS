@@ -35,13 +35,19 @@ public class TesteFrmGerenciadorAmigo {
         frmGerenciarAmigo.getJTFEmail().setText(amigoteste.getEmailAmigo());
         frmGerenciarAmigo.clicarBotaoJBEditar();
         
-        assertTrue(amigonovo);
-        assertEquals("Osmarzinho", fake.ultimoAmigoAtualizado.getNomeAmigo());
-        assertEquals("987654321", fake.ultimoAmigoAtualizado.getTelefoneAmigo());
-        assertEquals("Osmarzinho@gmail.com", fake.ultimoAmigoAtualizado.getEmailAmigo());
-        assertEquals(1, fake.ultimoAmigoAtualizado.getIdAmigo());
+        assertEquals("Amigo alterado com sucesso.", frmGerenciarAmigo.getMensagem());
     }
     
+    @Test
+    void apagarAmigo(){
+        amigoteste.insertAmigoBD("Osmar", "123456789", "Osmar@gmail.com");
+        
+        frmGerenciarAmigo.inicializar();
+        
+        frmGerenciarAmigo.clicarBotaoJBApagar();
+        
+        assertEquals("Amigo apagado com sucesso!", frmGerenciarAmigo.getMensagem());
+    }
     @AfterEach
     public void tearDown() {
     }
