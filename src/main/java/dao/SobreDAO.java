@@ -10,18 +10,6 @@ import modelo.Sobre;
 public class SobreDAO {
 
     /**
-     * Construtor que recebe informações sobre o sistema.
-     * Não está implementado, provavelmente deixado por engano.
-     * @param sistema_de_Biblioteca Nome do sistema.
-     * @param string Versão do sistema.
-     * @param seu_Nome_Aqui Nome do(s) desenvolvedor(es).
-     * @param sistema_desenvolvido_para_gerenciar_cadas Descrição do sistema.
-     */
-    public SobreDAO(String sistema_de_Biblioteca, String string, String seu_Nome_Aqui, String sistema_desenvolvido_para_gerenciar_cadas) {
-        // Construtor não implementado. Pode ser removido ou finalizado futuramente.
-    }
-
-    /**
      * Construtor padrão da classe.
      * Atualmente lança uma exceção indicando que ainda não é suportado.
      */
