@@ -367,6 +367,18 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
     protected javax.swing.JButton getJBEditar() {
         return this.JBEditar;
     }
+    
+    protected javax.swing.JTextField getJTFNome() {
+        return this.JTFNome;
+    }
+    
+    protected javax.swing.JTextField getJTFEmail() {
+        return this.JTFEmail;
+    }
+    
+    protected javax.swing.JTextField getJTFTelefone() {
+        return this.JTFTelefone;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBApagar;
