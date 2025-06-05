@@ -27,10 +27,12 @@ public class TesteFrmGerenciadorAmigo {
         amigoteste.insertAmigoBD("Osmar", "123456789", "Osmar@gmail.com");
         
         frmGerenciarAmigo.inicializar();
-        frmGerenciarAmigo.getJTableAmigos().setRowSelectionInterval(0, 0);
         
         Amigo novo = new Amigo(1, "Osmarzinho", "987654321", "Osmarzinho@gmail.com");
         Boolean amigonovo = fake.updateAmigoBD(novo);
+        frmGerenciarAmigo.getJTFNome().setText(amigoteste.getNomeAmigo());
+        frmGerenciarAmigo.getJTFTelefone().setText(amigoteste.getTelefoneAmigo());
+        frmGerenciarAmigo.getJTFEmail().setText(amigoteste.getEmailAmigo());
         frmGerenciarAmigo.clicarBotaoJBEditar();
         
         assertTrue(amigonovo);
