@@ -25,6 +25,7 @@ public class FrmGerenciadorAmigoFake extends FrmGerenciadorAmigo {
     }
 
     public void clicarBotaoJBApagar() {
+        getJTableAmigos().setRowSelectionInterval(0, 0);
         super.getJBApagar().doClick();
     }
 
