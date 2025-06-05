@@ -21,16 +21,25 @@ public class FrmGerenciadorAmigoFake extends FrmGerenciadorAmigo {
     }
 
     public void inicializar() {
-        carregaTabela();
+        this.setVisible(false);
+        this.carregaTabela();
     }
 
     public void clicarBotaoJBApagar() {
-        getJTableAmigos().setRowSelectionInterval(0, 0);
+        if (this.getJTableAmigos().getRowCount() > 0) {
+            getJTableAmigos().setRowSelectionInterval(0, 0);
+        }
+        JOptionPane pane = new JOptionPane();
+        pane.setValue(JOptionPane.YES_OPTION);
+
         super.getJBApagar().doClick();
     }
 
     public void clicarBotaoJBEditar() {
-        getJTableAmigos().setRowSelectionInterval(0, 0);
+        if (this.getJTableAmigos().getRowCount() > 0) {
+            getJTableAmigos().setRowSelectionInterval(0, 0);
+
+        }
         super.getJBEditar().doClick();
     }
 }
