@@ -17,22 +17,21 @@ public class TesteFrmGerenciadorAmigo {
     
     @BeforeEach
     public void setUp() {
-        amigoteste = new Amigo(1, "Osmar", "123456789", "Osmar@gmail.com");
+        amigoteste = new Amigo();
+        amigoteste.insertAmigoBD("Osmar", "123456789", "Osmar@gmail.com");
         
         frmGerenciarAmigo = new FrmGerenciadorAmigoFake();
+        frmGerenciarAmigo.inicializar();
+
     }
     
     @Test
     void EditarAmigo(){
-        amigoteste.insertAmigoBD("Osmar", "123456789", "Osmar@gmail.com");
+        frmGerenciarAmigo.getJTableAmigos().setRowSelectionInterval(0, 0);
         
-        frmGerenciarAmigo.inicializar();
-        
-        Amigo novo = new Amigo(1, "Osmarzinho", "987654321", "Osmarzinho@gmail.com");
-        Boolean amigonovo = fake.updateAmigoBD(novo);
-        frmGerenciarAmigo.getJTFNome().setText(amigoteste.getNomeAmigo());
-        frmGerenciarAmigo.getJTFTelefone().setText(amigoteste.getTelefoneAmigo());
-        frmGerenciarAmigo.getJTFEmail().setText(amigoteste.getEmailAmigo());
+        frmGerenciarAmigo.getJTFNome().setText("Osmarzinho");
+        frmGerenciarAmigo.getJTFTelefone().setText("987654321");
+        frmGerenciarAmigo.getJTFEmail().setText("Osmarzinho@gmail.com");
         frmGerenciarAmigo.clicarBotaoJBEditar();
         
         assertEquals("Amigo alterado com sucesso.", frmGerenciarAmigo.getMensagem());
@@ -40,9 +39,8 @@ public class TesteFrmGerenciadorAmigo {
     
     @Test
     void apagarAmigo(){
-        amigoteste.insertAmigoBD("Osmar", "123456789", "Osmar@gmail.com");
-        
-        frmGerenciarAmigo.inicializar();
+        frmGerenciarAmigo.getJTableAmigos().setRowSelectionInterval(0, 0);
+
         
         frmGerenciarAmigo.clicarBotaoJBApagar();
         
@@ -50,5 +48,8 @@ public class TesteFrmGerenciadorAmigo {
     }
     @AfterEach
     public void tearDown() {
+        for (Amigo a : amigoteste.ListaAmigo()) {
+            amigoteste.deleteAmigoBD(a.getIdAmigo());
+        }
     }
 }
