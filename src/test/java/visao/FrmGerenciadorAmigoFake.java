@@ -29,7 +29,7 @@ public class FrmGerenciadorAmigoFake extends FrmGerenciadorAmigo {
     }
 
     public void clicarBotaoJBEditar() {
-        super.getJBEditar().doClick();
         getJTableAmigos().setRowSelectionInterval(0, 0);
+        super.getJBEditar().doClick();
     }
 }
