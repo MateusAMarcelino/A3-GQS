@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -17,6 +18,25 @@ import javax.swing.table.DefaultTableModel;
 public class FrmGerenciadorAmigo extends javax.swing.JFrame {
    
     private Amigo objetoamigo;
+    private String mensagem;
+    public JTable tabelaAmigos;
+    
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
+    }
+
+    public String getMensagem() {
+        return mensagem;
+    }
+    
+    public JTable getJTableAmigos() {
+        return jTableAmigos;
+    }
+    
+    public void setJTableAmigos(JTable tabela) {
+        this.jTableAmigos = tabela;
+    }
+    
     /**
      * Creates new form FrmGerenciadorAmigo
      */
@@ -24,6 +44,7 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
         initComponents();
         this.objetoamigo = new Amigo();
         this.carregaTabela();
+        this.jTableAmigos = tabelaAmigos;
     }
 /*
     Carrega a tabela de amigos, pegando as informações do banco de dados.
@@ -337,6 +358,14 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
                 new FrmGerenciadorAmigo().setVisible(true);
             }
         });
+    }
+    
+    protected javax.swing.JButton getJBApagar() {
+        return this.JBApagar;
+    }
+    
+    protected javax.swing.JButton getJBEditar() {
+        return this.JBEditar;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
