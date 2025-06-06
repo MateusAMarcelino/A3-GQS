@@ -39,7 +39,7 @@ public class SobreDAO {
         return new Sobre(
             "Sistema de Empréstimos",                      // Nome do sistema
             "2.0",                                          // Versão do sistema
-            "Desenvolvido por Matheus, Guilherme, Pedro e Lorenzo", // Autores
+            "Desenvolvido por Mateus, Guilherme, Pedro e Lorenzo", // Autores
             "Sistema desenvolvido para gerenciar cadastros e empréstimos de ferramentas." // Descrição
         );
     }
