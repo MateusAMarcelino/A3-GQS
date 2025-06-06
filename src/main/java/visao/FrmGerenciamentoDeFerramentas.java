@@ -1,4 +1,3 @@
-
 package visao;
 
 import dao.FerramentaDAO;
@@ -7,10 +6,12 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import static dao.FerramentaDAO.CalcularSoma;
+import javax.swing.JButton;
 
 public class FrmGerenciamentoDeFerramentas extends javax.swing.JFrame {
 
     private Ferramenta ferramenta;
+    String mensagem;
 
     /**
      * Incia os componentes, carrega a lista de ferramentas.
@@ -19,6 +20,14 @@ public class FrmGerenciamentoDeFerramentas extends javax.swing.JFrame {
         initComponents();
         this.ferramenta = new Ferramenta();
         this.CarregaListaFerramenta();
+    }
+
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
+    }
+
+    public String getMensagem() {
+        return mensagem;
     }
 
     @SuppressWarnings("unchecked")
@@ -209,22 +218,27 @@ public class FrmGerenciamentoDeFerramentas extends javax.swing.JFrame {
     }//GEN-LAST:event_JBCancelarActionPerformed
 
     /**
-     * Faz com que sempre que clique em uma ferramenta que esteja na tabela, atualize todos os TextFields e Labels para estarem de acordo com as informações da ferramenta em questão.
+     * Faz com que sempre que clique em uma ferramenta que esteja na tabela,
+     * atualize todos os TextFields e Labels para estarem de acordo com as
+     * informações da ferramenta em questão.
+     *
      * @param evt ao clicar com o mouse.
      */
     private void JTableFerramentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableFerramentasMouseClicked
         if (this.JTableFerramentas.getSelectedRow() != -1) {
-            JLIDATIVO.setText(JTableFerramentas.getValueAt(this.JTableFerramentas.getSelectedRow(),0).toString());
+            JLIDATIVO.setText(JTableFerramentas.getValueAt(this.JTableFerramentas.getSelectedRow(), 0).toString());
             JLIDATIVO.setVisible(true);
-            JTFNomeAlterar.setText(JTableFerramentas.getValueAt(this.JTableFerramentas.getSelectedRow(),1).toString());
-            JTFMarcaAlterar.setText(JTableFerramentas.getValueAt(this.JTableFerramentas.getSelectedRow(),2).toString());
-            JTFCustoAlterar.setText(JTableFerramentas.getValueAt(this.JTableFerramentas.getSelectedRow(),3).toString());
-            
+            JTFNomeAlterar.setText(JTableFerramentas.getValueAt(this.JTableFerramentas.getSelectedRow(), 1).toString());
+            JTFMarcaAlterar.setText(JTableFerramentas.getValueAt(this.JTableFerramentas.getSelectedRow(), 2).toString());
+            JTFCustoAlterar.setText(JTableFerramentas.getValueAt(this.JTableFerramentas.getSelectedRow(), 3).toString());
+
         }
     }//GEN-LAST:event_JTableFerramentasMouseClicked
 
     /**
-     * Altera as informações da ferramenta selecionada, baseado em oque estiver digitado nos TextFields, já enviando para a database.
+     * Altera as informações da ferramenta selecionada, baseado em oque estiver
+     * digitado nos TextFields, já enviando para a database.
+     *
      * @param evt ao clicar no botão.
      */
     private void JBAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAlterarActionPerformed
@@ -233,69 +247,71 @@ public class FrmGerenciamentoDeFerramentas extends javax.swing.JFrame {
             String NomeFerramentas = "";
             String MarcaFerramentas = "";
             double CustoFerramentas = 0;
-            
-            
-            if (this.JTFNomeAlterar.getText().length() < 2){
-                throw new Mensagem("Nome deve conter ao menos 2 caracteres.");              
-            }else {
+
+            if (this.JTFNomeAlterar.getText().length() < 2) {
+                throw new Mensagem("Nome deve conter ao menos 2 caracteres.");
+            } else {
                 NomeFerramentas = JTFNomeAlterar.getText();
             }
-            
-            if (this.JTFMarcaAlterar.getText().length() < 2){
-                throw new Mensagem("A Marca deve conter ao menos 2 caracteres.");              
-            }else {
+
+            if (this.JTFMarcaAlterar.getText().length() < 2) {
+                throw new Mensagem("A Marca deve conter ao menos 2 caracteres.");
+            } else {
                 MarcaFerramentas = JTFMarcaAlterar.getText();
             }
-            
-            if (JTFCustoAlterar.getText().length() <= 0){
-                throw new Mensagem("O custo deve ser maior que zero.");              
-            }else {
+
+            if (JTFCustoAlterar.getText().length() <= 0) {
+                throw new Mensagem("O custo deve ser maior que zero.");
+            } else {
                 CustoFerramentas = Double.parseDouble(JTFCustoAlterar.getText());
             }
 
-            if (this.ferramenta.updateFerramentaDB(IdFerramentas, NomeFerramentas, MarcaFerramentas,CustoFerramentas)){
+            if (this.ferramenta.updateFerramentaDB(IdFerramentas, NomeFerramentas, MarcaFerramentas, CustoFerramentas)) {
                 JLIDATIVO.setVisible(false);
                 JTFNomeAlterar.setText("");
                 JTFMarcaAlterar.setText("");
                 JTFCustoAlterar.setText("");
-                JOptionPane.showMessageDialog(rootPane, "Ferramenta Alterada com sucesso!");
+                mensagem = "Ferramenta Alterada com sucesso!";
+                mostrarMensagem(mensagem);
                 this.CarregaListaFerramenta();
-                }
-        } catch (Mensagem erro){
-            JOptionPane.showMessageDialog(null, erro.getMessage());          
+            }
+        } catch (Mensagem erro) {
+            JOptionPane.showMessageDialog(null, erro.getMessage());
         }
     }//GEN-LAST:event_JBAlterarActionPerformed
 
     /**
      * Apaga a ferramenta selecionada, tambem deletando do banco de dados.
-     * @param evt 
+     *
+     * @param evt
      */
     private void JBApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBApagarActionPerformed
         try {
             int IdFerramentas = 0;
-            if (this.JTableFerramentas.getSelectedRow() == -1){
+            if (this.JTableFerramentas.getSelectedRow() == -1) {
                 throw new Mensagem("Primeiro Selecione uma ferramenta para APAGAR.");
             } else {
-                IdFerramentas = Integer.parseInt(this.JTableFerramentas.getValueAt(this.JTableFerramentas.getSelectedRow(),0).toString());
+                IdFerramentas = Integer.parseInt(this.JTableFerramentas.getValueAt(this.JTableFerramentas.getSelectedRow(), 0).toString());
             }
-            int respostaUsuario = JOptionPane.showConfirmDialog(null,"Tem certeza que deseja apagar essa ferramenta?");
-            if(respostaUsuario == 0) {
-                if(this.ferramenta.DeleteFerramentaDB(IdFerramentas)){
+             int respostaUsuario = confirmarApagarFerramenta();
+            
+            if (respostaUsuario == JOptionPane.YES_OPTION) {
+                if (this.ferramenta.DeleteFerramentaDB(IdFerramentas)) {
                     this.JLIDATIVO.setText("0");
                     this.JTFNomeAlterar.setText("");
                     this.JTFMarcaAlterar.setText("");
                     this.JTFCustoAlterar.setText("");
-                    JOptionPane.showMessageDialog(rootPane, "Ferramenta Apagada com sucesso!!");
+                    mensagem = "Ferramenta Apagada com sucesso!!";
+                    mostrarMensagem(mensagem);
                 }
             }
             System.out.println(this.ferramenta.ListaFerramenta().toString());
-        }  catch (Mensagem erro) {
+        } catch (Mensagem erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
         } finally {
             CarregaListaFerramenta();
         }
     }//GEN-LAST:event_JBApagarActionPerformed
-
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -328,28 +344,63 @@ public class FrmGerenciamentoDeFerramentas extends javax.swing.JFrame {
             }
         });
     }
-    
-   
-public void CarregaListaFerramenta(){
-    DefaultTableModel modelo = (DefaultTableModel) this.JTableFerramentas.getModel();
-    JLIDATIVO.setVisible(false); /* Deixa o label que informa o Id vazio até que alguma ferramenta seja clicada */
-    modelo.setNumRows(0);
-    ArrayList<Ferramenta> ListaFerramenta = ferramenta.ListaFerramenta();
-    for (Ferramenta a : ListaFerramenta){
-        modelo.addRow(new Object[]{
-        a.getIdFerramentas(),
-        a.getNomeFerramentas(),
-        a.getMarcaFerramentas(),
-        a.getCustoFerramentas(),
-        a.getDisponibilidadeFerramenta(a.getIdFerramentas())
-});
-        double soma = FerramentaDAO.CalcularSoma(ListaFerramenta);
-        JLSoma.setText(String.valueOf("R$" + soma));
-}
-}   
-    
-    
-    
+
+    public void CarregaListaFerramenta() {
+        DefaultTableModel modelo = (DefaultTableModel) this.JTableFerramentas.getModel();
+        JLIDATIVO.setVisible(false);
+        /* Deixa o label que informa o Id vazio até que alguma ferramenta seja clicada */
+        modelo.setNumRows(0);
+        ArrayList<Ferramenta> ListaFerramenta = ferramenta.ListaFerramenta();
+        for (Ferramenta a : ListaFerramenta) {
+            modelo.addRow(new Object[]{
+                a.getIdFerramentas(),
+                a.getNomeFerramentas(),
+                a.getMarcaFerramentas(),
+                a.getCustoFerramentas(),
+                a.getDisponibilidadeFerramenta(a.getIdFerramentas())
+            });
+            double soma = FerramentaDAO.CalcularSoma(ListaFerramenta);
+            JLSoma.setText(String.valueOf("R$" + soma));
+        }
+    }
+
+    protected javax.swing.JTextField getJTFNomeAlterar() {
+        return this.JTFNomeAlterar;  // acesso direto porque está dentro da classe
+    }
+
+    protected javax.swing.JTextField getJTFMarcaAlterar() {
+        return this.JTFMarcaAlterar;  // acesso direto porque está dentro da classe
+    }
+
+    protected javax.swing.JTextField getJTFCustoAlterar() {
+        return this.JTFCustoAlterar;  // acesso direto porque está dentro da classe
+    }
+
+    protected JButton getJBCancelar() {
+        return this.JBCancelar;  // acesso direto porque está dentro da classe
+    }
+
+    protected JButton getJBAlterar() {
+        return this.JBAlterar;  // acesso direto porque está dentro da classe
+    }
+
+    protected JButton getJBApagar() {
+        return this.JBApagar;  // acesso direto porque está dentro da classe
+    }
+
+    protected javax.swing.JTable getJTableFerramentas() {
+        return this.JTableFerramentas;
+    }
+
+    public int confirmarApagarFerramenta() {
+        return JOptionPane.showConfirmDialog(null, "Tem certeza que deseja apagar esta Ferramenta?");
+    }
+
+    public void mostrarMensagem(String mensagem) {
+        JOptionPane.showMessageDialog(null, mensagem);
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBAlterar;
     private javax.swing.JButton JBApagar;
