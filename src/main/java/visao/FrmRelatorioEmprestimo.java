@@ -6,6 +6,8 @@ import static dao.FerramentaDAO.ListaFerramentas;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import java.util.HashMap;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.table.DefaultTableModel;
 import modelo.Amigo;
 import modelo.Ferramenta;
@@ -19,6 +21,7 @@ public class FrmRelatorioEmprestimo extends javax.swing.JFrame {
     private Emprestimo emprestimo;
     private Amigo amigo;
     private Ferramenta ferramenta;
+    String mensagem;
 
     /*
     Inicia o FRMRelatorioEmprestimo, com todos seus componentes carregando e atualizando a tabela.
@@ -30,6 +33,18 @@ public class FrmRelatorioEmprestimo extends javax.swing.JFrame {
         this.amigo = new Amigo();
         this.CarregaListaEmprestimo();
         this.AtualizarAmigoMaisRepetido();
+    }
+    
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
+    }
+
+    public String getMensagem() {
+        return mensagem;
+    }
+    
+    public void simularCliqueCancelar() {
+        JBCancelarActionPerformed(null);
     }
 
     /**
@@ -267,6 +282,8 @@ public class FrmRelatorioEmprestimo extends javax.swing.JFrame {
         JLnomeferramentaativo.setText("");
         JLdataEmp.setText("");
         JldataDev.setText("");
+        mensagem = "Emprestimo apagado com sucesso!";
+        mostrarMensagem(mensagem);
         this.CarregaListaEmprestimo();
     }//GEN-LAST:event_JBApagarActionPerformed
 
@@ -343,10 +360,26 @@ Metodo que coloca o metodo acima em um label.
         String amigoMaisRepetido = amigoMaisRepetido();
         jLabel4.setText("Amigo que mais fez empréstimos: " + amigoMaisRepetido);
     }
+        
+    protected javax.swing.JTable getJTableEmprestimosAtivos() {
+        return this.JTEmprestimosAtivos;
+    }
 
+    protected JButton getJBApagar() {
+        return this.JBApagar;
+    }
 
-
-
+    protected JButton getJBCancelar() {
+        return this.JBCancelar;
+    }
+    
+    public void mostrarMensagem(String mensagem) {
+        JOptionPane.showMessageDialog(null, mensagem);
+    }
+    
+    protected JLabel getJLId() {
+        return this.JLId;
+    }
 
 
     /**
