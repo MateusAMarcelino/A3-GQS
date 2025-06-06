@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -18,21 +17,6 @@ import javax.swing.table.DefaultTableModel;
 public class FrmGerenciadorAmigo extends javax.swing.JFrame {
    
     private Amigo objetoamigo;
-    private String mensagem;
-    public JTable tabelaAmigos;
-    
-    public void setMensagem(String mensagem) {
-        this.mensagem = mensagem;
-    }
-
-    public String getMensagem() {
-        return mensagem;
-    }
-    
-    public void setJTableAmigos(JTable tabela) {
-        this.jTableAmigos = tabela;
-    }
-    
     /**
      * Creates new form FrmGerenciadorAmigo
      */
@@ -40,7 +24,6 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
         initComponents();
         this.objetoamigo = new Amigo();
         this.carregaTabela();
-        this.jTableAmigos = tabelaAmigos;
     }
 /*
     Carrega a tabela de amigos, pegando as informações do banco de dados.
@@ -283,8 +266,7 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
                 JTFNome.setText("");
                 JTFTelefone.setText("");
                 JTFEmail.setText("");
-                mensagem = "Amigo alterado com sucesso.";
-                JOptionPane.showMessageDialog(rootPane, mensagem);
+                JOptionPane.showMessageDialog(rootPane, "Amigo alterado com sucesso.");
                 this.carregaTabela();
             }
         } catch (Mensagem erro) {
@@ -310,8 +292,7 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
                     this.JTFNome.setText("");
                     this.JTFTelefone.setText("");
                     this.JTFEmail.setText("");
-                    mensagem = "Amigo apagado com sucesso!";
-                    JOptionPane.showMessageDialog(rootPane, mensagem);
+                    JOptionPane.showMessageDialog(rootPane, "Amigo apagado com sucesso!");
                 }
             }
             
@@ -356,30 +337,6 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
                 new FrmGerenciadorAmigo().setVisible(true);
             }
         });
-    }
-    
-    protected javax.swing.JButton getJBApagar() {
-        return this.JBApagar;
-    }
-    
-    protected javax.swing.JButton getJBEditar() {
-        return this.JBEditar;
-    }
-    
-    protected javax.swing.JTextField getJTFNome() {
-        return this.JTFNome;
-    }
-    
-    protected javax.swing.JTextField getJTFEmail() {
-        return this.JTFEmail;
-    }
-    
-    protected javax.swing.JTextField getJTFTelefone() {
-        return this.JTFTelefone;
-    }
-    
-    protected javax.swing.JTable getJTableAmigos() {
-        return this.jTableAmigos;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

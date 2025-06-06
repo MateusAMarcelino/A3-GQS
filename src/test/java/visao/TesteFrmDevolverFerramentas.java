@@ -28,7 +28,13 @@ public class TesteFrmDevolverFerramentas {
     }
     
     @AfterEach
-    public void tearDown() {
+    void finaliza() {
+        Amigo amigoteste = new Amigo();
+        amigoteste.deleteAmigoBD(1);
+        Ferramenta ferramentateste = new Ferramenta();
+        ferramentateste.DeleteFerramentaDB(1);
+        Emprestimo emprestimoteste = new Emprestimo();
+        emprestimoteste.deleteEmprestimoBD(1);
     }
     
     @Test
