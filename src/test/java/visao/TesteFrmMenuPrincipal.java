@@ -1,33 +1,28 @@
 package visao;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+class FrmMenuPrincipalTest {
 
-public class TesteFrmMenuPrincipal {
-    
-    public TesteFrmMenuPrincipal() {
-    }
-    
-    @BeforeAll
-    public static void setUpClass() {
-    }
-    
-    @AfterAll
-    public static void tearDownClass() {
-    }
-    
-    @BeforeEach
-    public void setUp() {
-    }
-    
-    @AfterEach
-    public void tearDown() {
+    @Test
+    void testIsEmTesteFalse() {
+        // Como "modoTeste" não está definido, deve ser false
+        FrmMenuPrincipal frm = new FrmMenuPrincipal();
+        assertFalse(frm.isEmTeste());
     }
 
-    
+    @Test
+    void testIsEmTesteTrue() {
+        System.setProperty("modoTeste", "true");
+        FrmMenuPrincipal frm = new FrmMenuPrincipal();
+        assertTrue(frm.isEmTeste());
+    }
+
+    @Test
+    void testEncerrarAplicacaoFoiChamadoFake() {
+        FrmMenuPrincipalFake fakeFrm = new FrmMenuPrincipalFake();
+        fakeFrm.encerrarAplicacao();
+        assertTrue(fakeFrm.isEncerrarChamado());
+    }
 }
