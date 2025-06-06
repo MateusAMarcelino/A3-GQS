@@ -8,15 +8,19 @@ import modelo.Amigo;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author guiho
  */
 public class FrmGerenciadorAmigo extends javax.swing.JFrame {
-   
+
     private Amigo objetoamigo;
+    String mensagem;
+
     /**
      * Creates new form FrmGerenciadorAmigo
      */
@@ -25,22 +29,31 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
         this.objetoamigo = new Amigo();
         this.carregaTabela();
     }
-/*
+
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
+    }
+
+    public String getMensagem() {
+        return mensagem;
+    }
+
+    /*
     Carrega a tabela de amigos, pegando as informações do banco de dados.
-    */
-    public void carregaTabela(){
+     */
+    public void carregaTabela() {
         DefaultTableModel modelo = (DefaultTableModel) this.jTableAmigos.getModel();
         modelo.setNumRows(0);
         ArrayList<Amigo> listaamigo = objetoamigo.ListaAmigo();
-        for (Amigo a : listaamigo){
+        for (Amigo a : listaamigo) {
             modelo.addRow(new Object[]{
                 a.getIdAmigo(),
                 a.getNomeAmigo(),
                 a.getTelefoneAmigo(),
-                a.getEmailAmigo(),
-            });
+                a.getEmailAmigo(),});
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -209,7 +222,7 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelarActionPerformed
-         this.dispose();
+        this.dispose();
     }//GEN-LAST:event_JBCancelarActionPerformed
 
     private void JTFNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFNomeActionPerformed
@@ -217,12 +230,12 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
 
     private void JTFTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFTelefoneActionPerformed
     }//GEN-LAST:event_JTFTelefoneActionPerformed
-/*
+    /*
     Faz com que seja possivel selecioanr um amigo na tabela, clicando nela.
-    */
+     */
     private void jTableAmigosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAmigosMouseClicked
         if (this.jTableAmigos.getSelectedRow() != -1) {
-            JLIDATIVO.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(),0).toString());
+            JLIDATIVO.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 0).toString());
             JLIDATIVO.setVisible(true);
             JTFNome.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 1).toString());
             JTFTelefone.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 2).toString());
@@ -230,76 +243,87 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTableAmigosMouseClicked
 
-    
+    public void simularCliqueCancelar() {
+        JBCancelarActionPerformed(null);
+    }
+
     /*
     Edita a informção de um amigo selecionado na tabela.
     
     Após editar limpa todos os TextFields
-    */
+     */
     private void JBEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBEditarActionPerformed
         try {
             int id = Integer.parseInt(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 0).toString());
             String nome = "";
             String telefone = "";
             String email = "";
-            
+
             if (this.JTFNome.getText().length() < 2) {
                 throw new Mensagem("Nome deve conter ao menos 2 caracteres.");
             } else {
                 nome = JTFNome.getText();
             }
-            
-            if (this.JTFTelefone.getText().length()==9) {
+
+            if (this.JTFTelefone.getText().length() == 9) {
                 telefone = (this.JTFTelefone.getText());
             } else {
                 throw new Mensagem("O número deve possuir extamente 9 digitos.");
             }
-            
+
             if (this.JTFEmail.getText().length() < 11) {
                 throw new Mensagem("Email deve conter ao menos 11 caracteres.");
             } else {
                 email = JTFEmail.getText();
             }
-            
+
             if (this.objetoamigo.updateAmigoBD(id, nome, telefone, email)) {
                 JLIDATIVO.setVisible(false);
                 JTFNome.setText("");
                 JTFTelefone.setText("");
                 JTFEmail.setText("");
-                JOptionPane.showMessageDialog(rootPane, "Amigo alterado com sucesso.");
-                this.carregaTabela();
+                mensagem = "Amigo alterado com sucesso!";
+                mostrarMensagem(mensagem);
+                JOptionPane.showMessageDialog(null, mensagem);
+
             }
+            System.out.println(this.objetoamigo.ListaAmigo().toString());
         } catch (Mensagem erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
+        } finally {
+            carregaTabela();
         }
     }//GEN-LAST:event_JBEditarActionPerformed
-/*
+    /*
     Apaga um amigo, deletando o mesmo tambem do banco de dados.
-    */
+     */
     private void JBApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBApagarActionPerformed
-        try{
+        try {
             int id = 0;
-            if (this.jTableAmigos.getSelectedRow() == -1){
+            if (this.jTableAmigos.getSelectedRow() == -1) {
                 throw new Mensagem("Primeiro selecione um amigo para apagar.");
-            }else{
+            } else {
                 id = Integer.parseInt(this.jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 0).toString());
             }
-            
-            int respostaUsuario = JOptionPane.
-                    showConfirmDialog(null, "Tem certeza que deseja apagar este Amigo?");
-            if(respostaUsuario ==0){
-                if(this.objetoamigo.deleteAmigoBD(id)){
+
+            // Usa o método que pode ser sobrescrito pelo Fake
+            int respostaUsuario = confirmarApagarAmigo();
+
+            if (respostaUsuario == JOptionPane.YES_OPTION) {
+                if (this.objetoamigo.deleteAmigoBD(id)) {
                     this.JTFNome.setText("");
                     this.JTFTelefone.setText("");
                     this.JTFEmail.setText("");
-                    JOptionPane.showMessageDialog(rootPane, "Amigo apagado com sucesso!");
+                    mensagem = "Amigo apagado com sucesso!";
+                    mostrarMensagem(mensagem);
+                    JOptionPane.showMessageDialog(null, mensagem);
                 }
             }
-            
+
             System.out.println(this.objetoamigo.ListaAmigo().toString());
-           }catch (Mensagem erro){
-               JOptionPane.showMessageDialog(null, erro.getMessage());
-           }finally{
+        } catch (Mensagem erro) {
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+        } finally {
             carregaTabela();
         }
     }//GEN-LAST:event_JBApagarActionPerformed
@@ -338,6 +362,43 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
             }
         });
     }
+
+    protected javax.swing.JTextField getJTFNome() {
+        return this.JTFNome;  // acesso direto porque está dentro da classe
+    }
+
+    protected javax.swing.JTextField getJTFTelefone() {
+        return this.JTFTelefone;  // acesso direto porque está dentro da classe
+    }
+
+    protected javax.swing.JTextField getJTFEmail() {
+        return this.JTFEmail;  // acesso direto porque está dentro da classe
+    }
+
+    protected JButton getJBCancelar() {
+        return this.JBCancelar;  // acesso direto porque está dentro da classe
+    }
+
+    protected JButton getJBEditar() {
+        return this.JBEditar;  // acesso direto porque está dentro da classe
+    }
+
+    protected JButton getJBApagar() {
+        return this.JBApagar;  // acesso direto porque está dentro da classe
+    }
+
+    protected javax.swing.JTable getJTableAmigos() {
+        return this.jTableAmigos;
+    }
+
+    public int confirmarApagarAmigo() {
+        return JOptionPane.showConfirmDialog(null, "Tem certeza que deseja apagar este Amigo?");
+    }
+
+    public void mostrarMensagem(String mensagem) {
+        JOptionPane.showMessageDialog(null, mensagem);
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBApagar;
