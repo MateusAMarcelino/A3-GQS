@@ -111,9 +111,9 @@ public class FerramentaDAO {
             try (Statement smt = ut.getConexao().createStatement()) {
                 ResultSet res = smt.executeQuery("Select * from tb_ferramentas where IdFerramentas = " + IdFerramentas);
                 while (res.next()) {
-                    String NomeFerramentas = res.getString("NomeFerramentas");
-                    String MarcaFerramentas = res.getString("MarcaFerramentas");
-                    double CustoFerramentas = res.getDouble("CustoFerramentas");
+                    ferramenta.setNomeFerramentas(res.getString("NomeFerramentas"));
+                    ferramenta.setMarcaFerramentas(res.getString("MarcaFerramentas"));
+                    ferramenta.setCustoFerramenta(res.getDouble("CustoFerramentas"));
                 }
             }
         } catch (SQLException ex) {
