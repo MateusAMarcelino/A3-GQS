@@ -37,7 +37,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         jMenuItemGerenciamentoDeFerramentas = new javax.swing.JMenuItem();
         jMenuItemGerenciadorAmigo = new javax.swing.JMenuItem();
         jMenuItemRelatorio = new javax.swing.JMenuItem();
-        jMenuSobre = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -108,9 +107,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         jMenu1.add(jMenuItemRelatorio);
 
         jMenuBar1.add(jMenu1);
-
-        jMenuSobre.setText("Sobre");
-        jMenuBar1.add(jMenuSobre);
 
         setJMenuBar(jMenuBar1);
 
@@ -187,13 +183,10 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
  * Manipulador de evento para o item de menu "jMenuItem2".
  * 
  * Quando este item de menu é acionado (clicado), uma nova instância
- * da caixa de diálogo {@code NewJDialog} é criada e exibida de forma modal.
+ * da caixa de diálogo {@code FrmMenuSobre} é criada e exibida de forma modal.
  * 
  * @param evt O evento de ação que disparou este método.
- */
-   private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {                                            
-    new NewJDialog(null, true).show();  // Exibe um JDialog modal
-   }                                        
+ */                                  
     /**
      * @param args the command line arguments
      */
@@ -241,6 +234,5 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemGerenciadorAmigo;
     private javax.swing.JMenuItem jMenuItemGerenciamentoDeFerramentas;
     private javax.swing.JMenuItem jMenuItemRelatorio;
-    private javax.swing.JMenu jMenuSobre;
     // End of variables declaration//GEN-END:variables
 }
