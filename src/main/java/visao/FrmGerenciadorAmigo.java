@@ -284,7 +284,6 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
                 JTFEmail.setText("");
                 mensagem = "Amigo alterado com sucesso!";
                 mostrarMensagem(mensagem);
-                JOptionPane.showMessageDialog(null, mensagem);
 
             }
             System.out.println(this.objetoamigo.ListaAmigo().toString());
@@ -316,7 +315,6 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
                     this.JTFEmail.setText("");
                     mensagem = "Amigo apagado com sucesso!";
                     mostrarMensagem(mensagem);
-                    JOptionPane.showMessageDialog(null, mensagem);
                 }
             }
 
