@@ -11,7 +11,7 @@ class UtilitarioTest {
     private Utilitario ut = new Utilitario();
     
     @Test
-    public void testErroConexaoComBanco() {
+    void testErroConexaoComBanco() {
 
         // URL inválida
         Connection conn = ut.getConexao("jdbc:sqlite:/caminho/errado/naoexiste.db");
