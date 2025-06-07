@@ -51,32 +51,25 @@ public Connection getConexao() {
             stmt.execute(sqlFerramentas);
             stmt.execute(sqlEmprestimos);
 
-           
-
-            return connection;
-
-        } catch (SQLException e) {
-            LOGGER.log(Level.SEVERE, "Erro ao se conectar ou ao criar as tabelas", e);
-            // Fecha a conexão se aberta (evita vazamento)
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException ex) {
-                    LOGGER.log(Level.SEVERE, "Erro ao fechar a conexão com a tabela", ex);
-                }
+           } catch (SQLException e) {
+        LOGGER.log(Level.SEVERE, "Erro ao se conectar ou ao criar as tabelas", e);
+        if (connection != null) {
+            try {
+                connection.close();
+            } catch (SQLException ex) {
+                LOGGER.log(Level.SEVERE, "Erro ao fechar a conexão", ex);
             }
-            return null;
-        } finally {
-            // Fecha o Statement (mas mantém a Connection aberta para uso externo)
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (SQLException e) {
-                     LOGGER.log(Level.SEVERE, "Erro ao fechar o statement");
-                }
-                }
+        }
+        return null;
+    } finally {
+        if (stmt != null) {
+            try {
+                stmt.close();
+            } catch (SQLException e) {
+                LOGGER.log(Level.SEVERE, "Erro ao fechar o statement");
             }
         }
     }
 
-    
+    return connection; // <- AGORA está dentro do método corretamente
+}
