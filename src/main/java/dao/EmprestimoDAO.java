@@ -18,6 +18,7 @@ public class EmprestimoDAO {
     private Utilitario ut = new Utilitario();
     private String Erro = "Erro:";
     private static final Logger LOGGER = Logger.getLogger(Utilitario.class.getName());
+    private String idemp = "IdEmprestimo";
     
     /**
      * Cria um ArrayList para os emprestimos.
@@ -37,7 +38,7 @@ public class EmprestimoDAO {
                ResultSet res = stmt.executeQuery("SELECT * FROM tb_emprestimos");
                while (res.next()) {
                    
-                   int IdEmprestimo = res.getInt("IdEmprestimo");
+                   int IdEmprestimo = res.getInt(idemp);
                    int IdAmigo = res.getInt("IdAmigo");
                    int IdFerramentas = res.getInt("IdFerramentas");
                    String dataEmp = res.getString("DataEmprestimo");
@@ -72,7 +73,7 @@ public class EmprestimoDAO {
             try (Statement stmt = ut.getConexao().createStatement()) {
                 ResultSet res = stmt.executeQuery("SELECT MAX(IdEmprestimo) IdEmprestimo FROM tb_emprestimos");
                 res.next();
-                maiorIdEmprestimo = res.getInt("IdEmprestimo");
+                maiorIdEmprestimo = res.getInt(idemp);
             }
         } catch (SQLException ex) {
             LOGGER.log(Level.SEVERE, "Erro ao achar o maior ID", ex);
@@ -137,7 +138,7 @@ public class EmprestimoDAO {
              try (Statement smt = ut.getConexao().createStatement()) {
                  ResultSet res = smt.executeQuery("select * from tb_emprestimo where IdEmprestimo = " + IdEmprestimo);
                  res.next();
-                 emprestimo.setIdEmprestimo(res.getInt("IdEmprestimo"));
+                 emprestimo.setIdEmprestimo(res.getInt(idemp));
                  emprestimo.setDataEmp(res.getString("DataEmprestimo"));
                  emprestimo.setDataDev(res.getString("DataDevolucao"));
                  emprestimo.setIdAmigo(res.getInt("IdAmigo"));

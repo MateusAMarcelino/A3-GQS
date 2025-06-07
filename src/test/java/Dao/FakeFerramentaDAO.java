@@ -1,6 +1,7 @@
-package modelo;
+package Dao;
 
 import java.util.*;
+import modelo.Ferramenta;
 
 public class FakeFerramentaDAO extends dao.FerramentaDAO {
     private Map<Integer, Ferramenta> bancoSimulado = new HashMap<>();

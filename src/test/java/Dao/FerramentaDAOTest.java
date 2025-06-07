@@ -8,7 +8,7 @@ import dao.FerramentaDAO;
 import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
-import modelo.FakeFerramentaDAO;
+import Dao.FakeFerramentaDAO;
 
 class FerramentaDAOTest {
 
