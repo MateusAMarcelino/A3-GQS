@@ -8,6 +8,7 @@ import javax.swing.table.DefaultTableModel;
 import static dao.FerramentaDAO.CalcularSoma;
 import java.awt.Font;
 import static java.awt.Font.PLAIN;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 
 public class FrmGerenciamentoDeFerramentas extends javax.swing.JFrame {
@@ -16,6 +17,7 @@ public class FrmGerenciamentoDeFerramentas extends javax.swing.JFrame {
     String mensagem;
     private Font Fonte = new Font ("Segoe UI", PLAIN, 14);
     private Font FonteB = new Font ("Segoe UI", PLAIN, 24);
+    private static final Logger LOGGER = Logger.getLogger(FrmGerenciadorAmigo.class.getName());
 
 
     /**
@@ -316,7 +318,7 @@ public class FrmGerenciamentoDeFerramentas extends javax.swing.JFrame {
                     mostrarMensagem(mensagem);
                 }
             }
-            System.out.println(this.ferramenta.ListaFerramenta().toString());
+           LOGGER.info(this.ferramenta.ListaFerramenta().toString());
         } catch (Mensagem erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
         } finally {

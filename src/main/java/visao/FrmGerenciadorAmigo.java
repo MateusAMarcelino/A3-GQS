@@ -302,7 +302,7 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
                 mostrarMensagem(mensagem);
 
             }
-            System.out.println(this.objetoamigo.ListaAmigo().toString());
+            LOGGER.info(this.objetoamigo.ListaAmigo().toString());
         } catch (Mensagem erro) {
             LOGGER.log(Level.SEVERE, erro.getMessage());
         } finally {
@@ -334,7 +334,7 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
                 }
             }
 
-            System.out.println(this.objetoamigo.ListaAmigo().toString());
+            LOGGER.info(this.objetoamigo.ListaAmigo().toString());
         } catch (Mensagem erro) {
             LOGGER.log(Level.SEVERE, erro.getMessage());
         } finally {
