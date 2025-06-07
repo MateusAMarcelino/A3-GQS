@@ -156,7 +156,6 @@ public class FerramentaDAO {
     public boolean DeleteFerramentaDB(int IdFerramentas) {
         try {
             try (Statement smt = ut.getConexao().createStatement()) {
-                int res = smt.executeUpdate(("delete from tb_ferramentas where IdFerramentas=" + IdFerramentas));
             }
         } catch (SQLException ex) {
             LOGGER.log(Level.SEVERE, "Erro ao deletar a ferramenta", ex);
