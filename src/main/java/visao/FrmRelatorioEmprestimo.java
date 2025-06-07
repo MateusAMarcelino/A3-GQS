@@ -49,7 +49,7 @@ public class FrmRelatorioEmprestimo extends javax.swing.JFrame {
         return mensagem;
     }
     
-    public void simularCliqueCancelar() {
+     void simularCliqueCancelar() {
         JBCancelarActionPerformed(null);
     }
 
