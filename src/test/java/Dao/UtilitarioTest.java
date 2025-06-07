@@ -5,10 +5,10 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.sql.*;
 
-public class UtilitarioTest {
+class UtilitarioTest {
     
     @Test
-    public void testErroConexaoComBanco() {
+    void testErroConexaoComBanco() {
        // Simula erro passando uma URL inválida
        String urlInvalida = "jdbc:sqlite:/caminho/inexistente/naoexiste.db";
        Connection connection = null;
