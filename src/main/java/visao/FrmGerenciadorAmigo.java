@@ -4,6 +4,7 @@
  */
 package visao;
 
+import dao.FerramentaDAO;
 import java.awt.Font;
 import static java.awt.Font.PLAIN;
 import modelo.Amigo;
@@ -25,6 +26,7 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
     String NRP = "Segoe UI";
     private Font Fonte = new Font (NRP, PLAIN, 14);
     private Font FonteB = new Font (NRP, PLAIN, 24);
+    private static final Logger LOGGER = Logger.getLogger(FrmGerenciadorAmigo.class.getName());
 
 
     /**
@@ -302,7 +304,7 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
             }
             System.out.println(this.objetoamigo.ListaAmigo().toString());
         } catch (Mensagem erro) {
-            JOptionPane.showMessageDialog(null, erro.getMessage());
+            LOGGER.log(Level.SEVERE, erro.getMessage());
         } finally {
             carregaTabela();
         }
@@ -334,7 +336,7 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
 
             System.out.println(this.objetoamigo.ListaAmigo().toString());
         } catch (Mensagem erro) {
-            JOptionPane.showMessageDialog(null, erro.getMessage());
+            LOGGER.log(Level.SEVERE, erro.getMessage());
         } finally {
             carregaTabela();
         }

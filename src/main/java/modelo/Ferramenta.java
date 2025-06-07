@@ -2,6 +2,8 @@ package modelo;
 
 import dao.FerramentaDAO;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Classe de ferramenta com ; id,nome,marca,custo,disponibilidade.
@@ -15,6 +17,7 @@ public class Ferramenta {
     private String MarcaFerramentas;
     private double CustoFerramentas;
     FerramentaDAO dao;
+    private static final Logger LOGGER = Logger.getLogger(Ferramenta.class.getName());
     
     
 /**
@@ -153,9 +156,9 @@ public Ferramenta() {
     Ferramenta ferramenta = new Ferramenta(IdFerramenta, NomeFerramenta, MarcaFerramenta, CustoFerramenta);
     boolean atualizado = dao.UpdateFerramentaDB(ferramenta);
     if (atualizado) {
-        System.out.println("Ferramenta atualizada com sucesso");
+        LOGGER.info("Ferramenta atualizada com sucesso");
     } else {
-        System.out.println("Erro ao atualizar a ferramenta");
+        LOGGER.log(Level.SEVERE, "Erro ao atualizar a ferramenta");
     }
     return atualizado;
 }

@@ -17,7 +17,7 @@ public class EmprestimoDAO {
      */
     private Utilitario ut = new Utilitario();
     private String Erro = "Erro:";
-    private static final Logger LOGGER = Logger.getLogger(Utilitario.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(EmprestimoDAO.class.getName());
     private String idemp = "IdEmprestimo";
     
     /**
@@ -144,8 +144,8 @@ public class EmprestimoDAO {
                  emprestimo.setIdAmigo(res.getInt("IdAmigo"));
                  emprestimo.setIdFerramentas(res.getInt("IdFerramentas"));
              }
-        } catch (SQLException erro) {
-            System.out.println(Erro + erro);
+        } catch (SQLException ex) {
+             LOGGER.log(Level.SEVERE, "Erro ao acessar os emprestimos", ex);
         }
         return emprestimo;
      }

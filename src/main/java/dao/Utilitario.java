@@ -19,7 +19,7 @@ public Connection getConexao() {
             // 1. Estabelece conexão
             String url = "jdbc:sqlite:db_a3.db";
             connection = DriverManager.getConnection(url);
-            System.out.println("Status: Conectado!");
+            LOGGER.info("Status: Conectado!");
 
             // 2. Cria tabelas (usando try-with-resources para Statement)
             stmt = connection.createStatement();
