@@ -6,12 +6,17 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import static dao.FerramentaDAO.CalcularSoma;
+import java.awt.Font;
+import static java.awt.Font.PLAIN;
 import javax.swing.JButton;
 
 public class FrmGerenciamentoDeFerramentas extends javax.swing.JFrame {
 
     private Ferramenta ferramenta;
     String mensagem;
+    private Font Fonte = new Font ("Segoe UI", PLAIN, 14);
+    private Font FonteB = new Font ("Segoe UI", PLAIN, 24);
+
 
     /**
      * Incia os componentes, carrega a lista de ferramentas.
@@ -53,7 +58,7 @@ public class FrmGerenciamentoDeFerramentas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setFont(FonteB);
         jLabel1.setText("Gerenciamento de Ferramentas");
 
         JTableFerramentas.setModel(new javax.swing.table.DefaultTableModel(
@@ -74,7 +79,7 @@ public class FrmGerenciamentoDeFerramentas extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(JTableFerramentas);
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setFont(Fonte);
         jLabel2.setText("Nome:");
 
         JTFNomeAlterar.addActionListener(new java.awt.event.ActionListener() {
@@ -83,18 +88,22 @@ public class FrmGerenciamentoDeFerramentas extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setFont(Fonte);
         jLabel3.setText("Marca:");
 
+        JTFMarcaAlterar.setFont(Fonte);
         JTFMarcaAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JTFMarcaAlterarActionPerformed(evt);
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setFont(Fonte);
         jLabel4.setText("Custo:");
 
+        JTFCustoAlterar.setFont(Fonte);
+
+        JBCancelar.setFont(Fonte);
         JBCancelar.setText("Cancelar");
         JBCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,6 +111,7 @@ public class FrmGerenciamentoDeFerramentas extends javax.swing.JFrame {
             }
         });
 
+        JBAlterar.setFont(Fonte);
         JBAlterar.setText("Alterar");
         JBAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,6 +119,7 @@ public class FrmGerenciamentoDeFerramentas extends javax.swing.JFrame {
             }
         });
 
+        JBApagar.setFont(Fonte);
         JBApagar.setText("Apagar");
         JBApagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,16 +127,16 @@ public class FrmGerenciamentoDeFerramentas extends javax.swing.JFrame {
             }
         });
 
-        JLID.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        JLID.setFont(Fonte);
         JLID.setText("ID :");
 
-        JLIDATIVO.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        JLIDATIVO.setFont(Fonte);
         JLIDATIVO.setText("0");
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel6.setFont(Fonte);
         jLabel6.setText("Custo de Aquisição :");
 
-        JLSoma.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        JLSoma.setFont(Fonte);
         JLSoma.setText("Custo Total");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -201,7 +212,7 @@ public class FrmGerenciamentoDeFerramentas extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         pack();

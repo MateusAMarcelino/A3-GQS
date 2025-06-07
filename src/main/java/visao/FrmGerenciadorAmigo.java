@@ -4,6 +4,8 @@
  */
 package visao;
 
+import java.awt.Font;
+import static java.awt.Font.PLAIN;
 import modelo.Amigo;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -20,6 +22,9 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
 
     private Amigo objetoamigo;
     String mensagem;
+    private Font Fonte = new Font ("Segoe UI", PLAIN, 14);
+    private Font FonteB = new Font ("Segoe UI", PLAIN, 24);
+
 
     /**
      * Creates new form FrmGerenciadorAmigo
@@ -101,24 +106,27 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTableAmigos);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setFont(FonteB);
         jLabel1.setText("Nome:");
 
+        JTFNome.setFont(Fonte);
         JTFNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JTFNomeActionPerformed(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel2.setFont(FonteB);
         jLabel2.setText("Telefone:");
 
+        JTFTelefone.setFont(Fonte);
         JTFTelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JTFTelefoneActionPerformed(evt);
             }
         });
 
+        JBApagar.setFont(Fonte);
         JBApagar.setText("Apagar");
         JBApagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,6 +134,7 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
             }
         });
 
+        JBEditar.setFont(Fonte);
         JBEditar.setText("Editar");
         JBEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,6 +142,7 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
             }
         });
 
+        JBCancelar.setFont(Fonte);
         JBCancelar.setText("Cancelar");
         JBCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,13 +150,15 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel4.setFont(FonteB);
         jLabel4.setText("Email:");
 
-        JLID.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        JTFEmail.setFont(Fonte);
+
+        JLID.setFont(FonteB);
         JLID.setText("ID :");
 
-        JLIDATIVO.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        JLIDATIVO.setFont(FonteB);
         JLIDATIVO.setText("0");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -207,7 +219,7 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(JTFEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(JBEditar)
                             .addComponent(JBCancelar)

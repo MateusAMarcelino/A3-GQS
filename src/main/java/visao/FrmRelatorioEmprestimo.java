@@ -3,6 +3,8 @@ package visao;
 import static dao.AmigoDAO.ListaAmigo;
 import modelo.Emprestimo;
 import static dao.FerramentaDAO.ListaFerramentas;
+import java.awt.Font;
+import static java.awt.Font.PLAIN;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,6 +24,9 @@ public class FrmRelatorioEmprestimo extends javax.swing.JFrame {
     private Amigo amigo;
     private Ferramenta ferramenta;
     String mensagem;
+    private Font Fonte = new Font ("Segoe UI", PLAIN, 14);
+    private Font FonteB = new Font ("Segoe UI", PLAIN, 24);
+
 
     /*
     Inicia o FRMRelatorioEmprestimo, com todos seus componentes carregando e atualizando a tabela.
@@ -121,23 +126,24 @@ public class FrmRelatorioEmprestimo extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("Amigo que mais fez emprestimos :");
 
-        JLIDEmprestimo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        JLIDEmprestimo.setFont(Fonte);
         JLIDEmprestimo.setText("Id do Empréstimo :");
 
         JLId.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        JLNomeAmigo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        JLNomeAmigo.setFont(Fonte);
         JLNomeAmigo.setText("Nome do Amigo :");
 
-        JLNomeFerramenta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        JLNomeFerramenta.setFont(Fonte);
         JLNomeFerramenta.setText("Nome do Ferramenta :");
 
-        JLDataInicial.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        JLDataInicial.setFont(Fonte);
         JLDataInicial.setText("Data Inicio :");
 
-        JLDataDevolução.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        JLDataDevolução.setFont(Fonte);
         JLDataDevolução.setText("Data Devolução :");
 
+        JBApagar.setFont(Fonte);
         JBApagar.setText("Apagar");
         JBApagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,13 +151,13 @@ public class FrmRelatorioEmprestimo extends javax.swing.JFrame {
             }
         });
 
-        JLnomeamigoativo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        JLnomeamigoativo.setFont(Fonte);
 
-        JLnomeferramentaativo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        JLnomeferramentaativo.setFont(Fonte);
 
-        JLdataEmp.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        JLdataEmp.setFont(Fonte);
 
-        JldataDev.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        JldataDev.setFont(Fonte);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -207,7 +213,7 @@ public class FrmRelatorioEmprestimo extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JLIDEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)

@@ -1,5 +1,7 @@
 package visao;
 
+import java.awt.Font;
+import static java.awt.Font.PLAIN;
 import javax.swing.JButton;
 import modelo.Ferramenta;
 import javax.swing.JOptionPane;
@@ -7,6 +9,9 @@ import javax.swing.JOptionPane;
 public class FrmCadastrarFerramenta extends javax.swing.JFrame {
 
     private String mensagem;
+    private Font Fonte = new Font ("Segoe UI", PLAIN, 14);
+    private Font FonteB = new Font ("Segoe UI", PLAIN, 24);
+
 
     /*
     Inicia os componentes, carregando a tela cadastrar ferramentas.
@@ -40,30 +45,35 @@ public class FrmCadastrarFerramenta extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel4.setFont(FonteB);
         jLabel4.setText("Cadastro de Ferramentas");
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setFont(Fonte);
         jLabel1.setText("Nome:");
 
+        JTFNomeF.setFont(Fonte);
         JTFNomeF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JTFNomeFActionPerformed(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setFont(Fonte);
         jLabel2.setText("Marca:");
 
+        JTFMarcaF.setFont(Fonte);
         JTFMarcaF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JTFMarcaFActionPerformed(evt);
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setFont(Fonte);
         jLabel3.setText("Custo:");
 
+        JTFCustoF.setFont(Fonte);
+
+        JBCancelar.setFont(Fonte);
         JBCancelar.setText("Cancelar");
         JBCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,6 +81,7 @@ public class FrmCadastrarFerramenta extends javax.swing.JFrame {
             }
         });
 
+        JBCadastrar.setFont(Fonte);
         JBCadastrar.setText("Cadastrar");
         JBCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,7 +130,7 @@ public class FrmCadastrarFerramenta extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JTFCustoF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JBCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JBCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))

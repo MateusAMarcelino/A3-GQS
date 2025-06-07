@@ -10,6 +10,8 @@ import javax.swing.*;
 import modelo.Emprestimo;
 import modelo.Ferramenta;
 import dao.EmprestimoDAO;
+import java.awt.Font;
+import static java.awt.Font.PLAIN;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -21,6 +23,9 @@ public class FrmEmprestimoDeFerramentas extends javax.swing.JFrame {
     private String mensagem;
     private Ferramenta ferramenta;
     private Amigo amigo;
+    private Font Fonte = new Font ("Segoe UI", PLAIN, 14);
+    private Font FonteB = new Font ("Segoe UI", PLAIN, 24);
+
 
     public void setMensagem(String mensagem) {
         this.mensagem = mensagem;
@@ -63,12 +68,13 @@ public class FrmEmprestimoDeFerramentas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setFont(FonteB);
         jLabel1.setText("Empréstimo de Ferramentas");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setFont(Fonte);
         jLabel2.setText("Nome do Amigo:");
 
+        JBConfirmar.setFont(Fonte);
         JBConfirmar.setText("Confirmar");
         JBConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,17 +89,17 @@ public class FrmEmprestimoDeFerramentas extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setFont(Fonte);
         jLabel4.setText("Nome da Ferramenta:");
 
-        jCBNomeAmigo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jCBNomeAmigo.setFont(Fonte);
         jCBNomeAmigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCBNomeAmigoActionPerformed(evt);
             }
         });
 
-        jCBNomeFerramenta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jCBNomeFerramenta.setFont(Fonte);
         jCBNomeFerramenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCBNomeFerramentaActionPerformed(evt);
@@ -121,7 +127,7 @@ public class FrmEmprestimoDeFerramentas extends javax.swing.JFrame {
                             .addComponent(jCBNomeFerramenta, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
-                                .addGap(0, 6, Short.MAX_VALUE))
+                                .addGap(0, 63, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(JBCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -144,7 +150,7 @@ public class FrmEmprestimoDeFerramentas extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCBNomeAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCBNomeFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JBConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JBCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))

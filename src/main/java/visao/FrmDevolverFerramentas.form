@@ -137,6 +137,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="JBCancelar">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="Fonte" type="code"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
@@ -145,11 +148,17 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="Fonte" type="code"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Emprestimo:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="JBCadastrar">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="Fonte" type="code"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Cadastrar"/>
       </Properties>
       <Events>
@@ -158,6 +167,9 @@
     </Component>
     <Component class="javax.swing.JComboBox" name="JCBEmprestimo">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="Fonte" type="code"/>
+        </Property>
         <Property name="maximumRowCount" type="int" value="999"/>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
@@ -169,11 +181,17 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="Fonte" type="code"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Data da Devolu&#xe7;&#xe3;o"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="JCBTipoRegistro">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="Fonte" type="code"/>
+        </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="2">
             <StringItem index="0" value="Data Atual"/>

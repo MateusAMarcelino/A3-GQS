@@ -4,6 +4,8 @@
  */
 package visao;
 
+import java.awt.Font;
+import static java.awt.Font.PLAIN;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.*;
@@ -21,6 +23,9 @@ public class FrmDevolverFerramentas extends javax.swing.JFrame {
     private Amigo amigo;
     private Ferramenta ferramenta;
     private String mensagem;
+    private Font Fonte = new Font ("Segoe UI", PLAIN, 14);
+    private Font FonteB = new Font ("Segoe UI", PLAIN, 24);
+
     
     public void setMensagem(String mensagem) {
         this.mensagem = mensagem;
@@ -101,6 +106,7 @@ public class FrmDevolverFerramentas extends javax.swing.JFrame {
             }
         });
 
+        JBCancelar.setFont(Fonte);
         JBCancelar.setText("Cancelar");
         JBCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,8 +114,10 @@ public class FrmDevolverFerramentas extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(Fonte);
         jLabel1.setText("Emprestimo:");
 
+        JBCadastrar.setFont(Fonte);
         JBCadastrar.setText("Cadastrar");
         JBCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,10 +125,13 @@ public class FrmDevolverFerramentas extends javax.swing.JFrame {
             }
         });
 
+        JCBEmprestimo.setFont(Fonte);
         JCBEmprestimo.setMaximumRowCount(999);
 
+        jLabel2.setFont(Fonte);
         jLabel2.setText("Data da Devolução");
 
+        JCBTipoRegistro.setFont(Fonte);
         JCBTipoRegistro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Data Atual", "Data Especifica" }));
         JCBTipoRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
