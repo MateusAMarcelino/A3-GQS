@@ -4,6 +4,7 @@
  */
 package visao;
 
+import dao.FerramentaDAO;
 import java.awt.Font;
 import static java.awt.Font.PLAIN;
 import modelo.Amigo;

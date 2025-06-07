@@ -5,6 +5,7 @@ import modelo.Ferramenta;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import static dao.FerramentaDAO.CalcularSoma;
 import java.awt.Font;
 import static java.awt.Font.PLAIN;
 import java.util.logging.Logger;

@@ -13,6 +13,9 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         System.exit(0);
     }
     
+    boolean isEmTeste() {
+        return Boolean.getBoolean("modoTeste");
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
