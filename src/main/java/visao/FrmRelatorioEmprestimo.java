@@ -24,8 +24,9 @@ public class FrmRelatorioEmprestimo extends javax.swing.JFrame {
     private transient Amigo amigo;
     private transient Ferramenta ferramenta;
     String mensagem;
-    private Font Fonte = new Font ("Segoe UI", PLAIN, 14);
-    private Font FonteB = new Font ("Segoe UI", PLAIN, 24);
+    String NRP = "Segoe UI";
+    private Font Fonte = new Font (NRP, PLAIN, 14);
+    private Font FonteB = new Font (NRP, PLAIN, 24);
 
 
     /*
@@ -131,7 +132,7 @@ public class FrmRelatorioEmprestimo extends javax.swing.JFrame {
         JLIDEmprestimo.setFont(Fonte);
         JLIDEmprestimo.setText("Id do Empréstimo :");
 
-        JLId.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        JLId.setFont(Fonte);
 
         JLNomeAmigo.setFont(Fonte);
         JLNomeAmigo.setText("Nome do Amigo :");
