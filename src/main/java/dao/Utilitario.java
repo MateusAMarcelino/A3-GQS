@@ -11,13 +11,16 @@ public class Utilitario {
     
 private static final Logger LOGGER = Logger.getLogger(Utilitario.class.getName());
 
-public Connection getConexao() {
+public Connection getConexao(){
+    return getConexao("jdbc:sqlite:db_a3.db");
+}
+
+public Connection getConexao(String url) {
         Connection connection = null;
         Statement stmt = null;
         
         try {
             // 1. Estabelece conexão
-            String url = "jdbc:sqlite:db_a3.db";
             connection = DriverManager.getConnection(url);
             LOGGER.info("Status: Conectado!");
 

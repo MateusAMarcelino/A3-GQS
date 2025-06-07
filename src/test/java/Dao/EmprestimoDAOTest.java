@@ -1,6 +1,10 @@
 package Dao;
 
 import dao.EmprestimoDAO;
+import dao.Utilitario;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 import modelo.Emprestimo;
 import org.junit.jupiter.api.*;
 
@@ -60,8 +64,24 @@ class EmprestimoDAOTest {
 
     @Test
     void testRecuperaEmprestimoDB() {
-        Emprestimo emp = dao.RecuperaEmprestimoDB(idTeste);
-        assertEquals(idTeste, emp.getIdEmprestimo(), "ID do empréstimo incorreto.");
+        Utilitario ut = new Utilitario();
+
+        // Primeiro insere um empréstimo no banco
+        try (Connection conn = ut.getConexao();
+            Statement stmt = conn.createStatement()) {
+        
+            stmt.execute("INSERT INTO tb_emprestimos VALUES (1, 100, 200, '2025-01-21', '2025-01-28')");
+        } catch (SQLException e) {
+        fail("Erro ao preparar o teste: " + e.getMessage());
+        }
+        
+        Emprestimo emp = dao.RecuperaEmprestimoDB(1);
+        
+        assertEquals(1, emp.getIdEmprestimo());
+        assertEquals(100, emp.getIdAmigo());
+        assertEquals(200, emp.getIdFerramentas());
+        assertEquals("2025-01-21", emp.getDataEmp());
+        assertEquals("2025-01-28", emp.getDataDev());
     }
 
     /**

@@ -16,7 +16,6 @@ public class EmprestimoDAO {
      * Inicializa o Utilitario para podermos realizar a conecxão com o banco de dados.
      */
     private Utilitario ut = new Utilitario();
-    private String Erro = "Erro:";
     private static final Logger LOGGER = Logger.getLogger(EmprestimoDAO.class.getName());
     private String idemp = "IdEmprestimo";
     
@@ -136,7 +135,7 @@ public class EmprestimoDAO {
          emprestimo.setIdEmprestimo(IdEmprestimo);
          try {
              try (Statement smt = ut.getConexao().createStatement()) {
-                 ResultSet res = smt.executeQuery("select * from tb_emprestimo where IdEmprestimo = " + IdEmprestimo);
+                 ResultSet res = smt.executeQuery("select * from tb_emprestimos where IdEmprestimo = " + IdEmprestimo);
                  res.next();
                  emprestimo.setIdEmprestimo(res.getInt(idemp));
                  emprestimo.setDataEmp(res.getString("DataEmprestimo"));

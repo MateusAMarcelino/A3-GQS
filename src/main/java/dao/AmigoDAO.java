@@ -33,8 +33,8 @@ public class AmigoDAO {
         ListaAmigo.clear(); // Limpa nosso ArrayList.
 
         try {
-            try (Statement stmt = ut.getConexao().createStatement()) {
-                ResultSet res = stmt.executeQuery("SELECT * FROM tb_amigos");
+    try (Statement stmt = ut.getConexao().createStatement()) {
+        ResultSet res = stmt.executeQuery("SELECT * FROM tb_amigos");
                 while (res.next()) {
 
                     int IdAmigo = res.getInt("IdAmigo");

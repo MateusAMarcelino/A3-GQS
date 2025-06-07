@@ -1,5 +1,6 @@
 package Dao;
 
+import dao.Utilitario;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import java.io.File;
@@ -7,31 +8,14 @@ import java.sql.*;
 
 class UtilitarioTest {
     
-    @Test
-    void testErroConexaoComBanco() {
-       // Simula erro passando uma URL inválida
-       String urlInvalida = "jdbc:sqlite:/caminho/inexistente/naoexiste.db";
-       Connection connection = null;
-       Statement stmt = null;
-
-        try {
-            // Força erro de conexão
-            connection = DriverManager.getConnection(urlInvalida); // Vai para o catch
-            stmt = connection.createStatement();
-        } catch (SQLException e) {
-            System.out.println("Erro esperado capturado: " + e.getMessage());
-            assertNull(connection);
-        return;
-    } finally {
-        if (stmt != null) {
-            try {
-                stmt.close();
-            } catch (SQLException ignored) {}
-        }
-    }
-
-    fail("Era esperado erro de conexão, mas não ocorreu.");
+    private Utilitario ut = new Utilitario();
     
-    new File("db_a3.db").delete();
+    @Test
+    public void testErroConexaoComBanco() {
+
+        // URL inválida
+        Connection conn = ut.getConexao("jdbc:sqlite:/caminho/errado/naoexiste.db");
+
+        assertNull(conn);
     }
 }
