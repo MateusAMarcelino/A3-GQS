@@ -207,15 +207,15 @@ public class Emprestimo {
 * @param IdEmprestimo ; O ID do emprestimo.
 * @return O objeto Emprestimo com os dados carregados, ou nada se não encontrado.
 */   
-    public int procuraIndice(int IdEmprestimo) {
-        int indice = -1;
-        for (int i = 0; i < dao.ListaEmprestimo.size(); i++) {
-            if (dao.ListaEmprestimo.get(i).getIdEmprestimo() == IdEmprestimo) {
-                indice = i;
-            }
+  public int procuraIndice(int IdEmprestimo) {
+    int indice = -1;
+    for (int i = 0; i < EmprestimoDAO.ListaEmprestimo.size(); i++) {
+        if (EmprestimoDAO.ListaEmprestimo.get(i).getIdEmprestimo() == IdEmprestimo) {
+            indice = i;
         }
-        return indice;
     }
+    return indice;
+}
 
 /**
  * ArrayList para os emprestimos ativos, pegando a data de emprestimo e verificando com a data atual para ver se está ou não ativo.
