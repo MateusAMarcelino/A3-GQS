@@ -17,7 +17,6 @@ public class Emprestimo {
     private String dataEmp;
     private String dataDev;
     private EmprestimoDAO dao;
-    private Ferramenta ferramenta;
 
 /**
 * Construtor para a classe Emprestimo, inicializa o empréstimo com IdAmigo do amigo, id da ferramenta e data do emprestimo.
@@ -39,7 +38,7 @@ public class Emprestimo {
         this.dataEmp = dataEmp;
         this.dataDev = dataDev;
         this.dao = new EmprestimoDAO();
-        this.ferramenta = new Ferramenta();
+        new Ferramenta();
     }
 
     
@@ -190,7 +189,6 @@ public class Emprestimo {
  */
   public boolean updateEmprestimoDB(int idEmprestimo, int idAmigo, int idFerramenta, String dataEmprestimo, String dataDevolucao) {
         Emprestimo emprestimo = new Emprestimo(idEmprestimo, idAmigo, idFerramenta, dataEmprestimo, dataDevolucao);
-        int indice = this.procuraIndice(idEmprestimo);
         dao.updateEmprestimoBD(emprestimo);
         return true;
     }

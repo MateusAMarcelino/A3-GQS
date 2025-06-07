@@ -245,10 +245,8 @@ public class FrmCadastrarFerramenta extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrmCadastrarFerramenta().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new FrmCadastrarFerramenta().setVisible(true);
         });
     }
 

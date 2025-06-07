@@ -197,22 +197,12 @@ public Ferramenta() {
         dao.DeleteFerramentaDB(IdFerramentas);
         return true;
     }
-    
     /**
      * Procura o INDICE de objeto da ListaFerramenta que contem o ID enviado.
      * 
      * @param IdFerramentas : O id da ferramenta.
      * @return  O objeto da ferramenta com os dados carregados, ou nada se não encontrado.
      */
-    private int procuraIndice(int IdFerramentas){
-        int indice = -1;
-        for (int i = 0; i < FerramentaDAO.ListaFerramentas.size(); i++ ) {
-            if (FerramentaDAO.ListaFerramentas.get(i).getIdFerramentas() == IdFerramentas) {
-                indice = i;
-            } 
-        }
-        return indice;
-    }
 
     
     /**

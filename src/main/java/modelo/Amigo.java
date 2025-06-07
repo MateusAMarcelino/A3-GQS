@@ -169,7 +169,6 @@ public class Amigo {
 */
     public boolean updateAmigoBD(int IdAmigo, String Nome, String TelefoneAmigo, String EmailAmigo) {
         Amigo amigo = new Amigo(IdAmigo, Nome, TelefoneAmigo, EmailAmigo);
-        int indice = this.procuraIndice(IdAmigo);
         dao.updateAmigoBD(amigo);
         return true;
     }

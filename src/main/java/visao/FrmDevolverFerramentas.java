@@ -24,7 +24,6 @@ public class FrmDevolverFerramentas extends javax.swing.JFrame {
     private transient Ferramenta ferramenta;
     private String mensagem;
     private Font Fonte = new Font ("Segoe UI", PLAIN, 14);
-    private Font FonteB = new Font ("Segoe UI", PLAIN, 24);
 
     
     public void setMensagem(String mensagem) {
@@ -254,9 +253,6 @@ public class FrmDevolverFerramentas extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_JBCadastrarActionPerformed
 
-    /*
-    * Faz com que ao escolher, data especifica no menu de seleção de data, aparece os JavaTextField para digitar a data.
-    */
     private void JCBTipoRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBTipoRegistroActionPerformed
         int tipo = JCBTipoRegistro.getSelectedIndex();
         switch (tipo) {

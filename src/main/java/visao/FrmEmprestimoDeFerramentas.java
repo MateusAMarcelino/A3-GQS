@@ -4,18 +4,13 @@
  */
 package visao;
 
-import java.sql.*;
-import dao.Utilitario;
 import javax.swing.*;
 import modelo.Emprestimo;
 import modelo.Ferramenta;
-import dao.EmprestimoDAO;
 import java.awt.Font;
 import static java.awt.Font.PLAIN;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import modelo.Amigo;
 
 public class FrmEmprestimoDeFerramentas extends javax.swing.JFrame {
