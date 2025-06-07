@@ -248,8 +248,6 @@ public class FrmDevolverFerramentas extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, mensagem);
             JCBEmprestimo.removeAllItems();
             this.carregaCBEmprestimo();
-        } else {
-
         }
     }//GEN-LAST:event_JBCadastrarActionPerformed
 

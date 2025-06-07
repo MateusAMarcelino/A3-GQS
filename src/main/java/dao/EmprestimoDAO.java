@@ -16,7 +16,6 @@ public class EmprestimoDAO {
      * Inicializa o Utilitario para podermos realizar a conecxão com o banco de dados.
      */
     private Utilitario ut = new Utilitario();
-    private String Erro = "Erro:";
     private static final Logger LOGGER = Logger.getLogger(EmprestimoDAO.class.getName());
     private String idemp = "IdEmprestimo";
     
