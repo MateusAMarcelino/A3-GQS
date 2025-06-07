@@ -1,6 +1,7 @@
 package visao;
 
 import dao.AmigoDAO;
+import dao.EmprestimoDAO;
 import dao.FerramentaDAO;
 import modelo.Amigo;
 import modelo.Emprestimo;
@@ -20,13 +21,16 @@ class TesteFrmRelatorioEmprestimo {
     
     FrmRelatorioEmprestimoFake frmRelatorioEmprestimo;
     
+    EmprestimoDAO dao = new EmprestimoDAO();
+    
+    int maiorId = dao.maiorIDEmprestimo() + 1;
+    
      TesteFrmRelatorioEmprestimo() {
     }
     
     @BeforeEach
     void setUp() {
-        
-        emp = new Emprestimo(1, 1, 1, "2025-01-21", "FERRAMENTA NUNCA DEVOLVIDA");
+        emp = new Emprestimo(maiorId, 1, 1, "2025-01-21", "FERRAMENTA NUNCA DEVOLVIDA");
         migo = new Amigo(1, "Osmar", "123456789", "Osmarzinho@gmail.com");
         fer = new Ferramenta(1, "Chave de fenda", "Tramontina", 7.50);
         
@@ -42,6 +46,27 @@ class TesteFrmRelatorioEmprestimo {
         janela.simularCliqueCancelar();
 
         assertFalse(janela.isDisplayable());
+    }
+    
+    @Test
+    public void testSelecionarEmprestimo(){
+    
+        migo.insertAmigoBD("Osmar", "123456789", "Osmarzinho@gmail.com");
+        fer.InsertFerramentaDB("Chave de fenda", "Tramontina", 7.50);
+        emp.insertEmprestimoBD(1, 1, "2025-01-21");
+        
+        frmRelatorioEmprestimo.inicializarTabela();
+        frmRelatorioEmprestimo.selecionarLinha(0);
+        
+        frmRelatorioEmprestimo.getMouseClicked();
+        
+        assertEquals(maiorId, Integer.parseInt(frmRelatorioEmprestimo.getJLId().getText()));
+        assertEquals("Osmar", frmRelatorioEmprestimo.getJLNomeAmigo().getText());
+        assertEquals("Chave de fenda", frmRelatorioEmprestimo.getJLNomeFerramenta().getText());
+        assertEquals("2025-01-21", frmRelatorioEmprestimo.getJLdataEmp().getText());
+        assertEquals("FERRAMENTA NUNCA DEVOLVIDA", frmRelatorioEmprestimo.getJLDataDevolucao().getText());
+        
+        emp.deleteEmprestimoBD(maiorId);
     }
     
     @Test

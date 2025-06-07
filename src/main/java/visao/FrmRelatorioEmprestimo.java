@@ -386,8 +386,28 @@ Metodo que coloca o metodo acima em um label.
         JOptionPane.showMessageDialog(null, mensagem);
     }
     
+    public void getMouseClicked(){
+        this.JTEmprestimosAtivosMouseClicked(null);
+    }
+    
     protected JLabel getJLId() {
         return this.JLId;
+    }
+    
+    protected JLabel getJLNomeAmigo() {
+        return this.JLnomeamigoativo;
+    }
+    
+    protected JLabel getJLNomeFerramenta() {
+        return this.JLnomeferramentaativo;
+    }
+    
+    protected JLabel getJLdataEmp() {
+        return this.JLdataEmp;
+    }
+    
+    protected JLabel getJLDataDevolucao() {
+        return this.JldataDev;
     }
 
 
