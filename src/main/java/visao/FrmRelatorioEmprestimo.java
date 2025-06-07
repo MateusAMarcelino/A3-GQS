@@ -20,9 +20,9 @@ public class FrmRelatorioEmprestimo extends javax.swing.JFrame {
     Cria o vinculo com o Emprestimo ; Amigo e Ferramentas
     */
 
-    private Emprestimo emprestimo;
-    private Amigo amigo;
-    private Ferramenta ferramenta;
+    private transient Emprestimo emprestimo;
+    private transient Amigo amigo;
+    private transient Ferramenta ferramenta;
     String mensagem;
     private Font Fonte = new Font ("Segoe UI", PLAIN, 14);
     private Font FonteB = new Font ("Segoe UI", PLAIN, 24);
@@ -98,6 +98,7 @@ public class FrmRelatorioEmprestimo extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel1.setText("Gerenciador de Emprestimos");
 
+        JTEmprestimosAtivos.setFont(Fonte);
         JTEmprestimosAtivos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -116,6 +117,7 @@ public class FrmRelatorioEmprestimo extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(JTEmprestimosAtivos);
 
+        JBCancelar.setFont(Fonte);
         JBCancelar.setText("Cancelar");
         JBCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,7 +125,7 @@ public class FrmRelatorioEmprestimo extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setFont(Fonte);
         jLabel4.setText("Amigo que mais fez emprestimos :");
 
         JLIDEmprestimo.setFont(Fonte);
@@ -213,7 +215,7 @@ public class FrmRelatorioEmprestimo extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE)
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JLIDEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)

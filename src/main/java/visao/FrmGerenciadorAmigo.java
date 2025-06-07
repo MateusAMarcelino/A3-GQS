@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class FrmGerenciadorAmigo extends javax.swing.JFrame {
 
-    private Amigo objetoamigo;
+    private transient Amigo objetoamigo;
     String mensagem;
     private Font Fonte = new Font ("Segoe UI", PLAIN, 14);
     private Font FonteB = new Font ("Segoe UI", PLAIN, 24);

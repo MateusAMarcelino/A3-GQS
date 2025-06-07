@@ -19,9 +19,9 @@ import modelo.Ferramenta;
  */
 public class FrmDevolverFerramentas extends javax.swing.JFrame {
     
-    private Emprestimo emprestimo;
-    private Amigo amigo;
-    private Ferramenta ferramenta;
+    private transient Emprestimo emprestimo;
+    private transient Amigo amigo;
+    private transient Ferramenta ferramenta;
     private String mensagem;
     private Font Fonte = new Font ("Segoe UI", PLAIN, 14);
     private Font FonteB = new Font ("Segoe UI", PLAIN, 24);

@@ -14,7 +14,7 @@ public class FrmCadastrarAmigo extends javax.swing.JFrame {
     /*
     Cria o vinculo com a classe amigo.
      */
-    private Amigo objetoamigo;
+    private transient Amigo objetoamigo;
     private String mensagem;
     private Font Fonte = new Font ("Segoe UI", PLAIN, 14);
     private Font FonteB = new Font ("Segoe UI", PLAIN, 24);
@@ -178,7 +178,6 @@ public class FrmCadastrarAmigo extends javax.swing.JFrame {
         Ele pega as informações dos JavaTextFields, tendo seus requisitos para ser validado.
          */
         try {
-            Amigo amigo = new Amigo();
             String nome = "";
             String telefone = "";
             String email = "";

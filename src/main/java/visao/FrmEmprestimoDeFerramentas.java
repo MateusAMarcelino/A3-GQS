@@ -21,8 +21,8 @@ import modelo.Amigo;
 public class FrmEmprestimoDeFerramentas extends javax.swing.JFrame {
 
     private String mensagem;
-    private Ferramenta ferramenta;
-    private Amigo amigo;
+    private transient Ferramenta  ferramenta;
+    private transient Amigo amigo;
     private Font Fonte = new Font ("Segoe UI", PLAIN, 14);
     private Font FonteB = new Font ("Segoe UI", PLAIN, 24);
 
