@@ -49,7 +49,7 @@ class TesteFrmRelatorioEmprestimo {
     }
     
     @Test
-    public void testSelecionarEmprestimo(){
+    void testSelecionarEmprestimo(){
     
         migo.insertAmigoBD("Osmar", "123456789", "Osmarzinho@gmail.com");
         fer.InsertFerramentaDB("Chave de fenda", "Tramontina", 7.50);
