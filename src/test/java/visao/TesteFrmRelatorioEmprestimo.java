@@ -12,7 +12,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TesteFrmRelatorioEmprestimo {
+class TesteFrmRelatorioEmprestimo {
     
     Emprestimo emp;
     Amigo migo;
@@ -20,11 +20,11 @@ public class TesteFrmRelatorioEmprestimo {
     
     FrmRelatorioEmprestimoFake frmRelatorioEmprestimo;
     
-    public TesteFrmRelatorioEmprestimo() {
+     TesteFrmRelatorioEmprestimo() {
     }
     
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         
         emp = new Emprestimo(1, 1, 1, "2025-01-21", "FERRAMENTA NUNCA DEVOLVIDA");
         migo = new Amigo(1, "Osmar", "123456789", "Osmarzinho@gmail.com");
@@ -45,7 +45,7 @@ public class TesteFrmRelatorioEmprestimo {
     }
     
     @Test
-    public void testDeletarEmprestimo(){
+    void testDeletarEmprestimo(){
         migo.insertAmigoBD("Osmar", "123456789", "Osmarzinho@gmail.com");
         fer.InsertFerramentaDB("Chave de fenda", "Tramontina", 7.50);
         emp.insertEmprestimoBD(1, 1, "2025-01-21");
@@ -59,7 +59,7 @@ public class TesteFrmRelatorioEmprestimo {
     }
     
     @AfterEach
-    public void tearDown() {
+     void tearDown() {
         AmigoDAO amigodao = new AmigoDAO();
         amigodao.deleteAmigoBD(1);
         

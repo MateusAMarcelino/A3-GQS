@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TesteFrmGerenciadorAmigo {
+ class TesteFrmGerenciadorAmigo {
 
     //Objeto amigo a ser inserido
     Amigo amigoTeste;

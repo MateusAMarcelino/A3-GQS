@@ -11,7 +11,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TesteFrmDevolverFerramentas {
+
+class TesteFrmDevolverFerramentas {
     
     Amigo amigoteste;
     Ferramenta ferramentateste;
@@ -19,7 +20,7 @@ public class TesteFrmDevolverFerramentas {
     FrmDevolverFerramentasFake frmDevolverFerramentas;
     
     @BeforeEach
-    public void setUp() {
+     void setUp() {
         amigoteste = new Amigo(1, "Osmar", "123456789", "Osmar@gmail.com");
         ferramentateste = new Ferramenta(1, "Chave de fenda", "Tramontina", 9.50);
         emprestimoteste = new Emprestimo();
