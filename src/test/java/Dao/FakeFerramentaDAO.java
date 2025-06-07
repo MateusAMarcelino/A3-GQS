@@ -34,6 +34,4 @@ public class FakeFerramentaDAO extends dao.FerramentaDAO {
     public int MaiorIdFerramentas() {
         return bancoSimulado.keySet().stream().max(Integer::compareTo).orElse(0);
     }
-
-    // CalcularSoma já é estático, então não precisa mudar
 }

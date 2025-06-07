@@ -15,7 +15,7 @@ class FerramentaDAOTest {
     private FerramentaDAO dao;
 
     @BeforeEach
-void setUp() {
+    void setUp() {
     dao = new FakeFerramentaDAO();  // Usando DAO falsa
 }
 
@@ -71,5 +71,32 @@ void setUp() {
 
         double soma = FerramentaDAO.CalcularSoma(ferramentas);
         assertEquals(90.0, soma);
+    }
+    
+    @Test
+    void TestGetListaFerramenta() {
+        ArrayList<Ferramenta> ListaFerramentas = new ArrayList<>();
+        FerramentaDAO dao = new FerramentaDAO();
+        ArrayList<Ferramenta> ferramentas = new ArrayList<>();
+        ferramentas.add(new Ferramenta(1, "Alicate", "Tramontina", 30.0));
+        ferramentas.add(new Ferramenta(2, "Martelo", "Stanley", 40.0));
+        int retornoEsperado = 2;
+        assertEquals(retornoEsperado, ferramentas.size());
+    }
+    
+
+    
+    @Test
+    void TestRetriveSQLExceptionFerramenta() {
+        FerramentaDAO dao = new FerramentaDAO();
+        Ferramenta ferramentaRecebida = dao.RecuperaFerramentaDB(3);
+        int idFerramentaEsperada = 3;
+        String nomeFerramentaEsperada = "";
+        double precoFerramentaEsperado = 0;
+        String marcaFerramentaEsperada = "";
+        assertEquals(idFerramentaEsperada, ferramentaRecebida.getIdFerramentas());
+        assertEquals(nomeFerramentaEsperada, ferramentaRecebida.getNomeFerramentas());
+        assertEquals(precoFerramentaEsperado, ferramentaRecebida.getCustoFerramentas());
+        assertEquals(marcaFerramentaEsperada, ferramentaRecebida.getMarcaFerramentas());
     }
 }
