@@ -1,7 +1,6 @@
 package modelo;
 
 import dao.EmprestimoDAO;
-import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
