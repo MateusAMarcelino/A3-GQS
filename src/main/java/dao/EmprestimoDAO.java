@@ -136,7 +136,7 @@ public class EmprestimoDAO {
          emprestimo.setIdEmprestimo(IdEmprestimo);
          try {
              try (Statement smt = ut.getConexao().createStatement()) {
-                 ResultSet res = smt.executeQuery("select * from tb_emprestimo where IdEmprestimo = " + IdEmprestimo);
+                 ResultSet res = smt.executeQuery("select * from tb_emprestimos where IdEmprestimo = " + IdEmprestimo);
                  res.next();
                  emprestimo.setIdEmprestimo(res.getInt(idemp));
                  emprestimo.setDataEmp(res.getString("DataEmprestimo"));
