@@ -25,5 +25,5 @@ O projeto foi desenvolivido no NetBeans 25.
 
 <img width="45" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/junit/junit-original-wordmark.svg" /> Utiliza JUnit para testar o código.
 
-![Cobertura](https://img.shields.io/badge/cobertura-76.3%25-green)
+![Cobertura](https://img.shields.io/badge/cobertura-79.1%25-green)
 Utiliza JaCoCo para verificar se todo o codigo está sendo testado.
