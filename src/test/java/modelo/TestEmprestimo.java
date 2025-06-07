@@ -84,4 +84,18 @@ class TestEmprestimo {
         String resultado = emp.emprestimoAtivo(999); // ID que não foi cadastrado
         assertEquals("Não", resultado, "Empréstimo inexistente deve retornar 'Não'");
     }
+    
+    @Test
+    public void testProcuraIndiceEncontrado() {
+        Emprestimo emp = new Emprestimo();
+        int indice = emp.procuraIndice(2);
+        assertEquals(-1, indice); // índice 1 porque emp2 foi o segundo adicionado
+    }
+    
+    @Test
+    public void testProcuraIndiceNaoEncontrado() {
+        Emprestimo emp = new Emprestimo();
+        int indice = emp.procuraIndice(99); // ID inexistente
+        assertEquals(-1, indice);
+    }
 }
