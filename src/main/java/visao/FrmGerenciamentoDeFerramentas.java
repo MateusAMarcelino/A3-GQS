@@ -12,7 +12,7 @@ import javax.swing.JButton;
 
 public class FrmGerenciamentoDeFerramentas extends javax.swing.JFrame {
 
-    private Ferramenta ferramenta;
+    private transient Ferramenta ferramenta;
     String mensagem;
     private Font Fonte = new Font ("Segoe UI", PLAIN, 14);
     private Font FonteB = new Font ("Segoe UI", PLAIN, 24);

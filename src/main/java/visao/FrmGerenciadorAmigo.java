@@ -20,10 +20,11 @@ import javax.swing.table.DefaultTableModel;
  */
 public class FrmGerenciadorAmigo extends javax.swing.JFrame {
 
-    private Amigo objetoamigo;
+    private transient Amigo objetoamigo;
     String mensagem;
-    private Font Fonte = new Font ("Segoe UI", PLAIN, 14);
-    private Font FonteB = new Font ("Segoe UI", PLAIN, 24);
+    String NRP = "Segoe UI";
+    private Font Fonte = new Font (NRP, PLAIN, 14);
+    private Font FonteB = new Font (NRP, PLAIN, 24);
 
 
     /**
@@ -88,6 +89,7 @@ public class FrmGerenciadorAmigo extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel3.setText("Gerenciador de Amigos");
 
+        jTableAmigos.setFont(Fonte);
         jTableAmigos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
