@@ -34,7 +34,7 @@ public class AmigoDAO {
 
         try {
     try (Statement stmt = ut.getConexao().createStatement()) {
-        ResultSet res = stmt.executeQuery("SELECT IdAmigo, Nome FROM tb_amigos");
+        ResultSet res = stmt.executeQuery("SELECT * FROM tb_amigos");
                 while (res.next()) {
 
                     int IdAmigo = res.getInt("IdAmigo");
