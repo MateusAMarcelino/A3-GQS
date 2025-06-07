@@ -108,7 +108,7 @@ public class AmigoDAO {
     /**
      * Deleta um amigo do banco de dados.
      *
-     * @param IdAmigo
+     * @param IdAmgio é o id do amigo que será deletado.
      * @return True, caso seja possivel deletar, retornando um erro caso não
      * seja possivel.
      */

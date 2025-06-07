@@ -1,6 +1,8 @@
 package visao;
 
+import static dao.AmigoDAO.ListaAmigo;
 import modelo.Emprestimo;
+import static dao.FerramentaDAO.ListaFerramentas;
 import java.awt.Font;
 import static java.awt.Font.PLAIN;
 import javax.swing.JOptionPane;
