@@ -7,13 +7,13 @@ Trabalho A3 da matéria de gestão e qualidade de software do curso de Ciência 
 
 # Alunos Participantes
 
-Mateus Aloisio Marcelino / 1072515910 
+Mateus Aloisio Marcelino / 1072515910 / @MateusAMarcelino
 
-Pedro Henrique Perez Kruk / 10724112624
+Pedro Henrique Perez Kruk / 10724112624 / @pedrokrukz
 
-Guilherme Mitsuo Honda / 1072416697
+Guilherme Mitsuo Honda / 1072416697 / @lmitsuol
 
-Lorenzo Eid Colaferro / 1072419633
+Lorenzo Eid Colaferro / 1072419633 / @lorenzoeid
 
 # Tecnologias utilizadas:
 <img width="45" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-plain.svg" /> O projeto utiliza Java. 
