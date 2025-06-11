@@ -11,7 +11,7 @@ Mateus Aloisio Marcelino / 1072515910 / @MateusAMarcelino
 
 Pedro Henrique Perez Kruk / 10724112624 / @pedrokrukz
 
-Guilherme Mitsuo Honda / 1072416697 / @lmitsuol
+Guilherme Mitsuo Honda / 1072416697 / @lmitsuol e @guiho
 
 Lorenzo Eid Colaferro / 1072419633 / @lorenzoeid
 
