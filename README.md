@@ -27,3 +27,4 @@ O projeto foi desenvolivido no NetBeans 25.
 
 ![Cobertura](https://img.shields.io/badge/cobertura-79.5%25-green)
 Utiliza JaCoCo para verificar se todo o codigo está sendo testado.
+
