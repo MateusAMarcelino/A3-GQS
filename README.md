@@ -15,16 +15,29 @@ Guilherme Mitsuo Honda / 1072416697 / @lmitsuol e @guiho
 
 Lorenzo Eid Colaferro / 1072419633 / @lorenzoeid
 
+
+
 # Tecnologias utilizadas:
 <img width="45" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-plain.svg" /> O projeto utiliza Java. 
 
+
+
 ![NetBeans](https://img.shields.io/badge/IDE-NetBeans-blue?logo=apache-netbeans)
-O projeto foi desenvolivido no NetBeans 25.
+O projeto foi desenvolivido no NetBeans (Versão : 21 )
+
+
 
 <img width="45" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/maven/maven-original.svg" /> Utiliza o Apache Maven (Versão : 4.0) para a automação de compilação.
 
+
+
 <img width="45" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/junit/junit-original-wordmark.svg" /> Utiliza JUnit (Versão : 5.9) para testar o código.
+
+
+
+JDBC - Utiliza o Driver JDBC para SQLite (Versão 3.36.0.3).
+
+
 
 ![Cobertura](https://img.shields.io/badge/cobertura-79.5%25-green)
 Utiliza JaCoCo (Versão : 0.8.12) para verificar se todo o codigo está sendo testado.
-
