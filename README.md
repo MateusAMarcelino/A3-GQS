@@ -21,10 +21,10 @@ Lorenzo Eid Colaferro / 1072419633 / @lorenzoeid
 ![NetBeans](https://img.shields.io/badge/IDE-NetBeans-blue?logo=apache-netbeans)
 O projeto foi desenvolivido no NetBeans 25.
 
-<img width="45" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/maven/maven-original.svg" /> Utiliza o Apache Maven para a automação de compilação.
+<img width="45" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/maven/maven-original.svg" /> Utiliza o Apache Maven (Versão : 4.0) para a automação de compilação.
 
-<img width="45" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/junit/junit-original-wordmark.svg" /> Utiliza JUnit para testar o código.
+<img width="45" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/junit/junit-original-wordmark.svg" /> Utiliza JUnit (Versão : 5.9) para testar o código.
 
 ![Cobertura](https://img.shields.io/badge/cobertura-79.5%25-green)
-Utiliza JaCoCo para verificar se todo o codigo está sendo testado.
+Utiliza JaCoCo (Versão : 0.8.12) para verificar se todo o codigo está sendo testado.
 

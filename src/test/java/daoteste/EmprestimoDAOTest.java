@@ -1,4 +1,4 @@
-package Dao;
+package daoteste;
 
 import dao.EmprestimoDAO;
 import dao.Utilitario;

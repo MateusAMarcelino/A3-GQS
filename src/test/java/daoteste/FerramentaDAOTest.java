@@ -1,4 +1,4 @@
-package Dao;
+package daoteste;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -8,7 +8,7 @@ import dao.FerramentaDAO;
 import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
-import Dao.FakeFerramentaDAO;
+import daoteste.FakeFerramentaDAO;
 
 class FerramentaDAOTest {
 
