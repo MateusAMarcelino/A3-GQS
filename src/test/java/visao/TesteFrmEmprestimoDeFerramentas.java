@@ -51,6 +51,15 @@ class TesteFrmEmprestimoDeFerramentas {
 
         frmEmprestimoDeFerramentas.getjCBNomeAmigo().setSelectedIndex(0);
         frmEmprestimoDeFerramentas.getjCBNomeFerramenta().setSelectedIndex(0);
+        
+                new javax.swing.Timer(1000, e -> {
+            for (Window w : Window.getWindows()) {
+                if (w.isShowing() && w instanceof JDialog) {
+                    w.dispose(); // Fecha o JOptionPane como se clicasse em "OK"
+                }
+            }
+        }).start();
+        
 
         frmEmprestimoDeFerramentas.clicarBotaoConfirmar();
         

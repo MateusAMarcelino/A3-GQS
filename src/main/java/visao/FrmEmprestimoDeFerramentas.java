@@ -9,6 +9,7 @@ import modelo.Emprestimo;
 import modelo.Ferramenta;
 import java.awt.Font;
 import static java.awt.Font.PLAIN;
+import java.awt.Window;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import modelo.Amigo;
@@ -16,11 +17,10 @@ import modelo.Amigo;
 public class FrmEmprestimoDeFerramentas extends javax.swing.JFrame {
 
     private String mensagem;
-    private transient Ferramenta  ferramenta;
+    private transient Ferramenta ferramenta;
     private transient Amigo amigo;
-    private Font Fonte = new Font ("Segoe UI", PLAIN, 14);
-    private Font FonteB = new Font ("Segoe UI", PLAIN, 24);
-
+    private Font Fonte = new Font("Segoe UI", PLAIN, 14);
+    private Font FonteB = new Font("Segoe UI", PLAIN, 24);
 
     public void setMensagem(String mensagem) {
         this.mensagem = mensagem;
@@ -29,8 +29,6 @@ public class FrmEmprestimoDeFerramentas extends javax.swing.JFrame {
     public String getMensagem() {
         return mensagem;
     }
-    
-    
 
     /**
      * Creates new form FrmEmprestimoDeFerramentas
@@ -192,39 +190,48 @@ public class FrmEmprestimoDeFerramentas extends javax.swing.JFrame {
     Caso a ferramenta já esteja emprestada não será possivel emprestar.
      */
     private void JBConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBConfirmarActionPerformed
-         try {
-        int conf = 0;
+        try {
+            int conf = 0;
 
-        int posicaoFerramenta = jCBNomeFerramenta.getSelectedIndex();
-        int posicaoAmigo = jCBNomeAmigo.getSelectedIndex();
-        ArrayList<Ferramenta> listaFerramenta = ferramenta.ListaFerramenta();
-        ArrayList<Amigo> listaAmigo = amigo.ListaAmigo();
-        Emprestimo emprestimo = new Emprestimo();
+            int posicaoFerramenta = jCBNomeFerramenta.getSelectedIndex();
+            int posicaoAmigo = jCBNomeAmigo.getSelectedIndex();
+            ArrayList<Ferramenta> listaFerramenta = ferramenta.ListaFerramenta();
+            ArrayList<Amigo> listaAmigo = amigo.ListaAmigo();
+            Emprestimo emprestimo = new Emprestimo();
 
-        if (!listaFerramenta.get(posicaoFerramenta).getDisponibilidadeFerramenta(listaFerramenta.get(posicaoFerramenta).getIdFerramentas())) {
-            throw new Mensagem("Ferramenta já emprestada");
-        }
-
-        int idAmigo = listaAmigo.get(posicaoAmigo).getIdAmigo();
-        if (amigo.possuiEmprestimoAtivo(idAmigo)) {
-            conf = JOptionPane.showConfirmDialog(null, "Este amigo já possui um empréstimo ativo, deseja continuar?");
-        }
-
-        int idFerramenta = listaFerramenta.get(posicaoFerramenta).getIdFerramentas();
-        String DataInicio = LocalDate.now().toString();
-
-        if (conf == 0) {
-            if (emprestimo.insertEmprestimoBD(idAmigo, idFerramenta, DataInicio)) {
-                mensagem = "Empréstimo cadastrado com sucesso";
-                JOptionPane.showMessageDialog(null, mensagem);
-                ferramenta.updateFerramentaDB(idFerramenta,listaFerramenta.get(posicaoFerramenta).getNomeFerramentas(),
-                        listaFerramenta.get(posicaoFerramenta).getMarcaFerramentas(),
-                        listaFerramenta.get(posicaoFerramenta).getCustoFerramentas());
+            if (!listaFerramenta.get(posicaoFerramenta).getDisponibilidadeFerramenta(listaFerramenta.get(posicaoFerramenta).getIdFerramentas())) {
+                throw new Mensagem("Ferramenta já emprestada");
             }
+
+            int idAmigo = listaAmigo.get(posicaoAmigo).getIdAmigo();
+            if (amigo.possuiEmprestimoAtivo(idAmigo)) {
+                conf = JOptionPane.showConfirmDialog(null, "Este amigo já possui um empréstimo ativo, deseja continuar?");
+            }
+
+            int idFerramenta = listaFerramenta.get(posicaoFerramenta).getIdFerramentas();
+            String DataInicio = LocalDate.now().toString();
+
+            if (conf == 0) {
+                if (emprestimo.insertEmprestimoBD(idAmigo, idFerramenta, DataInicio)) {
+                    mensagem = "Empréstimo cadastrado com sucesso";
+                    JOptionPane.showMessageDialog(null, mensagem);
+                    ferramenta.updateFerramentaDB(idFerramenta, listaFerramenta.get(posicaoFerramenta).getNomeFerramentas(),
+                            listaFerramenta.get(posicaoFerramenta).getMarcaFerramentas(),
+                            listaFerramenta.get(posicaoFerramenta).getCustoFerramentas());
+
+                    new javax.swing.Timer(500, e -> {
+                        for (Window w : Window.getWindows()) {
+                            if (w.isShowing() && w instanceof JDialog) {
+                                w.dispose(); // Fecha o JOptionPane como se clicasse em "OK"
+                            }
+                        }
+                    }).start();
+                }
+            }
+        } catch (Mensagem erro) {
+            JOptionPane.showMessageDialog(null, erro.getMessage());
         }
-    } catch (Mensagem erro) {
-        JOptionPane.showMessageDialog(null, erro.getMessage());
-    }
+        this.dispose();
     }//GEN-LAST:event_JBConfirmarActionPerformed
 
     private void jCBNomeAmigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBNomeAmigoActionPerformed
